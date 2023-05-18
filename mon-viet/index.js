@@ -313,14 +313,6 @@ function atTheCorner() {
 
 atTheCorner();
 
-// window.addEventListener('scroll', () => {
-    //     const scrollPosition = window.pageYOffset;
-    //     if (scrollPosition >= 145) {
-        //         cornerSpace.classList.remove('hide-corner-space');
-        //     } else {
-            //         cornerSpace.classList.add('hide-corner-space');
-            //     }
-            // });
             
 let lastScrollPosition = 0;
 const cornerSpace = document.querySelector('.corner-space');
