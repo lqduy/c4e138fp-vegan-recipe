@@ -303,8 +303,6 @@ function addRecipeToMyCollection() {
     });
 }
 
-
-
 function atTheCorner() {
     const myCollectionElement = document.querySelector('#my-collection span');
     myCollectionElement.innerHTML = loadMyCollectionFromLocalStorage().length;
@@ -315,33 +313,32 @@ function atTheCorner() {
 
 atTheCorner();
 
+// window.addEventListener('scroll', () => {
+    //     const scrollPosition = window.pageYOffset;
+    //     if (scrollPosition >= 145) {
+        //         cornerSpace.classList.remove('hide-corner-space');
+        //     } else {
+            //         cornerSpace.classList.add('hide-corner-space');
+            //     }
+            // });
+            
+let lastScrollPosition = 0;
 const cornerSpace = document.querySelector('.corner-space');
+const headerElement = document.querySelector('.header-block');
 window.addEventListener('scroll', () => {
-    const scrollPosition = window.pageYOffset;
-    if (scrollPosition >= 145) {
+    let currentScrollPosition = window.pageYOffset;
+
+    if (currentScrollPosition >= 145) {
         cornerSpace.classList.remove('hide-corner-space');
     } else {
         cornerSpace.classList.add('hide-corner-space');
     }
-})
 
-let lastScrollPosition = 0;
-const headerElement = document.querySelector('.header-block');
-window.addEventListener('scroll', ()=> {
-    let currentScrollPosition = window.pageYOffset;
-    if (lastScrollPosition > currentScrollPosition) {
-        // Kéo trang lên
-        headerElement.style.position = 'sticky';
-        headerElement.style.top = 0;
-        headerElement.style.opacity = 1;
-        headerElement.style.transition = 'opacity 0.3s ease';
-      } else {
-        // Kéo trang xuống
-        headerElement.style.position = 'static';
-        headerElement.style.opacity = 0;
-      }
-      
-      lastScrollPosition = currentScrollPosition;
-})
+    if (lastScrollPosition < currentScrollPosition && currentScrollPosition > 145) {
+        headerElement.classList.add('hide-header');
+    } else {
+        headerElement.classList.remove('hide-header');
+    }
 
-
+    lastScrollPosition = currentScrollPosition;
+});

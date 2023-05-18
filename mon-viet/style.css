@@ -27,10 +27,17 @@ ul {
 }
 /* Header */
 .header-block {
-    /* position: sticky;
-    top: 0; */
+    position: sticky;
+    top: 0;
+    transition: 0.8s ease;
+
     background-color: white;
     z-index: 11;
+}
+.hide-header{
+    position: static;
+    transform: translateY(-100%);
+
 }
 .header-core {
     display: flex;
