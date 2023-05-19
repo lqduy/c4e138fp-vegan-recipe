@@ -192,12 +192,6 @@ function filterRecipeByTagList() {
     renderRecipeAll(filterRecipeList);
 }
 
-// Trải phẳng mảng & chuyển thành chữ thường để lấy key tìm kiếm
-// function getValueArray(parentArray) {
-//     return Object.values(parentArray)
-//         .flat()
-//         .map((child) => child.toString().toLowerCase());
-// }
 
 // Nhập từ khóa tìm kiếm
 function search() {
