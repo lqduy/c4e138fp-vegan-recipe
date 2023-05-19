@@ -26,7 +26,7 @@ function render1SuggestRecipe(recipe) {
     <div class="repice-box">
         <div class="repice-core">
             <div class="repice-box__thumbnail">
-                <img src="${recipe.thumbnail}" alt="" />
+                <img src=".${recipe.thumbnail}" alt="" />
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
                         <button><i class="fa-solid fa-eye"></i></button>
