@@ -48,17 +48,10 @@
                                 </a>
                             </div>
                             <div id="sign-up-log-in" class="user__option">
-                                <a id="sign-up" href="#">Đăng ký</a>
-                                <a id="log-in" href="#">Đăng nhập</a>
+                                <a id="sign-up" class="form-signup" href="#">Đăng ký</a>
+                                <a id="log-in" class="form-login" href="#">Đăng nhập</a>
                             </div>
-                            <div class="form-signup-login">
-                                <form id="form-signup" class="form-box" action="">
-                                    
-                                </form>
-                                <form id="form-login" class="form-box" action="">
-
-                                </form>
-                            </div>  
+                             
                         </div>
                         <!-- End Nav User -->
                         <!-- Nav Menu -->
@@ -598,6 +591,70 @@
                 <a id="my-cart"><i class="fa-solid fa-bag-shopping fa-xl"></i><span></span></a>
             </div>
         </div>
+        <div class="form-signup-login">
+            <form id="form-signup" class="form-box" action="">
+                <h3>ĐĂNG KÝ</h3>
+                <button class="close-form"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <div class="form-body">
+                    <div class="left">
+                        <p>Những thông tin có đánh dấu (<span>*</span>) là bắt buộc nhập</p>
+                        <div>
+                            <label for="signup-id">Tên đăng nhập<span>*</span></label>
+                            <input type="text" id="signup-id">
+                        </div>
+                        <div>
+                            <label for="signup-password">Mật khẩu<span>*</span></label>
+                            <input type="password" id="signup-password">
+                        </div>
+                        <div>
+                            <label for="signup-password2">Nhập lại mật khẩu<span>*</span></label>
+                            <input type="password" id="signup-password2">
+                        </div>
+                        <div>
+                            <label for="signup-email">Email<span>*</span></label>
+                            <input type="text" id="signup-email">
+                        </div>
+                        <button id="submit-signup">ĐĂNG KÝ</button>
+                    </div>
+                    <div class="right">
+                        <p>Bạn đã có tài khoản?</p>
+                        <button class="form-login">ĐĂNG NHẬP NGAY</button>
+                        <div class="with-social">
+                            <p>HOẶC</p>
+                            <a><i class="fa-brands fa-facebook fa-2xl"></i><span> Đăng nhập qua Facebook</span></a>
+                            <a><i class="fa-brands fa-google-plus fa-2xl"></i><span> Đăng nhập qua Google+</span></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="form-login" class="form-box" action="">
+                <h3>ĐĂNG NHẬP</h3>
+                <button class="close-form"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <div class="form-body">
+                    <div class="left">
+                        <p>Những thông tin có đánh dấu (<span>*</span>) là bắt buộc nhập</p>
+                        <div>
+                            <label for="">Tên đăng nhập<span>*</span></label>
+                            <input type="text" name="" id="">
+                        </div>
+                        <div>
+                            <label for="">Mật khẩu<span>*</span></label>
+                            <input type="text">
+                        </div>                      
+                        <button>ĐĂNG NHẬP</button>
+                    </div>
+                    <div class="right">
+                        <p>Bạn chưa có tài khoản?</p>
+                        <button class="form-signup">ĐĂNG KÝ NGAY</button>
+                        <div class="with-social">
+                            <p>HOẶC</p>
+                            <a><i class="fa-brands fa-facebook fa-2xl"></i><span> Đăng nhập qua Facebook</span></a>
+                            <a><i class="fa-brands fa-google-plus fa-2xl"></i><span> Đăng nhập qua Google+</span></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> 
         <script src="/main.js"></script>
         <script src="./index.js" type="module"></script>
         <script src="/object-recipes.js" type="module"></script>

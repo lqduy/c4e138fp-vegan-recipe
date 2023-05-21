@@ -192,7 +192,6 @@ function filterRecipeByTagList() {
     renderRecipeAll(filterRecipeList);
 }
 
-
 // Nhập từ khóa tìm kiếm
 function search() {
     const key = document.getElementById('search-input').value.toLowerCase();
@@ -224,7 +223,8 @@ document.getElementById('unselect-all').addEventListener('click', () => {
 // Nút search
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', search);
-searchButton.addEventListener('keydown', (event) => {
+const searchInputBar = document.getElementById('search-input');
+searchInputBar.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         search();
     }
@@ -307,7 +307,6 @@ function atTheCorner() {
 
 atTheCorner();
 
-            
 let lastScrollPosition = 0;
 const cornerSpace = document.querySelector('.corner-space');
 const headerElement = document.querySelector('.header-block');
@@ -327,4 +326,128 @@ window.addEventListener('scroll', () => {
     }
 
     lastScrollPosition = currentScrollPosition;
+});
+
+// Đăng ký - Đăng nhập
+const signUpForm = document.getElementById('form-signup');
+const logInForm = document.getElementById('form-login');
+const formParent = logInForm.parentNode;
+
+function showSignUpForm() {
+    formParent.style.display = 'block';
+
+    signUpForm.classList.add('show-form');
+    logInForm.classList.remove('show-form');
+
+    document.querySelector('body').style.overflow = 'hidden';
+}
+
+function showLogInForm() {
+    formParent.style.display = 'block';
+
+    logInForm.classList.add('show-form');
+    signUpForm.classList.remove('show-form');
+
+    document.querySelector('body').style.overflow = 'hidden';
+}
+
+function closeForm() {
+    formParent.style.display = 'none';
+
+    logInForm.classList.remove('show-form');
+
+    signUpForm.classList.remove('show-form');
+
+    formParent.querySelectorAll('input').forEach((inputElement) => (inputElement.value = ''));
+
+    document.querySelector('body').style.overflow = 'auto';
+}
+
+const signUpBtn = Array.from(document.getElementsByClassName('form-signup'));
+signUpBtn.forEach((btn) => btn.addEventListener('click', showSignUpForm));
+
+const logInBtn = Array.from(document.getElementsByClassName('form-login'));
+logInBtn.forEach((btn) => btn.addEventListener('click', showLogInForm));
+
+const closeFormBtn = Array.from(document.getElementsByClassName('close-form'));
+closeFormBtn.forEach((closeBtn) => closeBtn.addEventListener('click', closeForm));
+
+// Đăng ký tài khoản
+// Tạo tài khoản mới và thêm vào localStorage
+
+function checkAccountInput(id, pw, pw2) {
+    let errorMessage = '';
+
+    if (id.length < 6) {
+        errorMessage += 'Tên đăng nhập tối thiểu 6 ký tự \n';
+    }
+    if (!isNaN(Number(id[0]))) {
+        errorMessage += 'Tên đăng nhập không được bắt đầu bằng số \n';
+    }
+    const findInDatabase = loadUsersDatabase().find((user) => user.id === id);
+    if (findInDatabase) {
+        errorMessage += 'Tên đăng nhập đã tồn tại! \n'
+    }
+    if (pw !== pw2) {
+        errorMessage += 'Mật khẩu không khớp \n';
+    }
+    return errorMessage;
+}
+
+function createAccount() {
+    const id = document.getElementById('signup-id').value;
+    const password = document.getElementById('signup-password').value;
+    const password2 = document.getElementById('signup-password2').value;
+    const email = document.getElementById('signup-email').value;
+
+    console.log(checkAccountInput(id, password, password2));    
+    if (checkAccountInput(id, password, password2) === '') {
+        const newAccount = {
+            id: id,
+            password: password,
+            name: name,
+            email: email,
+            cart: [],
+            collection: []
+        };
+
+        let usersDatabase = loadUsersDatabase();
+        usersDatabase.push(newAccount);
+
+        localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
+        console.log(loadUsersDatabase());
+    } else {
+        alert(checkAccountInput(id, password, password2));
+    }
+}
+
+// Truy xuất tài khoản từ localStorage
+function loadUsersDatabase() {
+    const usersDatabaseString = localStorage.getItem('usersDatabase');
+    if (usersDatabaseString) {
+        return JSON.parse(usersDatabaseString);
+    } else {
+        return [];
+    }
+}
+console.log(loadUsersDatabase());
+
+function checkFullInput(parentId) {
+    const parentElement = document.getElementById(`${parentId}`);
+    const inputElements = Array.from(parentElement.querySelectorAll('.form-body input'));
+    for (let i = 0; i < inputElements.length; i++) {
+        if (inputElements[i].value === '') {
+            return false;
+        }
+    }
+    return true;
+}
+
+const submitSignUp = document.getElementById('submit-signup');
+submitSignUp.addEventListener('click', () => {
+    if (!checkFullInput('form-signup')) {
+        alert('Vui lòng nhập đầy đủ thông tin!');
+    } else {
+        createAccount();
+    }
 });

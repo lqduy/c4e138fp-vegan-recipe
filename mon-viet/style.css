@@ -34,10 +34,9 @@ ul {
     background-color: white;
     z-index: 11;
 }
-.hide-header{
+.hide-header {
     position: static;
     transform: translateY(-100%);
-
 }
 .header-core {
     display: flex;
@@ -360,10 +359,9 @@ ul {
     color: var(--gray);
     font-size: 1.25em;
 }
-#search-and-filter .search-core .search-bar input:focus{
+#search-and-filter .search-core .search-bar input:focus {
     outline: 1px solid #f77300;
 }
-
 
 #suggest-box {
     display: none;
@@ -387,21 +385,20 @@ ul {
     font-style: italic;
 }
 
-#suggest-box:hover{
+#suggest-box:hover {
     display: block;
 }
 
-#suggest-box a{
+#suggest-box a {
     display: block;
 
     cursor: pointer;
     line-height: 1.5;
-
 }
-#suggest-box a:hover{
+#suggest-box a:hover {
     color: var(--orange);
 }
-#search-and-filter .search-core .search-bar .show{
+#search-and-filter .search-core .search-bar .show {
     display: block;
 }
 #search-button,
@@ -701,7 +698,7 @@ ul {
 
     background-color: white;
 }
-.buy-space .add-cart{
+.buy-space .add-cart {
     display: block;
 
     padding: 1em 1.75em;
@@ -955,7 +952,7 @@ ul {
 /* End Footer  */
 
 /* Corner Space */
-.corner-space{
+.corner-space {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -966,7 +963,7 @@ ul {
     top: 50%;
     transform: translateY(-50%);
 }
-.corner-space a{
+.corner-space a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -981,35 +978,193 @@ ul {
 
     text-align: center;
 }
-.corner-space a:hover{
+.corner-space a:hover {
     background-color: white;
     box-shadow: 0px 0px 10px 0.1px gray;
-
 }
-.corner-space a i{
+.corner-space a i {
     display: block;
 
     color: white;
 }
-.corner-space a:hover i{
+.corner-space a:hover i {
     color: #f77300;
 }
-.corner-space a span{
+.corner-space a span {
     color: white;
 
     font-size: 1.5em;
     font-weight: 900;
 }
-.corner-space a:hover span{
+.corner-space a:hover span {
     color: #f77300;
 }
-.hide-corner-space{
+.hide-corner-space {
     display: none;
 }
 
-
-
-
-
-
 /* End Corner Space */
+
+/* Form Sign-up Log-in */
+.form-signup-login {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 21;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form-signup-login .show-form{
+    display: block;
+    z-index: 31;
+}
+
+.form-box {
+    display: none;
+
+    position: absolute;
+    top: 145px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 800px;
+    height: fit-content;
+    padding: 1.75em;
+    margin: 0 auto;
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px 0.1px gray;
+
+    color: var(--gray);
+    background-color: white;
+}
+.form-signup-login .form-box .close-form{
+    position: absolute;
+    top: 1.75em;
+    right: 1.75em;
+
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    opacity: 0.2;
+
+    color: var(--gray);
+}
+.form-signup-login .form-box .close-form:hover{
+    opacity: 1;
+}
+
+.form-box h3 {
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--gray);
+
+    color: var(--orange);
+
+    font-size: 1.75em;
+}
+
+.form-box .form-body {
+    display: flex;
+    gap: 2em;
+
+    margin-top: 2.5em;
+}
+.form-box .form-body .left {
+    text-align: right;
+}
+.form-box .form-body .left p {
+    margin-bottom: 1em;
+
+    font-size: 0.75em;
+}
+.form-box .form-body .left span {
+    color: red;
+    font-weight: 900;
+}
+
+.form-box .form-body .left div {
+    padding: 0.5em 0;
+}
+.form-box .form-body .left div input {
+    width: 300px;
+    height: 2.75em;
+
+    padding: 0.5em;
+}
+
+.form-box .form-body .right {
+    flex-grow: 1;
+
+    padding-left: 2em;
+    border-left: 1px solid var(--gray);
+}
+.form-box .form-body .right p {
+    margin-bottom: 1em;
+}
+.form-box .form-body button {
+    padding: 0.75em;
+    border: 0;
+    cursor: pointer;
+    border-radius: 0.5em;
+
+    color: white;
+
+    font-weight: bold;
+    line-height: 2em;
+}
+.form-box .form-body button:hover {
+    opacity: 0.7;
+}
+.form-box .form-body .left button {
+    width: 300px;
+    margin-top: 0.5em;
+
+    background-color: var(--orange);
+}
+
+.form-box .form-body .right button {
+    width: 100%;
+
+    background-color: var(--green);
+}
+.form-box .form-body .right .with-social {
+    position: relative;
+
+    margin-top: 2em;
+    border-top: 1px solid var(--gray);
+
+    padding-top: 2em;
+}
+.form-box .form-body .right .with-social p {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 0 0.5em;
+
+    background-color: white;
+}
+
+.form-box .form-body .right .with-social a {
+    display: block;
+
+    cursor: pointer;
+
+    margin-bottom: 1.25em;
+}
+.form-box .form-body .right .with-social a:hover{
+    opacity: 0.7;
+}
+
+.form-box .form-body .right .with-social a:nth-of-type(1) i {
+    color: #2f4b93;
+}
+.form-box .form-body .right .with-social a:nth-of-type(2) i {
+    color: #c43a30;
+}
+
+/* End Form Sign-up Log-in */
