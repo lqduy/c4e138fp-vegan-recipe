@@ -117,7 +117,40 @@ ul {
 .header-core .nav-space .user .user__option:first-child a:hover {
     background-color: #f77300;
 }
+.user-logged-space{
+    position: relative;
+}
+.user-logged-space #user-logged{
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
 
+    cursor: pointer;
+
+    border: 2px solid var(--green);
+    background-color: #d9ede1;
+    color: var(--green);
+}
+.user-logged-space:hover #log-out{
+    display: block;
+}
+#log-out{
+    display: none;
+
+    position: absolute;
+    right: 1.75em;
+
+    cursor: pointer;
+    border: none;
+    padding: 0.25em 0.5em;
+
+    color: var(--green);
+}
+#log-out:hover{
+    color: var(--orange);
+
+    text-decoration: underline;
+}
 /* .header-core .nav-space .menu {
     gap: 2.15em;
 } */

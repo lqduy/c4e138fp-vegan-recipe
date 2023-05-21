@@ -527,12 +527,12 @@ const productList = [
 ];
 
 // Lưu giỏ hàng vào localStorage
-function saveCartToLocalStorage(object) {
+export function saveCartToLocalStorage(object) {
     localStorage.setItem('cart', JSON.stringify(object));
 }
 
 // Tải giỏ hàng từ localStorage
-function loadCartFromLocalStorage() {
+export function loadCartFromLocalStorage() {
     const cartString = localStorage.getItem('cart');
     if (cartString) {
         return JSON.parse(cartString);

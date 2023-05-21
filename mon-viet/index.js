@@ -1,10 +1,34 @@
 import { recipeCollectionSpread, getTagList, getAllKeyToSearch } from '../object-recipes.js';
+import { saveCartToLocalStorage, loadCartFromLocalStorage } from '../main.js';
 
 const top5TrendingRecipesId = ['110135-0002', '110133-0003', '110133-0002', '110134-0002', '110134-0003'];
 
 const top5TrendingRecipes = top5TrendingRecipesId.map((value) => {
     return recipeCollectionSpread().find((item) => item.id === value);
 });
+
+function renderUserSpace() {
+    const userElement = document.getElementById('sign-up-log-in');
+    console.log(userElement);
+    if (isLogged()) {
+        const elements = `
+        <div class="user-logged-space">
+            <a id="user-logged">${loadUserLoggedFromLocalStorage().id} <i class="fa-solid fa-user"></i></a>
+            <button id="log-out">Đăng xuất</button>
+        </div>
+        `;
+        userElement.innerHTML = elements;
+        makeLogOutBtn();
+    } else {
+        const elements = `
+        <a id="sign-up" class="form-signup" href="#">Đăng ký</a>
+        <a id="log-in" class="form-login" href="#">Đăng nhập</a>
+        `;
+        userElement.innerHTML = elements;
+        makeSignUpLogInBtn();
+    }
+}
+renderUserSpace();
 
 function render1RecipeBox(recipe) {
     return `
@@ -290,8 +314,6 @@ function addRecipeToMyCollection() {
                     saveMyCollectionToLocalStorage(myCollection);
                     atTheCorner();
                 }
-
-                console.log(loadMyCollectionFromLocalStorage());
             })
         );
     });
@@ -363,74 +385,23 @@ function closeForm() {
     document.querySelector('body').style.overflow = 'auto';
 }
 
-const signUpBtn = Array.from(document.getElementsByClassName('form-signup'));
-signUpBtn.forEach((btn) => btn.addEventListener('click', showSignUpForm));
+function makeSignUpLogInBtn() {
+    const signUpBtn = Array.from(document.getElementsByClassName('form-signup'));
+    signUpBtn.forEach((btn) => btn.addEventListener('click', showSignUpForm));
 
-const logInBtn = Array.from(document.getElementsByClassName('form-login'));
-logInBtn.forEach((btn) => btn.addEventListener('click', showLogInForm));
+    const logInBtn = Array.from(document.getElementsByClassName('form-login'));
+    logInBtn.forEach((btn) => btn.addEventListener('click', showLogInForm));
 
-const closeFormBtn = Array.from(document.getElementsByClassName('close-form'));
-closeFormBtn.forEach((closeBtn) => closeBtn.addEventListener('click', closeForm));
+    const closeFormBtn = Array.from(document.getElementsByClassName('close-form'));
+    closeFormBtn.forEach((closeBtn) => closeBtn.addEventListener('click', closeForm));
+}
 
 // Đăng ký tài khoản
 // Tạo tài khoản mới và thêm vào localStorage
-
-function checkAccountInput(id, pw, pw2) {
-    let errorMessage = '';
-
-    if (id.length < 6) {
-        errorMessage += 'Tên đăng nhập tối thiểu 6 ký tự \n';
-    }
-    if (!isNaN(Number(id[0]))) {
-        errorMessage += 'Tên đăng nhập không được bắt đầu bằng số \n';
-    }
-    const findInDatabase = loadUsersDatabase().find((user) => user.id === id);
-    if (findInDatabase) {
-        errorMessage += 'Tên đăng nhập đã tồn tại! \n'
-    }
-    if (pw !== pw2) {
-        errorMessage += 'Mật khẩu không khớp \n';
-    }
-    return errorMessage;
+function containsSpecialCharacter(str) {
+    var regex = /[!@#$%^&*(),.?":{}|<>]/;
+    return regex.test(str);
 }
-
-function createAccount() {
-    const id = document.getElementById('signup-id').value;
-    const password = document.getElementById('signup-password').value;
-    const password2 = document.getElementById('signup-password2').value;
-    const email = document.getElementById('signup-email').value;
-
-    console.log(checkAccountInput(id, password, password2));    
-    if (checkAccountInput(id, password, password2) === '') {
-        const newAccount = {
-            id: id,
-            password: password,
-            name: name,
-            email: email,
-            cart: [],
-            collection: []
-        };
-
-        let usersDatabase = loadUsersDatabase();
-        usersDatabase.push(newAccount);
-
-        localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
-        console.log(loadUsersDatabase());
-    } else {
-        alert(checkAccountInput(id, password, password2));
-    }
-}
-
-// Truy xuất tài khoản từ localStorage
-function loadUsersDatabase() {
-    const usersDatabaseString = localStorage.getItem('usersDatabase');
-    if (usersDatabaseString) {
-        return JSON.parse(usersDatabaseString);
-    } else {
-        return [];
-    }
-}
-console.log(loadUsersDatabase());
 
 function checkFullInput(parentId) {
     const parentElement = document.getElementById(`${parentId}`);
@@ -443,6 +414,72 @@ function checkFullInput(parentId) {
     return true;
 }
 
+function checkAccountInput(id, pw, pw2) {
+    let errorMessage = '';
+
+    if (id.length < 6 || id.length > 24) {
+        errorMessage += 'Tên đăng nhập từ 6 đến 24 ký tự\n';
+    }
+    if (!isNaN(Number(id[0]))) {
+        errorMessage += 'Tên đăng nhập không được bắt đầu bằng số\n';
+    }
+    const findInDatabase = loadUsersDatabase().find((user) => user.id === id);
+    if (findInDatabase) {
+        errorMessage += 'Tên đăng nhập đã tồn tại!\n';
+    }
+    if (pw.length < 8) {
+        errorMessage += 'Mật khẩu tối thiểu 8 ký tự\n';
+    }
+    if (containsSpecialCharacter(id) || containsSpecialCharacter(pw)) {
+        errorMessage += 'Tên đăng nhập và Mật khẩu không được chứa ký tự đặc biệt\n';
+    }
+    if (pw !== pw2) {
+        errorMessage += 'Mật khẩu xác nhận không khớp\n';
+    }
+    return errorMessage;
+}
+
+function createAccount() {
+    const id = document.getElementById('signup-id').value;
+    const password = document.getElementById('signup-password').value;
+    const password2 = document.getElementById('signup-password2').value;
+    const email = document.getElementById('signup-email').value;
+
+    console.log(checkAccountInput(id, password, password2));
+    if (!checkAccountInput(id, password, password2)) {
+        const newAccount = {
+            id: id,
+            password: password,
+            email: email,
+            cart: [],
+            collection: []
+        };
+
+        let usersDatabase = loadUsersDatabase();
+        usersDatabase.push(newAccount);
+
+        saveUsersDatabase(usersDatabase);
+
+        alert('Đăng ký tài khoản thành công!');
+        closeForm();
+    } else {
+        alert(checkAccountInput(id, password, password2));
+    }
+}
+function saveUsersDatabase(object) {
+    localStorage.setItem('usersDatabase', JSON.stringify(object));
+}
+
+// Truy xuất tài khoản từ localStorage
+function loadUsersDatabase() {
+    const usersDatabaseString = localStorage.getItem('usersDatabase');
+    if (usersDatabaseString) {
+        return JSON.parse(usersDatabaseString);
+    } else {
+        return [];
+    }
+}
+
 const submitSignUp = document.getElementById('submit-signup');
 submitSignUp.addEventListener('click', () => {
     if (!checkFullInput('form-signup')) {
@@ -451,3 +488,90 @@ submitSignUp.addEventListener('click', () => {
         createAccount();
     }
 });
+
+// Đăng nhập
+function updateLoginStatus(trueOrFalse) {
+    localStorage.setItem('isLogged', JSON.stringify(trueOrFalse));
+}
+
+function isLogged() {
+    const string = localStorage.getItem('isLogged');
+    if (string) {
+        return JSON.parse(string);
+    } else {
+        return false;
+    }
+}
+
+function logInWithUser(userLogged) {
+    let cart = userLogged.cart;
+    saveCartToLocalStorage(cart);
+    let collection = userLogged.collection;
+    saveMyCollectionToLocalStorage(collection);
+
+    renderUserSpace(userLogged);
+}
+
+// Lưu user đang đăng nhập vào localStorage
+export function saveUserLoggedToLocalStorage(object) {
+    localStorage.setItem('userLogged', JSON.stringify(object));
+}
+
+// Tải user đang đăng nhập từ localStorage
+export function loadUserLoggedFromLocalStorage() {
+    const string = localStorage.getItem('userLogged');
+    if (string) {
+        return JSON.parse(string);
+    } else {
+        return {};
+    }
+}
+function logIn() {
+    const id = document.getElementById('login-id').value;
+    const password = document.getElementById('login-password').value;
+    let userLogged = loadUsersDatabase().find((user) => user.id === id && user.password === password);
+    if (userLogged) {
+        logInWithUser(userLogged);
+        updateLoginStatus(true);
+        saveUserLoggedToLocalStorage(userLogged);
+        closeForm();
+        renderUserSpace();
+        atTheCorner();
+    } else {
+        alert('Tài khoản không chính xác!');
+    }
+}
+
+const submitLogIn = document.getElementById('submit-login');
+submitLogIn.addEventListener('click', () => {
+    logIn();
+});
+
+// Đăng xuất
+
+function makeLogOutBtn() {
+    const logOutBtn = document.getElementById('log-out');
+    logOutBtn.addEventListener('click', () => {
+        const updateUserLogged = {
+            ...loadUserLoggedFromLocalStorage(),
+            cart: loadCartFromLocalStorage(),
+            collection: loadMyCollectionFromLocalStorage()
+        };
+
+        const usersDatabase = loadUsersDatabase();
+        const i = usersDatabase.findIndex((user) => user.id === updateUserLogged.id);
+        usersDatabase.splice(i, 1, updateUserLogged);
+
+        saveUsersDatabase(usersDatabase);
+
+        console.log(loadUsersDatabase());
+
+        updateLoginStatus(false);
+        saveUserLoggedToLocalStorage({});
+        renderUserSpace();
+
+        saveCartToLocalStorage([]);
+        saveMyCollectionToLocalStorage([]);
+        atTheCorner();
+    });
+}

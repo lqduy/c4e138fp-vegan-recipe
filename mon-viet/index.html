@@ -48,8 +48,8 @@
                                 </a>
                             </div>
                             <div id="sign-up-log-in" class="user__option">
-                                <a id="sign-up" class="form-signup" href="#">Đăng ký</a>
-                                <a id="log-in" class="form-login" href="#">Đăng nhập</a>
+                                <!-- <a id="sign-up" class="form-signup" href="#">Đăng ký</a>
+                                <a id="log-in" class="form-login" href="#">Đăng nhập</a> -->
                             </div>
                              
                         </div>
@@ -634,14 +634,14 @@
                     <div class="left">
                         <p>Những thông tin có đánh dấu (<span>*</span>) là bắt buộc nhập</p>
                         <div>
-                            <label for="">Tên đăng nhập<span>*</span></label>
-                            <input type="text" name="" id="">
+                            <label for="login-id">Tên đăng nhập<span>*</span></label>
+                            <input type="text" id="login-id">
                         </div>
                         <div>
-                            <label for="">Mật khẩu<span>*</span></label>
-                            <input type="text">
+                            <label for="login-password">Mật khẩu<span>*</span></label>
+                            <input type="password" id="login-password">
                         </div>                      
-                        <button>ĐĂNG NHẬP</button>
+                        <button id="submit-login">ĐĂNG NHẬP</button>
                     </div>
                     <div class="right">
                         <p>Bạn chưa có tài khoản?</p>
@@ -655,7 +655,7 @@
                 </div>
             </form>
         </div> 
-        <script src="/main.js"></script>
+        <script src="/main.js" type="module"></script>
         <script src="./index.js" type="module"></script>
         <script src="/object-recipes.js" type="module"></script>
     </body>
