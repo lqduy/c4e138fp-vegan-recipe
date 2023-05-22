@@ -382,6 +382,9 @@ function closeForm() {
 
     formParent.querySelectorAll('input').forEach((inputElement) => (inputElement.value = ''));
 
+    const signSuccessMess = document.querySelector('#form-signup .form-body .left .signup-success');
+    signSuccessMess.classList.remove('show-signup-success');
+
     document.querySelector('body').style.overflow = 'auto';
 }
 
@@ -417,8 +420,8 @@ function checkFullInput(parentId) {
 function checkAccountInput(id, pw, pw2) {
     let errorMessage = '';
 
-    if (id.length < 6 || id.length > 24) {
-        errorMessage += 'Tên đăng nhập từ 6 đến 24 ký tự\n';
+    if (id.length < 6 || id.length > 30) {
+        errorMessage += 'Tên đăng nhập từ 6 đến 30 ký tự\n';
     }
     if (!isNaN(Number(id[0]))) {
         errorMessage += 'Tên đăng nhập không được bắt đầu bằng số\n';
@@ -445,7 +448,6 @@ function createAccount() {
     const password2 = document.getElementById('signup-password2').value;
     const email = document.getElementById('signup-email').value;
 
-    console.log(checkAccountInput(id, password, password2));
     if (!checkAccountInput(id, password, password2)) {
         const newAccount = {
             id: id,
@@ -460,8 +462,11 @@ function createAccount() {
 
         saveUsersDatabase(usersDatabase);
 
-        alert('Đăng ký tài khoản thành công!');
-        closeForm();
+        const signSuccessMess = document.querySelector('#form-signup .form-body .left .signup-success');
+        signSuccessMess.classList.add('show-signup-success');
+        
+        // alert('Đăng ký tài khoản thành công!');
+        // closeForm();
     } else {
         alert(checkAccountInput(id, password, password2));
     }
@@ -508,8 +513,7 @@ function logInWithUser(userLogged) {
     saveCartToLocalStorage(cart);
     let collection = userLogged.collection;
     saveMyCollectionToLocalStorage(collection);
-
-    renderUserSpace(userLogged);
+    // renderUserSpace(userLogged);
 }
 
 // Lưu user đang đăng nhập vào localStorage

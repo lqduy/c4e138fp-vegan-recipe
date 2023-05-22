@@ -117,10 +117,10 @@ ul {
 .header-core .nav-space .user .user__option:first-child a:hover {
     background-color: #f77300;
 }
-.user-logged-space{
+.user-logged-space {
     position: relative;
 }
-.user-logged-space #user-logged{
+.user-logged-space #user-logged {
     display: flex;
     justify-content: center;
     gap: 1.5em;
@@ -131,10 +131,10 @@ ul {
     background-color: #d9ede1;
     color: var(--green);
 }
-.user-logged-space:hover #log-out{
+.user-logged-space:hover #log-out {
     display: block;
 }
-#log-out{
+#log-out {
     display: none;
 
     position: absolute;
@@ -146,7 +146,7 @@ ul {
 
     color: var(--green);
 }
-#log-out:hover{
+#log-out:hover {
     color: var(--orange);
 
     text-decoration: underline;
@@ -1051,7 +1051,7 @@ ul {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.form-signup-login .show-form{
+.form-signup-login .show-form {
     display: block;
     z-index: 31;
 }
@@ -1074,7 +1074,7 @@ ul {
     color: var(--gray);
     background-color: white;
 }
-.form-signup-login .form-box .close-form{
+.form-signup-login .form-box .close-form {
     position: absolute;
     top: 1.75em;
     right: 1.75em;
@@ -1086,7 +1086,7 @@ ul {
 
     color: var(--gray);
 }
-.form-signup-login .form-box .close-form:hover{
+.form-signup-login .form-box .close-form:hover {
     opacity: 1;
 }
 
@@ -1106,6 +1106,8 @@ ul {
     margin-top: 2.5em;
 }
 .form-box .form-body .left {
+    position: relative;
+
     text-align: right;
 }
 .form-box .form-body .left p {
@@ -1126,6 +1128,8 @@ ul {
     height: 2.75em;
 
     padding: 0.5em;
+}
+.form-box .form-body .left div .error {
 }
 
 .form-box .form-body .right {
@@ -1189,7 +1193,7 @@ ul {
 
     margin-bottom: 1.25em;
 }
-.form-box .form-body .right .with-social a:hover{
+.form-box .form-body .right .with-social a:hover {
     opacity: 0.7;
 }
 
@@ -1199,5 +1203,35 @@ ul {
 .form-box .form-body .right .with-social a:nth-of-type(2) i {
     color: #c43a30;
 }
+
+.signup-success{
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    color: var(--green);
+
+    text-align: center;
+    font-size: 2.75em;
+}
+.signup-success i{
+    margin-bottom: 0.75em;
+}
+#form-signup .form-body .left .show-signup-success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 31;
+}
+
 
 /* End Form Sign-up Log-in */
