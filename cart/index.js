@@ -1,13 +1,17 @@
+import { loadCartFromLocalStorage, saveCartToLocalStorage, sumQuantityInCart, sumMoneyOfCart } from '../main.js';
+
 // Render khi giỏ hàng rỗng
 function renderWhenCartIsEmpty() {
-    return `
-    <div id="empty-cart">
-        <img src="./assets/shopping-cart.png" alt="">
-        <div>
-            <a href="#">Đến trang công thức</a>
+    const parent = document.getElementById('product-in-the-cart');
+    const elements = `
+        <div id="empty-cart">
+            <img src="./assets/shopping-cart.png" alt="">
+            <div>
+                <a href="#">Đến trang công thức</a>
+            </div>
         </div>
-    </div>
-    `;
+        `;
+    parent.innerHTML = elements;
 }
 
 // Render một sản phẩm trong giỏ hàng
@@ -31,29 +35,32 @@ function renderProductInCart(product) {
         </td>
         <td class="quantity">
             <div class="quantity-box">
-                <button class="minus" onclick="changeQuantityByButton('${product.id}', -1)"><i class="fa-sharp fa-solid fa-minus"></i></button>
+                <button class="minus"><i class="fa-sharp fa-solid fa-minus"></i></button>
                 <input type="text" id="quantity-input-${product.id}" value="${product.quantity}"></input>
-                <button class="plus" onclick="changeQuantityByButton('${product.id}', 1)"><i class="fa-sharp fa-solid fa-plus"></i></button>
+                <button class="plus"><i class="fa-sharp fa-solid fa-plus"></i></button>
             </div>
         </td>
         <td>${moneyPerRow} đ</td>
-        <td class="delete-btn"><button onclick="deleteProduct('${product.id}')"><i class="fa-solid fa-trash-can fa-lg"></i></button></td>
+        <td class="delete-btn"><button><i class="fa-solid fa-trash-can fa-lg"></i></button></td>
     </tr>
     `;
 }
 
 // Render danh sách sản phẩm trong giỏ hàng
 function renderAllCart() {
-    const elements = document.getElementById('product-in-the-cart');
+    const parent = document.getElementById('product-in-the-cart');
     const cart = loadCartFromLocalStorage();
+    let cartHTML = '';
 
     if (cart.length > 0) {
         for (const product of cart.reverse()) {
             const item = renderProductInCart(product);
-            elements.innerHTML += item;
+            cartHTML += item;
         }
+        parent.innerHTML = cartHTML;
+        makeBtns();
     } else {
-        elements.innerHTML += renderWhenCartIsEmpty();
+        renderWhenCartIsEmpty();
     }
 }
 
@@ -74,15 +81,6 @@ function renderBillCart() {
     const totalPayment = document.getElementById('totalPayment');
     totalPayment.innerHTML = `${(sumMoneyOfCart() - 0).toLocaleString('en-US')} đ`;
 }
-
-window.addEventListener('load', () => {
-    renderAllCart();
-
-    const inputQuantityElements = document.querySelectorAll('tr input[type="text"]');
-    addEventForInput(inputQuantityElements);
-
-    renderBillCart();
-});
 
 // Nút tăng giảm số lượng sản phẩm trong giỏ hàng
 function changeQuantityByButton(productId, n) {
@@ -136,20 +134,63 @@ function deleteProduct(productId) {
 
     saveCartToLocalStorage(cart);
 
-    const productRow = document.getElementById(productId);
-    const productTBody = productRow.parentNode;
-    productTBody.removeChild(productRow);
-    
+    if ((cart.length === 0)) {
+        renderWhenCartIsEmpty();
+    } else {
+        const productRow = document.getElementById(productId);
+        const productTBody = productRow.parentNode;
+        productTBody.removeChild(productRow);
+    }
+
     renderBillCart();
 }
 
 // Nút xóa tất cả sản phẩm khỏi giỏ hàng
 function deleteAllCart() {
-    const producTable = document.querySelector('.cart-space table');
-    const producTBody = document.querySelector('.cart-space table tbody');
-    producTable.removeChild(producTBody);
+    // const producTable = document.querySelector('.cart-space table');
+    // const producTBody = document.querySelector('.cart-space table tbody');
+    // producTable.removeChild(producTBody);
 
     saveCartToLocalStorage([]);
     renderWhenCartIsEmpty();
     renderBillCart();
 }
+
+// Gán nút cộng, trừ, xóa
+function makeBtns() {
+    const minusBtns = Array.from(document.getElementsByClassName('minus'));
+    minusBtns.forEach((btn) => {
+        const productId = btn.parentNode.parentNode.parentNode.id;
+        btn.addEventListener('click', () => {
+            changeQuantityByButton(productId, -1);
+        });
+    });
+
+    const plusBtns = Array.from(document.getElementsByClassName('plus'));
+    plusBtns.forEach((btn) => {
+        const productId = btn.parentNode.parentNode.parentNode.id;
+        btn.addEventListener('click', () => {
+            changeQuantityByButton(productId, 1);
+        });
+    });
+
+    const deleteBtns = Array.from(document.querySelectorAll('.delete-btn button'));
+    deleteBtns.forEach((btn) => {
+        const productId = btn.parentNode.parentNode.id;
+        btn.addEventListener('click', () => {
+            deleteProduct(productId);
+        });
+    });
+}
+
+window.addEventListener('load', () => {
+    renderAllCart();
+
+    const inputQuantityElements = document.querySelectorAll('tr input[type="text"]');
+    addEventForInput(inputQuantityElements);
+
+    renderBillCart();
+});
+
+const deleteAllCartBtn = document.getElementById('delete-all-cart');
+deleteAllCartBtn.addEventListener('click', deleteAllCart);

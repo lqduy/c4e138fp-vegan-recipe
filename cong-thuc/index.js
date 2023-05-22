@@ -9,7 +9,6 @@ const top5TrendingRecipes = top5TrendingRecipesId.map((value) => {
 
 function renderUserSpace() {
     const userElement = document.getElementById('sign-up-log-in');
-    console.log(userElement);
     if (isLogged()) {
         const elements = `
         <div class="user-logged-space">
@@ -47,7 +46,7 @@ function render1RecipeBox(recipe) {
             <div class="recipe-box__body">
                 <div class="content-space">
                     <div class="overview">
-                        <h3 class="name">${recipe.name}</h3>
+                        <a href="/bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
                         <h4 class="chef"><a href="#">${recipe.chefName}</a></h4>
                         <div class="recipe-tags">
                         
@@ -464,7 +463,7 @@ function createAccount() {
 
         const signSuccessMess = document.querySelector('#form-signup .form-body .left .signup-success');
         signSuccessMess.classList.add('show-signup-success');
-        
+
         // alert('Đăng ký tài khoản thành công!');
         // closeForm();
     } else {
@@ -484,15 +483,25 @@ function loadUsersDatabase() {
         return [];
     }
 }
-
-const submitSignUp = document.getElementById('submit-signup');
-submitSignUp.addEventListener('click', () => {
+function whenSubmitSignUp() {
     if (!checkFullInput('form-signup')) {
         alert('Vui lòng nhập đầy đủ thông tin!');
     } else {
         createAccount();
     }
-});
+}
+
+const submitSignUpBtn = document.getElementById('submit-signup');
+submitSignUpBtn.addEventListener('click', () => whenSubmitSignUp());
+
+const submitSignUpInputBar = document.querySelectorAll('#form-signup .form-body .left input');
+submitSignUpInputBar.forEach((input) =>
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            whenSubmitSignUp();
+        }
+    })
+);
 
 // Đăng nhập
 function updateLoginStatus(trueOrFalse) {
@@ -547,9 +556,16 @@ function logIn() {
 }
 
 const submitLogIn = document.getElementById('submit-login');
-submitLogIn.addEventListener('click', () => {
-    logIn();
-});
+submitLogIn.addEventListener('click', () => logIn());
+
+const submitLogInInputBar = document.querySelectorAll('#form-login .form-body .left input');
+submitLogInInputBar.forEach((input) =>
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            logIn();
+        }
+    })
+);
 
 // Đăng xuất
 

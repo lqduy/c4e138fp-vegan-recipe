@@ -1,3 +1,5 @@
+import { productList, addProductToCart } from '../main.js';
+
 const ingredientsList = [
     {
         item: 'Nước sạch',
@@ -97,43 +99,9 @@ const ingredientsList = [
     }
 ];
 
-// Render một sản phẩm
-function renderProductItem(product) {
-    const formatPrice = product.price.toLocaleString('en-US');
-    const item = `
-    <div class="the-box">
-        <div class="box-thumbnail">
-            <img src="${product.image}" alt="">
-        </div>
-        <div class="box-body">
-            <div class="details">
-                <h4 class="product-name">${product.name}</h4>
-                <div class="product-price">
-                    <p>${formatPrice}</p>
-                    <p>${product.unit}</p>
-                </div>
-            </div>
-        <button class="add-cart" onclick="addProductToCart('${product.id}')">Thêm</button>
-        </div>
-    </div>                                                
-          `;
-    return item;
-}
-
-// Render toàn bộ sản phẩm
-function renderProductListAll() {
-    for (const group of productList) {
-        const elements = document.getElementById(group.groupId);
-        for (const product of group.groupItem) {
-            const item = renderProductItem(product);
-            elements.innerHTML += item;
-        }
-    }
-}
-
 // Render một hàng nguyên liệu
 function renderRowInTable(ingredient) {
-    const item = `
+    return `
     <tr>
         <td>${ingredient.item}</td>
         <td>${ingredient.unit}</td>
@@ -148,7 +116,6 @@ function renderRowInTable(ingredient) {
         </td>
     </tr>
     `;
-    return item;
 }
 
 // Render nguyên bảng nguyên liệu
@@ -160,5 +127,48 @@ function renderTable() {
     }
 }
 
+// Render một sản phẩm
+function renderProductItem(product) {
+    const formatPrice = product.price.toLocaleString('en-US');
+    return `
+    <div class="the-box" product-id="${product.id}">
+        <div class="box-thumbnail">
+            <img src="${product.image}" alt="">
+        </div>
+        <div class="box-body">
+            <div class="details">
+                <h4 class="product-name">${product.name}</h4>
+                <div class="product-price">
+                    <p>${formatPrice}</p>
+                    <p>${product.unit}</p>
+                </div>
+            </div>
+        </div>
+        <button class="add-cart">Thêm</button>
+    </div>                                                
+          `;
+}
+
+// Render toàn bộ sản phẩm
+function renderProductListAll() {
+    for (const group of productList) {
+        const elements = document.getElementById(group.groupId);
+        for (const product of group.groupItem) {
+            const item = renderProductItem(product);
+            elements.innerHTML += item;
+        }
+    }
+}
+
 renderTable();
 renderProductListAll();
+
+window.addEventListener('load', () => {
+    const addProductBtn = Array.from(document.getElementsByClassName('add-cart'));
+    addProductBtn.forEach((btn) => {
+        const productId = (btn.parentNode).getAttribute('product-id');
+        btn.addEventListener('click', () => {
+            addProductToCart(productId);
+        })
+    });
+});

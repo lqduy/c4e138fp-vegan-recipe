@@ -1,4 +1,4 @@
-const productList = [
+export const productList = [
     {
         groupId: 'BUN',
         groupItem: [
@@ -542,7 +542,7 @@ export function loadCartFromLocalStorage() {
 }
 
 // Thêm sản phẩm vào giỏ hàng khi click chuột
-function addProductToCart(productId) {
+export function addProductToCart(productId) {
     const cart = loadCartFromLocalStorage();
     const groupId = productId.slice(0, productId.length - 2);
     const i = productList.findIndex((group) => group.groupId === groupId);
@@ -555,15 +555,10 @@ function addProductToCart(productId) {
         cart.push({ ...productItem, quantity: 1 });
     }
     saveCartToLocalStorage(cart); //Save giỏ hàng vào localStorage
-
-    renderAllCart();
 }
 
 // Tính toán
 
-const sumQuantityInCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.quantity), 0);
+export const sumQuantityInCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.quantity), 0);
 
-const sumMoneyOfCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.price * item.quantity), 0);
-
-
-
+export const sumMoneyOfCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.price * item.quantity), 0);
