@@ -6,13 +6,12 @@ const listSlideShow = top5RecipesOfWeek.map((value) => {
     return recipeCollectionSpread().find((item) => item.id === value);
 });
 
-
 function render1DishNews(dish) {
     return `
     <div class="dish news__item">
         <a href="#">
             <div class="dish-thumbnail">
-                <img src="..${dish.thumbnail}" alt="">
+                <img src=".${dish.thumbnail}" alt="">
             </div>
             <div class="content">
                 <h3 class="title">${dish.name}</h3>
@@ -46,14 +45,13 @@ function showSlides(n) {
     let willShowIndex = nowIndex + n;
     willShowIndex = (willShowIndex + slides.length) % slides.length;
 
-    slides.forEach((item)=> item.classList.remove('active'));
+    slides.forEach((item) => item.classList.remove('active'));
     slides[willShowIndex].classList.add('active');
 
     const dots = document.querySelectorAll('#news-dish .index-dot i');
-    dots.forEach((dot) => dot.style.opacity = 0.5);
+    dots.forEach((dot) => (dot.style.opacity = 0.5));
     dots[willShowIndex].style.opacity = 1;
 }
-
 
 setInterval(() => {
     showSlides(1);
@@ -72,5 +70,3 @@ const nextBtn = document.getElementById('next-slide');
 nextBtn.addEventListener('click', () => {
     showSlides(1);
 });
-
-
