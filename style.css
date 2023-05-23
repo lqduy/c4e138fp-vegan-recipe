@@ -370,6 +370,7 @@ ul {
 
 .news-core .news__body .news__item .news-tag {
     display: block;
+    cursor: pointer;
 
     position: absolute;
     top: 7.5%;

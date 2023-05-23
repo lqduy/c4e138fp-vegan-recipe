@@ -410,58 +410,6 @@ ul {
 
 /* End Menu Column  */
 
-/* Corner Space */
-.corner-space {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    z-index: 10;
 
-    position: fixed;
-    right: 2.5%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.corner-space a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    cursor: pointer;
-
-    background-color: var(--orange);
-
-    text-align: center;
-}
-.corner-space a:hover {
-    background-color: white;
-    box-shadow: 0px 0px 10px 0.1px gray;
-}
-.corner-space a i {
-    display: block;
-
-    color: white;
-}
-.corner-space a:hover i {
-    color: #f77300;
-}
-.corner-space a span {
-    color: white;
-
-    font-size: 1.5em;
-    font-weight: 900;
-}
-.corner-space a:hover span {
-    color: #f77300;
-}
-.hide-corner-space {
-    display: none;
-}
-
-/* End Corner Space */
 
 

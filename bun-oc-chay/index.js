@@ -1,4 +1,5 @@
-import { productList, addProductToCart } from '../main.js';
+import { productList } from '../database/database-products.js';
+import { addProductToCart } from '../function/cart-and-collection.js';
 
 const ingredientsList = [
     {
@@ -143,8 +144,8 @@ function renderProductItem(product) {
                     <p>${product.unit}</p>
                 </div>
             </div>
+            <button class="add-cart">Thêm</button>
         </div>
-        <button class="add-cart">Thêm</button>
     </div>                                                
           `;
 }
@@ -166,7 +167,7 @@ renderProductListAll();
 window.addEventListener('load', () => {
     const addProductBtn = Array.from(document.getElementsByClassName('add-cart'));
     addProductBtn.forEach((btn) => {
-        const productId = (btn.parentNode).getAttribute('product-id');
+        const productId = (btn.parentNode.parentNode).getAttribute('product-id');
         btn.addEventListener('click', () => {
             addProductToCart(productId);
         })

@@ -1,4 +1,5 @@
-import { loadCartFromLocalStorage, saveCartToLocalStorage, sumQuantityInCart, sumMoneyOfCart } from '../main.js';
+import { loadCartFromLocalStorage, saveCartToLocalStorage } from '../function/localstorage.js';
+import { sumMoneyOfCart, sumQuantityInCart } from '../function/cart-and-collection.js';
 
 // Render khi giỏ hàng rỗng
 function renderWhenCartIsEmpty() {
@@ -7,7 +8,7 @@ function renderWhenCartIsEmpty() {
         <div id="empty-cart">
             <img src="./assets/shopping-cart.png" alt="">
             <div>
-                <a href="#">Đến trang công thức</a>
+                <a href="../cong-thuc/index.html">Đến trang công thức</a>
             </div>
         </div>
         `;
@@ -134,7 +135,7 @@ function deleteProduct(productId) {
 
     saveCartToLocalStorage(cart);
 
-    if ((cart.length === 0)) {
+    if (cart.length === 0) {
         renderWhenCartIsEmpty();
     } else {
         const productRow = document.getElementById(productId);

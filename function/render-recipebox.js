@@ -45,9 +45,9 @@ export function render1RecipeBox(recipe) {
                         <a href="#"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="buy-space">
+                <div class="add-space">
                     <p class="recipe__price">${recipe.price}<span> xu</span></p>
-                    <button class="add-cart addCollectionBtn-${recipe.id}">Thêm</button>
+                    <button class="addCollectionBtn-${recipe.id}">Thêm</button>
                 </div>
             </div>
         </div>

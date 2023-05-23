@@ -1,7 +1,6 @@
-import {
-    recipeCollectionSpread
-} from '../database/database-recipes.js';
-
+import { recipeCollectionSpread } from '../database/database-recipes.js';
+import { productList } from '../database/database-products.js';
+import { renderTheCorner } from '../reuse/script-reuse.js';
 import {
     saveCartToLocalStorage,
     loadCartFromLocalStorage,
@@ -23,9 +22,34 @@ export function addProductToCart(productId) {
         cart.push({ ...productItem, quantity: 1 });
     }
     saveCartToLocalStorage(cart); //Save giỏ hàng vào localStorage
+    renderTheCorner();
+}
+
+
+// Thêm công thức vào Bộ sưu tập khi click chuột
+
+export function addRecipeToMyCollection() {
+    recipeCollectionSpread().forEach((recipe) => {
+        const getButtonElements = document.querySelectorAll(`.addCollectionBtn-${recipe.id}`);
+
+        getButtonElements.forEach((buttonElement) =>
+            buttonElement.addEventListener('click', () => {
+                const myCollection = loadMyCollectionFromLocalStorage();
+
+                const myCollectionItem = myCollection.find((item) => item.id === recipe.id);
+
+                if (!myCollectionItem) {
+                    myCollection.push(recipe);
+                    saveMyCollectionToLocalStorage(myCollection);
+                    renderTheCorner();
+                }
+            })
+        );
+    });
 }
 
 // Tính Bill
 export const sumQuantityInCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.quantity), 0);
 
-export const sumMoneyOfCart = () => loadCartFromLocalStorage().reduce((sum, item) => (sum += item.price * item.quantity), 0);
+export const sumMoneyOfCart = () =>
+    loadCartFromLocalStorage().reduce((sum, item) => (sum += item.price * item.quantity), 0);

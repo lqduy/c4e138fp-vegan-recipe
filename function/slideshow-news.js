@@ -21,7 +21,7 @@ function render1DishNews(dish) {
             </div>
         </a>
         <a class="news-tag type-tag" href="#">#${dish.tag[0]}</a>
-        <a class="news-tag action-tag" href="#">Thêm vào Bộ sưu tập</a>
+        <a class="news-tag action-tag addCollectionBtn-${dish.id}">Thêm vào Bộ sưu tập</a>
     </div>
     `;
 }
