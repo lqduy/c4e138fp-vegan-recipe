@@ -10,19 +10,11 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap"
             rel="stylesheet"
         />
-        <!-- <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&display=swap"
-            rel="stylesheet"
-        /> -->
+
         <link
             href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@100;500&display=swap"
             rel="stylesheet"
         />
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" /> -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -30,7 +22,8 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <link rel="stylesheet" href="./normalize.css" />
+        <link rel="stylesheet" href="./reuse/normalize.css" />
+        <link rel="stylesheet" href="./reuse/css-reuse.css">
         <link rel="stylesheet" href="./style.css" />
         <title>Document</title>
     </head>
@@ -38,370 +31,7 @@
         <div class="site-container">
             <!-- Header -->
             <header class="header-block">
-                <div class="header-core container">
-                    <!-- Header Logo -->
-                    <a class="logo" href="#">
-                        <img src="./assets/logo.jpg" alt="Logo" />
-                    </a>
-                    <!-- End Header Logo -->
-                    <!-- Nav space -->
-                    <div class="nav-space">
-                        <!-- Nav User -->
-                        <div class="user nav-space__row">
-                            <div class="user__option">
-                                <a href="#">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    <span>Giỏ hàng</span>
-                                </a>
-                            </div>
-                            <div class="user__option">
-                                <a href="#">
-                                    <i class="fa-sharp fa-solid fa-heart"></i>
-                                    <span>Yêu thích</span>
-                                </a>
-                            </div>
-                            <div id="sign-up-log-in" class="user__option">
-                                <a id="sign-up" href="#">Đăng ký</a>
-                                <a id="log-in" href="#">Đăng nhập</a>
-                            </div>
-                        </div>
-                        <!-- End Nav User -->
-                        <!-- Nav Menu -->
-                        <nav class="menu nav-space__row">
-                            <div class="menu__item" id="menu__trang-chu">
-                                <a href="#">Trang chủ</a>
-                            </div>
-                            <div class="menu__item">
-                                <a href="#">
-                                    <span>Giới thiệu</span>
-                                    <i class="caret fa-solid fa-angle-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Sự ra đời</a></li>
-                                    <li><a href="#">Nhà sáng lập</a></li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Hành trình phát tiển</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Triết lý - Tầm nhìn - Sứ mệnh</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Tin khuyến mãi</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="menu__item">
-                                <a href="#">
-                                    <span>Công thức</span>
-                                    <i class="caret fa-solid fa-angle-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li id="menu-mon-viet">
-                                        <div class="sub-menu__item">
-                                            <a href="#">Món Việt</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li>Món canh</li>
-                                                    <li><a href="#">Canh chua</a></li>
-                                                    <li><a href="#">Canh rau</a></li>
-                                                    <li><a href="#">Canh bí, khoai</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món kho</li>
-                                                    <li><a href="#">Kho quẹt</a></li>
-                                                    <li><a href="#">Kho lạt</a></li>
-                                                    <li><a href="#">Kho nước dừa</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món chiên</li>
-                                                    <li><a href="#">Chiên</a></li>
-                                                    <li><a href="#">Chiên giòn</a></li>
-                                                    <li><a href="#">Chiên bột</a></li>
-                                                    <li><a href="#">Khìa</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món xào</li>
-                                                    <li><a href="#">Xào chua ngọt</a></li>
-                                                    <li><a href="#">Xào mặn</a></li>
-                                                    <li><a href="#">Xào tỏi</a></li>
-                                                    <li><a href="#">Xào xả ớt</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món hấp</li>
-                                                    <li><a href="#">Hấp</a></li>
-                                                    <li><a href="#">Hấp xả</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món nướng</li>
-                                                    <li><a href="#">Nướng mọi</a></li>
-                                                    <li><a href="#">Nướng than</a></li>
-                                                    <li><a href="#">Nướng BBQ</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Cháo</li>
-                                                    <li><a href="#">Cháo thập cẩm</a></li>
-                                                    <li><a href="#">Cháo trắng</a></li>
-                                                    <li><a href="#">Cháo đậu</a></li>
-                                                    <li><a href="#">Cháo lá dứa</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Nước chấm</li>
-                                                    <li><a href="#">Nước mắm chua ngọt</a></li>
-                                                    <li><a href="#">Nước mắm me</a></li>
-                                                    <li><a href="#">Muối ớt xanh</a></li>
-                                                    <li><a href="#">Muối tiêu chanh</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món vùng miền</li>
-                                                    <li><a href="#">Bún Huế</a></li>
-                                                    <li><a href="#">Mì Quảng</a></li>
-                                                    <li><a href="#">Bún Chả Hà Nội</a></li>
-                                                    <li><a href="#">Hủ Tiếu Mỹ Tho</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món lẩu</li>
-                                                    <li><a href="#">Lẩu nấm</a></li>
-                                                    <li><a href="#">Lẩu tiềm</a></li>
-                                                    <li><a href="#">Lẩu chao</a></li>
-                                                    <li><a href="#">Lẩu mắm</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>Món bánh</li>
-                                                    <li><a href="#">Bánh xèo</a></li>
-                                                    <li><a href="#">Bánh khọt</a></li>
-                                                    <li><a href="#">Bánh bột lọc</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Món Á</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Món Hoa</a></li>
-                                                    <li><a href="#">Món Nhật</a></li>
-                                                    <li><a href="#">Món Hàn</a></li>
-                                                    <li><a href="#">Món Ấn</a></li>
-                                                    <li><a href="#">Món Thái</a></li>
-                                                    <li><a href="#">Món Indonesia</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Món Âu</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Món Anh</a></li>
-                                                    <li><a href="#">Món Pháp</a></li>
-                                                    <li><a href="#">Món Ý</a></li>
-                                                    <li><a href="#">Món Đức</a></li>
-                                                    <li><a href="#">Món Hungary</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Món theo chủ đề</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Chay truyền thống</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Thuần chay hiện đại</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="menu__item">
-                                <a href="#">
-                                    <span>Khóa học</span>
-                                    <i class="caret fa-solid fa-angle-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Dinh dưỡng chay sơ cấp</a></li>
-                                    <li><a href="#">Dinh dưỡng chay nâng cao</a></li>
-                                    <li><a href="#">Kỹ nghệ bếp chay sơ cấp</a></li>
-                                    <li><a href="#">Kỹ nghệ bếp chay nâng cao</a></li>
-                                    <li><a href="#">Kỹ nghệ bếp chay chuyên nghiệp</a></li>
-                                    <li><a href="#">Quản lý - Kinh doanh bếp chay</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu__item">
-                                <a href="#">
-                                    <span>Chợ nguyên liệu</span>
-                                    <i class="caret fa-solid fa-angle-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Nguyên liệu thông dụng</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Nguyên liệu đặc thù</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Thương hiệu uy tín</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sub-menu__item">
-                                            <a href="#">Organic</a>
-                                            <i class="fa-solid fa-caret-up fa-rotate-90"></i>
-                                        </div>
-                                        <div class="sub-menu__child-block">
-                                            <div class="sub-menu__child">
-                                                <ul>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                    <li><a href="#">Đang cập nhật</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                        <!-- End Nav Menu -->
-                    </div>
-                    <!-- End Nav Space -->
-                </div>
+                
             </header>
             <!-- End Header -->
 
@@ -704,194 +334,7 @@
                             <a href="#">Xem tất cả</a>
                         </div>
                         <div id="suggest-dishes__body">
-                            <!-- <div class="repice-box">
-                                <div class="repice-core">
-                                    <div class="repice-box__thumbnail">
-                                        <img src="./assets/mi-ca-ri.jpg" alt="" />
-                                        <div class="btn-on-img-block">
-                                            <div class="btn-on-img-core">
-                                                <button><i class="fa-solid fa-eye"></i></button>
-                                                <button><i class="fa-solid fa-heart"></i></button>
-                                                <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="repice-box__body">
-                                        <div class="content-space">
-                                            <div class="overview">
-                                                <h3 class="name">Mì Cà Ri</h3>
-                                                <h4 class="chef"><a href="#">Nguyễn Đức An</a></h4>
-                                                <p class="meta">
-                                                    Món mì được làm cho những ngày mưa. Cái vị có chút thơm nồng của bột
-                                                    cà ri làm cho mước dùng của món mì này thêm phần đặc biệt…
-                                                </p>
-                                                <div class="star">
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <p>Chuẩn bị: 15'</p>
-                                                <p>Nấu: 30'</p>
-                                            </div>
-                                            <div class="share-space">
-                                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="buy-space">
-                                            <p class="repice__price">25<span> xu</span></p>
-                                            <button class="add-cart"><a href="#">Thêm</a></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="repice-box">
-                                <div class="repice-core">
-                                    <div class="repice-box__thumbnail">
-                                        <img src="./assets/canh-kim-chi-dau-phu.png" alt="" />
-                                        <div class="btn-on-img-block">
-                                            <div class="btn-on-img-core">
-                                                <button><i class="fa-solid fa-eye"></i></button>
-                                                <button><i class="fa-solid fa-heart"></i></button>
-                                                <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="repice-box__body">
-                                        <div class="content-space">
-                                            <div class="overview">
-                                                <h3 class="name">Canh Kim Chi Đậu Phụ</h3>
-                                                <h4 class="chef"><a href="#">Lê Nguyên Bão</a></h4>
-                                                <p class="meta">
-                                                    Những ngày đầu đông giá lạnh, bát canh kim chi đậu phụ nóng hổi, đậm
-                                                    đà, chút cay nồng với màu đỏ hấp dẫn, nhìn mà đã thèm ngay rồi…
-                                                </p>
-                                                <div class="star">
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <p>Chuẩn bị: 15'</p>
-                                                <p>Nấu: 30'</p>
-                                            </div>
-                                            <div class="share-space">
-                                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="buy-space">
-                                            <p class="repice__price">35<span> xu</span></p>
-                                            <button class="add-cart"><a href="#">Thêm</a></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="repice-box">
-                                <div class="repice-core">
-                                    <div class="repice-box__thumbnail">
-                                        <img src="./assets/banh-ran-hanh-han-quoc.png" alt="" />
-                                        <div class="btn-on-img-block">
-                                            <div class="btn-on-img-core">
-                                                <button><i class="fa-solid fa-eye"></i></button>
-                                                <button><i class="fa-solid fa-heart"></i></button>
-                                                <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="repice-box__body">
-                                        <div class="content-space">
-                                            <div class="overview">
-                                                <h3 class="name">Bánh Rán Hành Hàn Quốc</h3>
-                                                <h4 class="chef"><a href="#">Nguyễn Trọng Nhân</a></h4>
-                                                <p class="meta">
-                                                    Lắm lúc ở nhà cuối tuần là mình lại buồn miệng, muốn làm món ăn vặt
-                                                    gì ngon ngon, ngồi ăn nhâm nhi chill cho hết ngày. Gợi ý cho…
-                                                </p>
-                                                <div class="star">
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <p>Chuẩn bị: 15'</p>
-                                                <p>Nấu: 30'</p>
-                                            </div>
-                                            <div class="share-space">
-                                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="buy-space">
-                                            <p class="repice__price">30<span> xu</span></p>
-                                            <button class="add-cart"><a href="#">Thêm</a></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="repice-box">
-                                <div class="repice-core">
-                                    <div class="repice-box__thumbnail">
-                                        <img src="./assets/chao-nam-rau-cu.png" alt="" />
-                                        <div class="btn-on-img-block">
-                                            <div class="btn-on-img-core">
-                                                <button><i class="fa-solid fa-eye"></i></button>
-                                                <button><i class="fa-solid fa-heart"></i></button>
-                                                <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="repice-box__body">
-                                        <div class="content-space">
-                                            <div class="overview">
-                                                <h3 class="name">Cháo Nấm Rau Củ</h3>
-                                                <h4 class="chef"><a href="#">Trịnh Duy Châu</a></h4>
-                                                <p class="meta">
-                                                    Hồi bé mỗi khi mình cảm thấy không khoẻ là mẹ lại nấu cháo cho ăn.
-                                                    Từng miếng cháo ấm bụng xua đi phần nào mệt mỏi. Đầu đông Hà…
-                                                </p>
-                                                <div class="star">
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                    <span><i class="fa-sharp fa-solid fa-star fa-xl"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <p>Chuẩn bị: 15'</p>
-                                                <p>Nấu: 30'</p>
-                                            </div>
-                                            <div class="share-space">
-                                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="buy-space">
-                                            <p class="repice__price">25<span> xu</span></p>
-                                            <button class="add-cart"><a href="#">Thêm</a></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </section>
@@ -1005,121 +448,93 @@
                 <!-- End Feedback -->
                 <!-- Footer  -->
                 <footer class="footer-block">
-                    <div class="footer-block__top">
-                        <div class="footer-core container">
-                            <ul class="list-options">
-                                <li class="option-title">Danh Mục Công Thức</li>
-                                <li class="option"><a href="http://#">Món Mới</a></li>
-                                <li class="option">
-                                    <a href="http://#">Món Việt</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Món Á</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Món Âu</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Món theo chủ đề</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Chay truyền thống</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Thuần chay hiện đại</a>
-                                </li>
-                            </ul>
-                            <ul class="list-options">
-                                <li class="option-title">Về Chúng Tôi</li>
-                                <li class="option">
-                                    <a href="http://#">Sự ra đời</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Nhà sáng lập</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Hành trình phát triển</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Triết lý - Tầm nhìn - Sứ mệnh</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Tin khuyến mãi</a>
-                                </li>
-                            </ul>
-                            <ul class="list-options">
-                                <li class="option-title">Liên Hệ</li>
-                                <li class="option">
-                                    <a href="http://#">Tư vấn sức khỏe - dinh dưỡng</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Tư vấn khóa học</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Góp ý - Khiếu nại</a>
-                                </li>
-                            </ul>
-                            <ul class="list-options">
-                                <li class="option-title">Chính sách</li>
-                                <li class="option">
-                                    <a href="http://#">Chính sách hoạt động</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Chính sách và Quy định</a>
-                                </li>
-                                <li class="option">
-                                    <a href="http://#">Chính sách bảo mật thông tin</a>
-                                </li>
-                            </ul>
-                            <ul class="list-options">
-                                <li class="option-title">Download App</li>
-                                <a href="#"><img src="./assets/Google Play.webp" alt="" /></a>
-                                <a href="#"><img src="./assets/Appstore.webp" alt="" /></a>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-block__bot">
-                        <div class="footer-core container">
-                            <div class="social-link-space">
-                                <div class="social-link">
-                                    <a href="http://#"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
-                                </div>
-                                <div class="social-link">
-                                    <a href="http://#"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-                                </div>
-                                <div class="social-link">
-                                    <a href="http://#"><i class="fa-brands fa-youtube fa-2xl"></i></a>
-                                </div>
-                                <div class="social-link">
-                                    <a href="http://#"><i class="fa-brands fa-twitter fa-2xl"></i></a>
-                                </div>
-                            </div>
-                            <div class="cooperate-space">
-                                <div class="cooperate-btn"><a href="#">Đối tác</a></div>
-                                <div class="cooperate-btn"><a href="#">Tài trợ</a></div>
-                                <div class="cooperate-btn"><a href="#">Liên hệ</a></div>
-                            </div>
-                            <div class="come-to-me-space">
-                                <div><a href="#">Bản đồ</a></div>
-                                <div><a href="#">Văn phòng & Cửa hàng</a></div>
-                                <div><a href="#">Việc làm</a></div>
-                            </div>
-                            <div class="company-space">
-                                <p>
-                                    Công ty TNHH Công Thức Món Chay | MST: 324765689 | Địa chỉ: 654/6 Lạc Long Quân,
-                                    Phường 9, Tân Bình, TP. Hồ Chí Minh | ĐT: 0967 833 272 <br />Copyright © 2023 The
-                                    Vegan Society
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </footer>
                 <!-- End Footer  -->
+                <div class="corner-space hide-corner-space">
+                    <a id="my-collection"><i class="fa-solid fa-bookmark fa-xl"></i><span></span></a>
+                    <a id="my-cart"><i class="fa-solid fa-bag-shopping fa-xl"></i><span></span></a>
+                </div>
             </div>
         </div>
+        <div class="form-signup-login">
+            <!-- <form id="form-signup" class="form-box" action="">
+                <h3>ĐĂNG KÝ</h3>
+                <button class="close-form"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <div class="form-body">
+                    <div class="left">
+                        <p>Những thông tin có đánh dấu (<span>*</span>) là bắt buộc nhập</p>
+                        <div>
+                            <label for="signup-id">Tên đăng nhập<span>*</span></label>
+                            <input type="text" id="signup-id">
+                        </div>
+                        <div>
+                            <label for="signup-password">Mật khẩu<span>*</span></label>
+                            <input type="password" id="signup-password">
+                        </div>
+                        <div>
+                            <label for="signup-password2">Nhập lại mật khẩu<span>*</span></label>
+                            <input type="password" id="signup-password2">
+                        </div>
+                        <div>
+                            <label for="signup-email">Email<span>*</span></label>
+                            <input type="text" id="signup-email">
+                        </div>
+                        <button id="submit-signup">ĐĂNG KÝ</button>
+                        <div class="signup-success">
+                            <i class="fa-solid fa-circle-check fa-2xl"></i>
+                            <p>Chúc mừng!</br>
+                            Bạn đã đăng ký thành công
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p>Bạn đã có tài khoản?</p>
+                        <button class="form-login">ĐĂNG NHẬP NGAY</button>
+                        <div class="with-social">
+                            <p>HOẶC</p>
+                            <a><i class="fa-brands fa-facebook fa-2xl"></i><span> Đăng nhập qua Facebook</span></a>
+                            <a><i class="fa-brands fa-google-plus fa-2xl"></i><span> Đăng nhập qua Google+</span></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="form-login" class="form-box" action="">
+                <h3>ĐĂNG NHẬP</h3>
+                <button class="close-form"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <div class="form-body">
+                    <div class="left">
+                        <p>Những thông tin có đánh dấu (<span>*</span>) là bắt buộc nhập</p>
+                        <div>
+                            <label for="login-id">Tên đăng nhập<span>*</span></label>
+                            <input type="text" id="login-id">
+                        </div>
+                        <div>
+                            <label for="login-password">Mật khẩu<span>*</span></label>
+                            <input type="password" id="login-password">
+                        </div>                      
+                        <button id="submit-login">ĐĂNG NHẬP</button>
+                    </div>
+                    <div class="right">
+                        <p>Bạn chưa có tài khoản?</p>
+                        <button class="form-signup">ĐĂNG KÝ NGAY</button>
+                        <div class="with-social">
+                            <p>HOẶC</p>
+                            <a><i class="fa-brands fa-facebook fa-2xl"></i><span> Đăng nhập qua Facebook</span></a>
+                            <a><i class="fa-brands fa-google-plus fa-2xl"></i><span> Đăng nhập qua Google+</span></a>
+                        </div>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+
+        <script src="./reuse/html-reuse.js" type="module"></script>
+        <script src="./reuse/script-reuse.js" type="module"></script>
         <script src="./main.js" type="module"></script>
+        <script src="./function/signup-login-logout.js" type="module"></script>
+        <script src="./function/render-recipebox.js" type="module"></script>
         <script src="./index.js" type="module"></script>
-        <script src="./object-recipes.js" type="module"></script>
-        <script src="./news.js" type="module"></script>
+        <script src="./database/database-recipes.js" type="module"></script>
+        <script src="./function/slideshow-news.js" type="module"></script>
     </body>
 </html>

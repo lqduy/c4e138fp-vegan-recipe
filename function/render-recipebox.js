@@ -1,46 +1,24 @@
-import { recipeCollectionSpread } from "./database/database-recipes.js";
-import { render1RecipeBox, renderRecipeTagsAll} from "./function/render-recipebox.js";
+import { recipeCollectionSpread } from "../database/database-recipes.js";
 
-
-// Lấy số ngẫu nhiên
-function getRandomNumbers(arr, n) {
-    const numbers = Array(arr.length)
-        .fill()
-        .map((_, index) => index);
-
-    const randomNumbers = [];
-
-    while (randomNumbers.length < n) {
-        const randomIndex = Math.floor(Math.random() * numbers.length);
-        randomNumbers.push(numbers[randomIndex]);
-        numbers.splice(randomIndex, 1);
-    }
-
-    return randomNumbers;
-}
-
-// Lấy ngẫu nhiên 4 công thức gợi ý trong danh sách phẳng
-const getRandomRecipes = getRandomNumbers(recipeCollectionSpread(), 4).map((value) => recipeCollectionSpread()[value]);
-
-// // Render 1 công thức gợi ý
-function render1SuggestRecipe(recipe) {
+// Render 1 Box Công thức 
+export function render1RecipeBox(recipe) {
     return `
-    <div class="repice-box">
-        <div class="repice-core">
-            <div class="repice-box__thumbnail">
+    <div id="recipe-${recipe.id}" class="recipe-box">
+        <div class="recipe-core">
+            <div class="recipe-box__thumbnail">
                 <img src=".${recipe.thumbnail}" alt="" />
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
                         <button><i class="fa-solid fa-eye"></i></button>
-                        <button><i class="fa-solid fa-heart"></i></button>
+                        <button class="addCollectionBtn-${recipe.id}"><i class="fa-solid fa-heart"></i></button>
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="repice-box__body">
+            <div class="recipe-box__body">
                 <div class="content-space">
                     <div class="overview">
-                        <h3 class="name">${recipe.name}</h3>
+                        <a href="/bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
                         <h4 class="chef"><a href="#">${recipe.chefName}</a></h4>
                         <div class="recipe-tags">
                         
@@ -68,8 +46,8 @@ function render1SuggestRecipe(recipe) {
                     </div>
                 </div>
                 <div class="buy-space">
-                    <p class="repice__price">${recipe.price}<span> xu</span></p>
-                    <button class="add-cart">Thêm</button>
+                    <p class="recipe__price">${recipe.price}<span> xu</span></p>
+                    <button class="add-cart addCollectionBtn-${recipe.id}">Thêm</button>
                 </div>
             </div>
         </div>
@@ -77,13 +55,15 @@ function render1SuggestRecipe(recipe) {
     `;
 }
 
-// Render list công thức gợi ý trên Trang chủ
-
-function renderSuggestRecipeAll() {
-    const parent = document.getElementById('suggest-dishes__body');
-    const childs = getRandomRecipes.map((item) => render1RecipeBox(item));
-    parent.innerHTML = childs.reduce((content, item) => content + item, '');
+// Render 1 tag để hiển thị
+function renderRecipeTags(recipe) {
+    return recipe.tag.reduce((string, item) => string + `<a>#${item}</a>`, '');
 }
 
-renderSuggestRecipeAll();
-renderRecipeTagsAll();
+// Render tất cả tag ở mỗi công thức
+export function renderRecipeTagsAll() {
+    recipeCollectionSpread().forEach((recipe) => {
+        const parents = document.querySelectorAll(`#recipe-${recipe.id} .recipe-tags`);
+        parents.forEach((parent) => (parent.innerHTML = renderRecipeTags(recipe)));
+    });
+}

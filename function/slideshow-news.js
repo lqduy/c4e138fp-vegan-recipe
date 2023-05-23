@@ -1,4 +1,4 @@
-import { recipeCollectionSpread } from './object-recipes.js';
+import { recipeCollectionSpread } from '../database/database-recipes.js';
 
 const top5RecipesOfWeek = ['110135-0001', '110134-0001', '110133-0001', '110136-0002', '110135-0003'];
 
@@ -12,7 +12,7 @@ function render1DishNews(dish) {
     <div class="dish news__item">
         <a href="#">
             <div class="dish-thumbnail">
-                <img src="${dish.thumbnail}" alt="">
+                <img src=".${dish.thumbnail}" alt="">
             </div>
             <div class="content">
                 <h3 class="title">${dish.name}</h3>
