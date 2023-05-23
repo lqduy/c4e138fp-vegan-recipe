@@ -1,5 +1,5 @@
 import { renderUserSpace, renderTheCorner } from './reuse/script-reuse.js';
-import { makeSignUpLogInBtn, makeSubmitSignUpLogInBtn } from '../function/signup-login-logout.js';
+import { makeSignUpLogInBtn, makeSubmitSignUpLogInBtn } from './function/signup-login-logout.js';
 import { recipeCollectionSpread } from './database/database-recipes.js';
 import { render1RecipeBox, renderRecipeTagsAll } from './function/render-recipebox.js';
 import { addRecipeToMyCollection } from './function/cart-and-collection.js';
