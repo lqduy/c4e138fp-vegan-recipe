@@ -1,5 +1,6 @@
 import { loadCartFromLocalStorage, saveCartToLocalStorage } from '../function/localstorage.js';
 import { sumMoneyOfCart, sumQuantityInCart } from '../function/cart-and-collection.js';
+import { renderTheCorner } from '../reuse/script-reuse.js';
 
 // Render khi giỏ hàng rỗng
 function renderWhenCartIsEmpty() {
@@ -144,6 +145,7 @@ function deleteProduct(productId) {
     }
 
     renderBillCart();
+    renderTheCorner();
 }
 
 // Nút xóa tất cả sản phẩm khỏi giỏ hàng
@@ -155,6 +157,7 @@ function deleteAllCart() {
     saveCartToLocalStorage([]);
     renderWhenCartIsEmpty();
     renderBillCart();
+    renderTheCorner();
 }
 
 // Gán nút cộng, trừ, xóa
