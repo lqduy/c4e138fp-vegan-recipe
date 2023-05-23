@@ -12,7 +12,7 @@ function render1DishNews(dish) {
     <div class="dish news__item">
         <a href="#">
             <div class="dish-thumbnail">
-                <img src=".${dish.thumbnail}" alt="">
+                <img src="..${dish.thumbnail}" alt="">
             </div>
             <div class="content">
                 <h3 class="title">${dish.name}</h3>
