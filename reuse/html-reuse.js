@@ -1,5 +1,5 @@
-import { renderUserSpace, renderTheCorner } from '/reuse/script-reuse.js';
-import { makeSignUpLogInBtn, makeSubmitSignUpLogInBtn } from '/function/signup-login-logout.js';
+import { renderUserSpace, renderTheCorner } from './script-reuse.js';
+import { makeSignUpLogInBtn, makeSubmitSignUpLogInBtn } from '../function/signup-login-logout.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('./reuse/form-signup-login.html')
