@@ -1,4 +1,4 @@
-export const recipeCollection = [
+const recipeCollection = [
     {
         chef: {
             chefName: 'Nguyễn Đức An',
