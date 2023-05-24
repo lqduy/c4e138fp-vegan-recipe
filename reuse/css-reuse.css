@@ -234,7 +234,7 @@ ul {
 }
 .menu .menu__item:hover .sub-menu {
     display: block;
-    z-index: 10;
+    z-index: 41;
 }
 
 .sub-menu li:hover {
@@ -253,6 +253,7 @@ ul {
 .sub-menu .sub-menu__child {
     display: flex;
     flex-wrap: wrap;
+    z-index: 41;
 
     position: absolute;
     right: 100%;
