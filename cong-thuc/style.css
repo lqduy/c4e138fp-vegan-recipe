@@ -101,7 +101,7 @@ ul {
     padding: 3% 0;
     margin-bottom: 1em;
 
-    background-image: url(../docs/assets/background-orange.png);
+    background-image: url(/assets/background-orange.png);
     background-size: cover;
     background-position: center;
 
@@ -409,7 +409,3 @@ ul {
 }
 
 /* End Menu Column  */
-
-
-
-
