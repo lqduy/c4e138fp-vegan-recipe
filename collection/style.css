@@ -1,0 +1,66 @@
+:root {
+    --green: #008e84;
+    --orange: #f8991d;
+    --gray: #666;
+}
+/* Banner & Title */
+.banner-title-block {
+    height: 248px;
+    width: 100%;
+
+    background-image: url(/assets/img-bg-pledge-block-orange.png);
+    background-color: var(--orange);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.banner-title-core {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    color: white;
+
+    font-size: 5em;
+    font-weight: bold;
+    text-shadow: var(--orange) 0px 2px 40px;
+}
+
+/* End Title */
+
+.site-body {
+    margin: 3.75em auto;
+}
+
+#collection-space {
+    display: flex;
+    flex-wrap: wrap;
+}
+#collection-space .recipe-box {
+    flex-basis: 32.33%;
+    margin-right: 1%;
+}
+#collection-space .recipe-box:nth-child(3n) {
+    margin-right: 0;
+}
+
+.recipe-box .recipe-core {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2px;
+}
+.recipe-box .recipe-core .recipe-box__thumbnail {
+    width: 100%;
+}
+.recipe-box .recipe-core .overview .star {
+    position: static;
+
+    margin-top: 1em;
+
+    text-align: right;
+}
+.recipe-box .recipe-core .add-space {
+    display: none;
+}

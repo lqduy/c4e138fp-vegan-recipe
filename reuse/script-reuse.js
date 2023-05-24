@@ -34,8 +34,8 @@ export function renderTheCorner() {
 
     const parent = document.querySelector('.corner-space');
     const elements = `
-    <a><i class="fa-solid fa-bookmark fa-xl"></i><span>${myCollection}</span></a>
-    <a href="../cart/index.html"><i class="fa-solid fa-bag-shopping fa-xl"></i><span>${cart}</span></a>
+    <a href="/collection/index.html"><i class="fa-solid fa-bookmark fa-xl"></i><span>${myCollection}</span></a>
+    <a href="/cart/index.html"><i class="fa-solid fa-bag-shopping fa-xl"></i><span>${cart}</span></a>
     `;
 
     parent.innerHTML = elements;

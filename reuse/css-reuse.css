@@ -403,6 +403,37 @@ ul {
     background-color: white;
 }
 
+.recipe-box .check-space{
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    left: 0;
+    top: 1.5%;
+    z-index: 1;
+}
+.recipe-box .check-space a{
+    display: none;
+
+    width: 90px;
+    padding: 0.5em;
+    padding-left: 0.85em;
+    
+    color: white;
+}
+.recipe-box .check-space .checked{
+    display: block;
+}
+.recipe-box .love-check{
+    margin-bottom: 2%;
+
+    background-color: var(--orange);
+}
+.recipe-box .cooked-check{
+    background-color: var(--green);
+}
+.recipe-box .check{
+}
 .recipe-core {
     display: flex;
     /* gap: 0.75em; */
@@ -454,7 +485,9 @@ ul {
     color: var(--gray);
 }
 
-.recipe-core .recipe-box__thumbnail .btn-on-img-core button:hover {
+.recipe-core .recipe-box__thumbnail .btn-on-img-core button:hover,
+.recipe-core .recipe-box__thumbnail .btn-on-img-core .selected
+{
     color: white;
     background-color: #f77300;
     box-shadow: 0px 0px 10px 0.1px gray;
@@ -463,6 +496,7 @@ ul {
 .recipe-core .recipe-box__thumbnail .btn-on-img-core a i {
     line-height: 50px;
 }
+
 
 .recipe-box .recipe-box__body {
     flex-basis: 60%;

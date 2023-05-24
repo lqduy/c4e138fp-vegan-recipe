@@ -42,6 +42,9 @@ export function addRecipeToMyCollection() {
                     myCollection.push(recipe);
                     saveMyCollectionToLocalStorage(myCollection);
                     renderTheCorner();
+
+                    // const btnLoveOnImgCore = Array.from(document.getElementsByClassName(`love-btn-${recipe.id}`));
+                    // btnLoveOnImgCore.forEach((btn) => btn.classList.add('selected'));
                 }
             })
         );

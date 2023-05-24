@@ -1,24 +1,30 @@
 import { recipeCollectionSpread } from '../database/database-recipes.js';
+import { loadMyCollectionFromLocalStorage, saveMyCollectionToLocalStorage } from './localstorage.js';
 
 // Render 1 Box Công thức
 export function render1RecipeBox(recipe) {
     return `
-    <div id="recipe-${recipe.id}" class="recipe-box">
+    <div class="recipe-box recipe-${recipe.id}" recipeId="${recipe.id}">
+        <div class="check-space">
+            <a class="love-check">Đã thích</a>
+            <a class="cooked-check">Đã nấu</a>
+        </div>
+
         <div class="recipe-core">
             <div class="recipe-box__thumbnail">
-                <img src=".${recipe.thumbnail}" alt="" />
+                <img src="${recipe.thumbnail}" alt="" />
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
-                        <button><a href="../bun-oc-chay/index.html"><i class="fa-solid fa-eye"></i></a></button>
-                        <button class="addCollectionBtn-${recipe.id}"><i class="fa-solid fa-heart"></i></button>
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button><a href="/bun-oc-chay/index.html"><i class="fa-solid fa-eye"></i></a></button>
+                        <button class="addCollectionBtn-${recipe.id} love-btn-${recipe.id}"><i class="fa-solid fa-heart"></i></button>
+                        <button class="cooked-btn"><i class="fa-solid fa-check"></i></button>
                     </div>
                 </div>
             </div>
             <div class="recipe-box__body">
                 <div class="content-space">
                     <div class="overview">
-                        <a href="../bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
+                        <a href="/bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
                         <h4 class="chef"><a href="#">${recipe.chefName}</a></h4>
                         <div class="recipe-tags">
                         
@@ -63,7 +69,45 @@ function renderRecipeTags(recipe) {
 // Render tất cả tag ở mỗi công thức
 export function renderRecipeTagsAll() {
     recipeCollectionSpread().forEach((recipe) => {
-        const parents = document.querySelectorAll(`#recipe-${recipe.id} .recipe-tags`);
+        const parents = document.querySelectorAll(`.recipe-${recipe.id} .recipe-tags`);
         parents.forEach((parent) => (parent.innerHTML = renderRecipeTags(recipe)));
     });
+    makeBtnOnImgCore();
 }
+
+// export function makeBtnOnImgCore() {
+//     const loveBtns = Array.from(document.getElementsByClassName('love-btn'));
+//     loveBtns.forEach((btn) => btn.addEventListener('click', () => {
+//         const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+//         const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
+//         const checkLove = btn.classList.contains('selected');
+//         if (!checkLove) {
+//             btn.classList.add('selected');
+//             loveCheckNode.classList.add('checked');
+//         } else {
+//             btn.classList.remove('selected');
+//             loveCheckNode.classList.remove('checked');
+//             const recipeId = recipeBoxParentNode.getAttributte('recipeId');
+//             console.log(recipeId);
+//             let myCollection = loadMyCollectionFromLocalStorage();
+//             const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
+//             myCollection.splice(i, 1);
+//             saveMyCollectionToLocalStorage(myCollection);
+//         }
+//     }));   
+    
+
+//     const cookedBtns = Array.from(document.getElementsByClassName('cooked-btn'));
+//     cookedBtns.forEach((btn) => btn.addEventListener('click', () => {
+//         const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+//         const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
+//         const checkCooked = btn.classList.contains('selected');
+//         if (!checkCooked) {
+//             btn.classList.add('selected');
+//             cookedCheckNode.classList.add('checked');
+//         } else {
+//             btn.classList.remove('selected');
+//             cookedCheckNode.classList.remove('checked');
+//         }
+//     }));   
+// }
