@@ -1,6 +1,6 @@
-import { recipeCollectionSpread } from "../database/database-recipes.js";
+import { recipeCollectionSpread } from '../database/database-recipes.js';
 
-// Render 1 Box Công thức 
+// Render 1 Box Công thức
 export function render1RecipeBox(recipe) {
     return `
     <div id="recipe-${recipe.id}" class="recipe-box">
@@ -9,7 +9,7 @@ export function render1RecipeBox(recipe) {
                 <img src=".${recipe.thumbnail}" alt="" />
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
-                        <button><i class="fa-solid fa-eye"></i></button>
+                        <button><a href="../bun-oc-chay/index.html"><i class="fa-solid fa-eye"></i></a></button>
                         <button class="addCollectionBtn-${recipe.id}"><i class="fa-solid fa-heart"></i></button>
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
@@ -18,7 +18,7 @@ export function render1RecipeBox(recipe) {
             <div class="recipe-box__body">
                 <div class="content-space">
                     <div class="overview">
-                        <a href="/bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
+                        <a href="../bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
                         <h4 class="chef"><a href="#">${recipe.chefName}</a></h4>
                         <div class="recipe-tags">
                         

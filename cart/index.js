@@ -9,7 +9,7 @@ function renderWhenCartIsEmpty() {
         <div id="empty-cart">
             <img src="./assets/shopping-cart.png" alt="">
             <div>
-                <a href="/cong-thuc/index.html">Đến trang công thức</a>
+                <a href="../cong-thuc/index.html">Đến trang công thức</a>
             </div>
         </div>
         `;
