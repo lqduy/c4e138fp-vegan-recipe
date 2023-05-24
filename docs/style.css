@@ -17,6 +17,11 @@ img {
 ul {
     list-style-type: none;
 }
+
+.sub-menu .sub-menu__child-block .sub-menu__child {
+    z-index: 41;
+}
+
 .site-container {
     width: 100%;
 }
@@ -562,10 +567,9 @@ ul {
 /* #suggest-dishes__body{
     position: relative;
 } */
-.recipe-box:nth-child(2n+1) {
-    margin-left: auto;    
+.recipe-box:nth-child(2n + 1) {
+    margin-left: auto;
 }
-
 
 /* Intro */
 /* .intro-block{
@@ -644,7 +648,6 @@ ul {
 .intro-core .intro__content button:hover {
     background-color: var(--orange);
 }
-
 
 /* End Intro */
 /* Chef Space  */
@@ -804,4 +807,3 @@ ul {
 }
 
 /* End Feed back */
-
