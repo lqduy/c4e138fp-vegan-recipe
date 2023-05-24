@@ -26,6 +26,20 @@ ul {
     margin: 0 auto;
 }
 
+.header-core .nav-space .menu .menu__item:nth-child(3) > a {
+    color: var(--orange);
+}
+.header-core .nav-space .menu .menu__item:nth-child(3)::before {
+    content: '';
+    width: 100%;
+    height: 6px;
+
+    background-color: var(--orange);
+
+    position: absolute;
+    bottom: 0;
+}
+
 /* Banner & Title */
 .banner-title-block {
     height: 248px;
