@@ -462,6 +462,10 @@ ul {
 
     text-align: center;
 }
+.recipe-core .recipe-box__thumbnail .btn-on-img-core a {
+    color: var(--gray);
+}
+
 .recipe-core .recipe-box__thumbnail .btn-on-img-core button:hover {
     color: white;
     background-color: #f77300;
