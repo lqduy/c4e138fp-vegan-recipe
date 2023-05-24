@@ -6,7 +6,7 @@ import {
     updateLoginStatus,
     saveUserLoggedToLocalStorage,
     loadUserLoggedFromLocalStorage
-} from '../function/localstorage.js';
+} from './localstorage.js';
 import { renderUserSpace, renderTheCorner } from '../reuse/script-reuse.js';
 
 // Đăng ký - Đăng nhập
@@ -185,7 +185,6 @@ export function makeSubmitSignUpLogInBtn() {
 
 // Đăng nhập
 
-
 function logInWithUser(userLogged) {
     let cart = userLogged.cart;
     saveCartToLocalStorage(cart);
@@ -193,7 +192,6 @@ function logInWithUser(userLogged) {
     saveMyCollectionToLocalStorage(collection);
     // renderUserSpace(userLogged);
 }
-
 
 function logIn() {
     const id = document.getElementById('login-id').value;
