@@ -45,9 +45,9 @@ ul {
     height: 248px;
     width: 100%;
 
-    background-image: url(./assets/background-mon-viet.webp);
+    background-image: url(/assets/img-bg-pledge-block.png);
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
 }
 .banner-title-core {
