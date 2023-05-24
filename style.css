@@ -3,20 +3,6 @@
     --orange: #f8991d;
     --gray: #666;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    font-family: 'Roboto', sans-serif;
-}
-img {
-    vertical-align: middle;
-}
-ul {
-    list-style-type: none;
-}
 
 .sub-menu .sub-menu__child-block .sub-menu__child {
     z-index: 41;
