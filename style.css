@@ -39,6 +39,7 @@
     /* margin: 1.55em 0; */
 
     background-image: url(./assets/banner.new.01.png);
+    background-color: var(--orange);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

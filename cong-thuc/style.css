@@ -46,6 +46,7 @@ ul {
     width: 100%;
 
     background-image: url(/assets/img-bg-pledge-block.png);
+    background-color: var(--green);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
