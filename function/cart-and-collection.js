@@ -27,11 +27,21 @@ export function addProductToCart(productId) {
 
 // Sau khi bấm thêm vào Bộ sưu tập, giữ màu cam nút trái tim và hiển thẻ check Đã thích
 export function afterAddRecipe(recipe) {
-    const btnLoveOnImgCore = Array.from(document.getElementsByClassName(`love-btn-${recipe.id}`));
+    const btnLoveOnImgCore = document.querySelectorAll(`.love-btn-${recipe.id}`);
     btnLoveOnImgCore.forEach((btn) => btn.classList.add('selected'));
 
-    const loveCheckNode = Array.from(document.querySelectorAll(`.recipe-${recipe.id} .check-space .love-check`));
+    const loveCheckNode = document.querySelectorAll(`.recipe-${recipe.id} .check-space .love-check`);
     loveCheckNode.forEach((item) => item.classList.add('checked'));
+
+    console.log(recipe.isCooked);
+
+    if (recipe.isCooked) {
+        const btnCookedOnImgCore = document.querySelectorAll(`.cooked-btn-${recipe.id}`);
+        btnCookedOnImgCore.forEach((btn) => btn.classList.add('selected'));
+
+        const cookedCheckNode = document.querySelectorAll(`.recipe-${recipe.id} .check-space .cooked-check`);
+        cookedCheckNode.forEach((item) => item.classList.add('checked'));
+    }
 }
 
 // Thêm công thức vào Bộ sưu tập khi click chuột
@@ -46,7 +56,7 @@ export function addRecipeToMyCollection() {
                 const myCollectionItem = myCollection.find((item) => item.id === recipe.id);
 
                 if (!myCollectionItem) {
-                    myCollection.push(recipe);
+                    myCollection.push({ ...recipe, isCooked: false });
                     saveMyCollectionToLocalStorage(myCollection);
                     renderTheCorner();
 

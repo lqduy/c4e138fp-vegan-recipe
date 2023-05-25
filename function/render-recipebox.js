@@ -17,12 +17,12 @@ export function render1RecipeBox(recipe) {
 
         <div class="recipe-core">
             <div class="recipe-box__thumbnail">
-                <img src="${recipe.thumbnail}" alt="" />
+                <img src="${recipe.thumbnail}" alt="${recipe.name}" />
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
                         <button><a href="/bun-oc-chay/index.html"><i class="fa-solid fa-eye"></i></a></button>
                         <button class="addCollectionBtn-${recipe.id} love-btn-${recipe.id} love-btn"><i class="fa-solid fa-heart"></i></button>
-                        <button class="cooked-btn"><i class="fa-solid fa-check"></i></button>
+                        <button class="cooked-btn-${recipe.id} cooked-btn"><i class="fa-solid fa-check"></i></button>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ export function renderRecipeTagsAll() {
         parents.forEach((parent) => (parent.innerHTML = renderRecipeTags(recipe)));
     });
 }
-// Nếu công thức nào có trong Bộ sưu tập thì đánh dấu
+// Nếu công thức nào đã thêm Yêu thích thì đánh dấu
 export function tickRecipeAdded() {
     recipeCollectionSpread().forEach((recipe) => {
         if (loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id)) {
@@ -93,7 +93,6 @@ export function makeLoveBtnOnImgCore() {
         btn.addEventListener('click', () => {
             const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
             const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
-            console.log(recipeBoxParentNode, loveCheckNode);
             const checkLove = btn.classList.contains('selected');
             if (checkLove) {
                 btn.classList.remove('selected');
@@ -120,13 +119,23 @@ export function makeCookedBtnOnImgCore() {
         btn.addEventListener('click', () => {
             const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
             const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
-            const checkCooked = btn.classList.contains('selected');
+
+            let myCollection = loadMyCollectionFromLocalStorage();
+            const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
+            const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
+            const checkCooked = myCollection[i].isCooked;
+            console.log(recipeId, i, checkCooked, myCollection[i]);
+
             if (!checkCooked) {
                 btn.classList.add('selected');
                 cookedCheckNode.classList.add('checked');
+                myCollection[i].isCooked = true;
+                saveMyCollectionToLocalStorage(myCollection);
             } else {
                 btn.classList.remove('selected');
                 cookedCheckNode.classList.remove('checked');
+                myCollection[i].isCooked = false;
+                saveMyCollectionToLocalStorage(myCollection);
             }
         })
     );

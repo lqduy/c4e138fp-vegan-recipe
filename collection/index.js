@@ -1,4 +1,4 @@
-import { addRecipeToMyCollection } from '../function/cart-and-collection.js';
+import { afterAddRecipe } from '../function/cart-and-collection.js';
 import { loadMyCollectionFromLocalStorage } from '../function/localstorage.js';
 import {
     render1RecipeBox,
@@ -10,8 +10,12 @@ import {
 
 function renderMyCollection() {
     const parent = document.getElementById('collection-space');
-    const childs = loadMyCollectionFromLocalStorage().map((recipe) => (recipe = render1RecipeBox(recipe)));
-    parent.innerHTML = childs.reduce((string, item) => string + item, '');
+    const myCollection = loadMyCollectionFromLocalStorage();
+
+    myCollection.forEach((recipe) => {
+        parent.innerHTML += render1RecipeBox(recipe);
+        afterAddRecipe(recipe);
+    });
 }
 
 renderMyCollection();

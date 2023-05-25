@@ -4,10 +4,11 @@ import {
     makeLoveBtnOnImgCore,
     render1RecipeBox,
     renderRecipeTagsAll,
-    tickRecipeAdded,
+    tickRecipeAdded
 } from '../function/render-recipebox.js';
-import { addRecipeToMyCollection } from '../function/cart-and-collection.js';
+import { addRecipeToMyCollection, afterAddRecipe } from '../function/cart-and-collection.js';
 import { filterRecipeByTag } from '../function/search-filter.js';
+import { loadMyCollectionFromLocalStorage } from '../function/localstorage.js';
 
 const top5TrendingRecipesId = ['110135-0002', '110133-0003', '110133-0002', '110134-0002', '110134-0003'];
 
@@ -48,17 +49,21 @@ function seeAllListButton() {
 // Render tất cả công thức lên trang
 export function renderRecipeAll(recipeList) {
     const parent = document.getElementById('all-list');
-    const childs = recipeList.map((item) => (item = render1RecipeBox(item)));
+    const myCollection = loadMyCollectionFromLocalStorage();
 
-    parent.innerHTML = childs.reduce((content, item) => content + item, '');
+    parent.innerHTML = recipeList.reduce((string, item) => string + render1RecipeBox(item), '');
+
+    myCollection.forEach((recipe) => {
+        if (myCollection.find((item) => item.id === recipe.id)) {
+            afterAddRecipe(recipe);
+        }
+    });
 
     renderRecipeTagsAll();
     tickRecipeAdded();
-    seeAllListButton();
     filterRecipeByTag();
     addRecipeToMyCollection();
-    // makeLoveBtnOnImgCore();
-    // makeCookedBtnOnImgCore();
 }
 
 renderRecipeAll(recipeCollectionSpread());
+seeAllListButton();
