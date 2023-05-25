@@ -1,5 +1,12 @@
+import { addRecipeToMyCollection } from '../function/cart-and-collection.js';
 import { loadMyCollectionFromLocalStorage } from '../function/localstorage.js';
-import { render1RecipeBox, renderRecipeTagsAll } from '../function/render-recipebox.js';
+import {
+    render1RecipeBox,
+    renderRecipeTagsAll,
+    tickRecipeAdded,
+    makeLoveBtnOnImgCore,
+    makeCookedBtnOnImgCore
+} from '../function/render-recipebox.js';
 
 function renderMyCollection() {
     const parent = document.getElementById('collection-space');
@@ -9,4 +16,6 @@ function renderMyCollection() {
 
 renderMyCollection();
 renderRecipeTagsAll();
-// makeBtnOnImgCore();
+tickRecipeAdded();
+makeLoveBtnOnImgCore();
+makeCookedBtnOnImgCore();

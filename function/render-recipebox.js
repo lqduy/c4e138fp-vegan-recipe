@@ -1,10 +1,15 @@
 import { recipeCollectionSpread } from '../database/database-recipes.js';
 import { loadMyCollectionFromLocalStorage, saveMyCollectionToLocalStorage } from './localstorage.js';
+import { afterAddRecipe } from './cart-and-collection.js';
+import { renderTheCorner } from '../reuse/script-reuse.js';
 
 // Render 1 Box Công thức
 export function render1RecipeBox(recipe) {
     return `
-    <div class="recipe-box recipe-${recipe.id}" recipeId="${recipe.id}">
+    <div class="recipe-box recipe-${recipe.id}" recipe-id="${recipe.id}">
+        <div class="out-of-love">
+        
+        </div>
         <div class="check-space">
             <a class="love-check">Đã thích</a>
             <a class="cooked-check">Đã nấu</a>
@@ -16,7 +21,7 @@ export function render1RecipeBox(recipe) {
                 <div class="btn-on-img-block">
                     <div class="btn-on-img-core">
                         <button><a href="/bun-oc-chay/index.html"><i class="fa-solid fa-eye"></i></a></button>
-                        <button class="addCollectionBtn-${recipe.id} love-btn-${recipe.id}"><i class="fa-solid fa-heart"></i></button>
+                        <button class="addCollectionBtn-${recipe.id} love-btn-${recipe.id} love-btn"><i class="fa-solid fa-heart"></i></button>
                         <button class="cooked-btn"><i class="fa-solid fa-check"></i></button>
                     </div>
                 </div>
@@ -72,42 +77,57 @@ export function renderRecipeTagsAll() {
         const parents = document.querySelectorAll(`.recipe-${recipe.id} .recipe-tags`);
         parents.forEach((parent) => (parent.innerHTML = renderRecipeTags(recipe)));
     });
-    makeBtnOnImgCore();
+}
+// Nếu công thức nào có trong Bộ sưu tập thì đánh dấu
+export function tickRecipeAdded() {
+    recipeCollectionSpread().forEach((recipe) => {
+        if (loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id)) {
+            afterAddRecipe(recipe);
+        }
+    });
 }
 
-// export function makeBtnOnImgCore() {
-//     const loveBtns = Array.from(document.getElementsByClassName('love-btn'));
-//     loveBtns.forEach((btn) => btn.addEventListener('click', () => {
-//         const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
-//         const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
-//         const checkLove = btn.classList.contains('selected');
-//         if (!checkLove) {
-//             btn.classList.add('selected');
-//             loveCheckNode.classList.add('checked');
-//         } else {
-//             btn.classList.remove('selected');
-//             loveCheckNode.classList.remove('checked');
-//             const recipeId = recipeBoxParentNode.getAttributte('recipeId');
-//             console.log(recipeId);
-//             let myCollection = loadMyCollectionFromLocalStorage();
-//             const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
-//             myCollection.splice(i, 1);
-//             saveMyCollectionToLocalStorage(myCollection);
-//         }
-//     }));   
-    
+export function makeLoveBtnOnImgCore() {
+    const loveBtns = Array.from(document.getElementsByClassName('love-btn'));
+    loveBtns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+            const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+            const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
+            console.log(recipeBoxParentNode, loveCheckNode);
+            const checkLove = btn.classList.contains('selected');
+            if (checkLove) {
+                btn.classList.remove('selected');
+                loveCheckNode.classList.remove('checked');
+                const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
 
-//     const cookedBtns = Array.from(document.getElementsByClassName('cooked-btn'));
-//     cookedBtns.forEach((btn) => btn.addEventListener('click', () => {
-//         const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
-//         const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
-//         const checkCooked = btn.classList.contains('selected');
-//         if (!checkCooked) {
-//             btn.classList.add('selected');
-//             cookedCheckNode.classList.add('checked');
-//         } else {
-//             btn.classList.remove('selected');
-//             cookedCheckNode.classList.remove('checked');
-//         }
-//     }));   
-// }
+                let myCollection = loadMyCollectionFromLocalStorage();
+                const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
+                myCollection.splice(i, 1);
+                saveMyCollectionToLocalStorage(myCollection);
+
+                renderTheCorner();
+
+                const outOfLoveNode = recipeBoxParentNode.querySelector('.out-of-love');
+                outOfLoveNode.style.display = 'block';
+            }
+        })
+    );
+}
+
+export function makeCookedBtnOnImgCore() {
+    const cookedBtns = Array.from(document.getElementsByClassName('cooked-btn'));
+    cookedBtns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+            const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+            const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
+            const checkCooked = btn.classList.contains('selected');
+            if (!checkCooked) {
+                btn.classList.add('selected');
+                cookedCheckNode.classList.add('checked');
+            } else {
+                btn.classList.remove('selected');
+                cookedCheckNode.classList.remove('checked');
+            }
+        })
+    );
+}

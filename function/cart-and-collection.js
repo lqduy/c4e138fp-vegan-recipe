@@ -25,9 +25,16 @@ export function addProductToCart(productId) {
     renderTheCorner();
 }
 
+// Sau khi bấm thêm vào Bộ sưu tập, giữ màu cam nút trái tim và hiển thẻ check Đã thích
+export function afterAddRecipe(recipe) {
+    const btnLoveOnImgCore = Array.from(document.getElementsByClassName(`love-btn-${recipe.id}`));
+    btnLoveOnImgCore.forEach((btn) => btn.classList.add('selected'));
+
+    const loveCheckNode = Array.from(document.querySelectorAll(`.recipe-${recipe.id} .check-space .love-check`));
+    loveCheckNode.forEach((item) => item.classList.add('checked'));
+}
 
 // Thêm công thức vào Bộ sưu tập khi click chuột
-
 export function addRecipeToMyCollection() {
     recipeCollectionSpread().forEach((recipe) => {
         const getButtonElements = document.querySelectorAll(`.addCollectionBtn-${recipe.id}`);
@@ -43,8 +50,7 @@ export function addRecipeToMyCollection() {
                     saveMyCollectionToLocalStorage(myCollection);
                     renderTheCorner();
 
-                    // const btnLoveOnImgCore = Array.from(document.getElementsByClassName(`love-btn-${recipe.id}`));
-                    // btnLoveOnImgCore.forEach((btn) => btn.classList.add('selected'));
+                    afterAddRecipe(recipe);
                 }
             })
         );

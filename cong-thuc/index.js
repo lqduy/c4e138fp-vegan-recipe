@@ -1,5 +1,11 @@
 import { recipeCollectionSpread } from '../database/database-recipes.js';
-import { render1RecipeBox, renderRecipeTagsAll } from '../function/render-recipebox.js';
+import {
+    makeCookedBtnOnImgCore,
+    makeLoveBtnOnImgCore,
+    render1RecipeBox,
+    renderRecipeTagsAll,
+    tickRecipeAdded,
+} from '../function/render-recipebox.js';
 import { addRecipeToMyCollection } from '../function/cart-and-collection.js';
 import { filterRecipeByTag } from '../function/search-filter.js';
 
@@ -32,7 +38,6 @@ function showSlides() {
 showSlides();
 setInterval(showSlides, 9000);
 
-
 // Nút Xem tất cả công thức
 function seeAllListButton() {
     document.getElementById('see-all-list').addEventListener('click', () => {
@@ -48,15 +53,12 @@ export function renderRecipeAll(recipeList) {
     parent.innerHTML = childs.reduce((content, item) => content + item, '');
 
     renderRecipeTagsAll();
+    tickRecipeAdded();
     seeAllListButton();
     filterRecipeByTag();
     addRecipeToMyCollection();
+    // makeLoveBtnOnImgCore();
+    // makeCookedBtnOnImgCore();
 }
 
 renderRecipeAll(recipeCollectionSpread());
-
-
-
-
-
-
