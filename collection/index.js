@@ -12,7 +12,7 @@ function renderMyCollection() {
     const parent = document.getElementById('collection-space');
     const myCollection = loadMyCollectionFromLocalStorage();
 
-    myCollection.forEach((recipe) => {
+    myCollection.reverse().forEach((recipe) => {
         parent.innerHTML += render1RecipeBox(recipe);
         afterAddRecipe(recipe);
     });

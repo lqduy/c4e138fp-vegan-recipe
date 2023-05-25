@@ -33,8 +33,6 @@ export function afterAddRecipe(recipe) {
     const loveCheckNode = document.querySelectorAll(`.recipe-${recipe.id} .check-space .love-check`);
     loveCheckNode.forEach((item) => item.classList.add('checked'));
 
-    console.log(recipe.isCooked);
-
     if (recipe.isCooked) {
         const btnCookedOnImgCore = document.querySelectorAll(`.cooked-btn-${recipe.id}`);
         btnCookedOnImgCore.forEach((btn) => btn.classList.add('selected'));
