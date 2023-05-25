@@ -402,14 +402,14 @@ ul {
 
     background-color: white;
 }
-.recipe-box .out-of-love{
+.recipe-box .out-of-love {
     display: none;
 
     position: absolute;
     top: 0;
     left: 0;
     z-index: 11;
-    
+
     width: 100%;
     height: 100%;
 
@@ -503,7 +503,7 @@ ul {
     background-color: #f77300;
     box-shadow: 0px 0px 10px 0.1px gray;
 }
-.recipe-core .recipe-box__thumbnail .btn-on-img-core button:hover a{
+.recipe-core .recipe-box__thumbnail .btn-on-img-core button:hover a {
     color: white;
 }
 
