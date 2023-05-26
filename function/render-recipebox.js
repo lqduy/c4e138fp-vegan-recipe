@@ -60,6 +60,7 @@ export function render1RecipeBox(recipe) {
                     <p class="recipe__price">${recipe.price}<span> xu</span></p>
                     <button class="addCollectionBtn-${recipe.id}">Thêm</button>
                 </div>
+                <div class="chef-space" chef-id="${recipe.chefId}"></div>
             </div>
         </div>
     </div>

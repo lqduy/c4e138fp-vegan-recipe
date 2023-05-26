@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
+    <head>
+        <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,52 +21,46 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <link rel="stylesheet" href="../reuse/css-reuse.css">
+        <link rel="stylesheet" href="../reuse/css-reuse.css" />
         <link rel="stylesheet" href="./style.css" />
         <link rel="stylesheet" href="../reuse/normalize.css" />
         <title>Yêu thích</title>
-</head>
-<body>
-    <div class="site-container">
-        <!-- Header -->
-        <header class="header-block">
-            
-        </header>
-        <!-- End Header -->
-        <div class="main-block">
-            <section class="banner-title-block">
-                <div class="banner-title-core container">
-                    <p>YÊU THÍCH</p>
-                </div>
-            </section>
-            <div class="site-body container">
-                <div class="setting-space">
-
-                </div>
-                <div id="collection-space" class="container">
-                    
+    </head>
+    <body>
+        <div class="site-container">
+            <!-- Header -->
+            <header class="header-block"></header>
+            <!-- End Header -->
+            <div class="main-block">
+                <section class="banner-title-block">
+                    <div class="banner-title-core container">
+                        <p>YÊU THÍCH</p>
+                    </div>
+                </section>
+                <div class="site-body">
+                    <div class="setting-space container">
+                        <div class="setting-btn">
+                            <button id="change-view-recipe"><i class="fa-solid fa-list"></i></button>
+                            <button id="change-zoom-recipe"><i class="fa-solid fa-arrows-left-right"></i></button>
+                        </div>
+                    </div>
+                    <div id="collection-space" class="container"></div>
                 </div>
             </div>
+            <!-- Footer  -->
+            <footer class="footer-block"></footer>
+            <!-- End Footer  -->
+            <div class="corner-space hide-corner-space"></div>
         </div>
-        <!-- Footer  -->
-        <footer class="footer-block">
-               
-        </footer>
-        <!-- End Footer  -->
-        <div class="corner-space hide-corner-space">
-
-        </div>
-    </div>
-    <div class="form-signup-login">
-            
-    </div> 
-    <script src="/database/database-products.js" type="module"></script>
-    <script src="/function/localstorage.js" type="module"></script>
-    <script src="/reuse/html-reuse.js" type="module"></script>
-    <script src="/reuse/script-reuse.js" type="module"></script>
-    <script src="/function/render-recipebox.js" type="module"></script>
-    <script src="/function/signup-login-logout.js" type="module"></script>
-    <script src="/function/cart-and-collection.js" type="module"></script>
-    <script src="./index.js" type="module"></script>
-</body>
+        <div class="form-signup-login"></div>
+        <script src="/database/database-products.js" type="module"></script>
+        <script src="/database/database-chefs.js" type="module"></script>
+        <script src="/function/localstorage.js" type="module"></script>
+        <script src="/reuse/html-reuse.js" type="module"></script>
+        <script src="/reuse/script-reuse.js" type="module"></script>
+        <script src="/function/render-recipebox.js" type="module"></script>
+        <script src="/function/signup-login-logout.js" type="module"></script>
+        <script src="/function/cart-and-collection.js" type="module"></script>
+        <script src="./index.js" type="module"></script>
+    </body>
 </html>

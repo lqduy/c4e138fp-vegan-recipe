@@ -199,12 +199,7 @@ function makeChangeViewRicepeBtn() {
     const changeViewRicepeBtn = document.getElementById('change-view-recipe');
     changeViewRicepeBtn.addEventListener('click', () => {
         const parent = document.getElementById('suggest-dishes__body');
-        const isChange = parent.classList.contains('suggest-dishes__body--change');
-        if (!isChange) {
-            parent.classList.add('suggest-dishes__body--change');
-        } else {
-            parent.classList.remove('suggest-dishes__body--change');
-        }
+        parent.classList.toggle('suggest-dishes__body--change');
     });
 }
 makeChangeViewRicepeBtn();

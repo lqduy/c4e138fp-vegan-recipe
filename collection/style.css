@@ -31,6 +31,7 @@
 
 .site-body {
     margin: 3.75em auto;
+    padding: 0 1%;
 }
 
 #collection-space {
@@ -38,13 +39,14 @@
     flex-wrap: wrap;
 }
 #collection-space .recipe-box {
-    flex-basis: 32.33%;
+    flex-basis: 24.25%;
     margin-right: 1%;
 }
-#collection-space .recipe-box:nth-child(3n) {
+#collection-space .recipe-box:nth-child(4n) {
     margin-right: 0;
 }
 
+/* Recipe Box */
 .recipe-box .recipe-core {
     display: flex;
     flex-direction: column;
@@ -65,3 +67,92 @@
 .recipe-box .recipe-core .add-space {
     display: none;
 }
+
+.setting-space{
+    margin-bottom: 1.5em;
+}
+.setting-space .setting-btn{
+    text-align: right;
+}
+.setting-btn button{
+    cursor: pointer;
+    
+    padding: 0.4em;
+    border: none;
+    border-radius: 0.25em;
+
+    background-color: var(--orange);
+    color: white;
+    opacity: 0.7;
+
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.setting-btn button:hover{
+    background-color: #f77300;
+    opacity: 1;
+}
+
+/* End Recipe Box */
+
+/* site-body-change */
+
+.site-body-change #collection-space {
+    flex-direction: column;
+}
+.site-body-change #collection-space .recipe-box{
+    flex-basis: 79%;
+}
+
+.site-body-change #collection-space .recipe-box:nth-child(2n){
+    margin-left: auto;
+}
+.site-body-change .recipe-box .recipe-core{
+    flex-direction: row;
+}
+/* End site-body-change */
+
+/* chef-space inner recipe-box */
+.chef-space {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1.15em;
+
+    margin-top: 0.5em;
+
+    text-align: right;
+    color: var(--green);
+}
+.chef-space .chef-details h5 a{
+    display: block;
+    margin-bottom: 0.25em;
+
+    color: var(--orange);
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.chef-space .chef-details p{
+    color: var(--green);
+}
+.chef-space .chef-details .chef-quote{
+    width: 90%;
+    margin-left: auto;
+    margin-top: 1em;
+
+    color: var(--gray);
+    text-align: justify;
+}
+
+.chef-space > img{
+    border-radius: 50%;
+}
+
+.chef-space .chef-collection {
+    margin-top: 1em;
+}
+
+.chef-space .chef-collection a{
+    margin-left: 0.25em;
+}
+/* End chef-space inner recipe-box */

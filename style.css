@@ -531,9 +531,11 @@
 
     background-color: var(--orange);
     color: white;
+    opacity: 0.7;
 }
 .section-header .setting-btn button:hover{
     background-color: #f77300;
+    opacity: 1;
 }
 
 .group-of-dishes-core .group-of-dishes__body {
