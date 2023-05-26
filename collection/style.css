@@ -110,6 +110,15 @@
 .site-body-change .recipe-box .recipe-core {
     flex-direction: row;
 }
+.site-body-change .recipe-box .check-space {
+    top: 6%;
+}
+.site-body-change .recipe-box .check-space a {
+    width: 120px;
+    padding: 0.8em;
+
+    font-size: 1.25em;
+}
 .site-body-change .recipe-box .recipe-core .star {
     position: absolute;
     top: 0;
@@ -160,20 +169,14 @@
     border-radius: 50%;
 }
 
-.chef-space .chef-collection {
-    margin-top: 1em;
-}
-
-.chef-space .chef-collection a {
-    display: inline-block;
-
-    margin-left: 0.25em;
-
-    overflow: hidden;
-}
-.chef-space .chef-collection img:hover {
-    transform: scale(1.2);
+.chef-space > a img:hover {
+    transform: translateY(-5%);
     transition: transform 0.3s;
+}
+
+.chef-collection .other-recipe img {
+    width: 80px;
+    height: auto;
 }
 
 /* End chef-space inner recipe-box */

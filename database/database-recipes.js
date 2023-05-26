@@ -178,6 +178,34 @@ export const recipeCollection = [
                 tag: ['món Việt', 'món kho']
             }
         ]
+    },
+    {
+        chef: {
+            chefName: 'Linh Đa',
+            chefId: '110137'
+        },
+        recipes: [
+            {
+                id: '110137-0001',
+                name: 'Mứt Củ Dền',
+                thumbnail: '/assets/recipe-thumbnail/mut-cu-den.jpg',
+                intro: 'Có vô vàn cách để nhuộm màu cho mứt từ những nguyên liệu tự nhiên. Mình vẫn thích sắc hồng của mứt dừa củ dền nhất màu hồng tươi xinh cho một năm mới nhiều may mắn…',
+                cookingTime: "30'",
+                preparationTime: "60'",
+                price: 25,
+                tag: ['món ngọt', 'món Việt', 'mứt', 'món Tết']
+            },
+            {
+                id: '110137-0002',
+                name: 'Nấm Mỡ Rim Me',
+                thumbnail: '/assets/recipe-thumbnail/nam-mo-rim-me.jpg',
+                intro: 'Những món với nấm lúc nào cũng đem lại sự ngon miệng đậm đà. Và nấm mỡ rim me là một món ăn đơn giản ngon lành cho mâm cơm gia đình…',
+                cookingTime: "15'",
+                preparationTime: "25'",
+                price: 45,
+                tag: ['món Việt', 'món kho']
+            }
+        ]
     }
 ];
 

@@ -421,7 +421,7 @@ ul {
 
     position: absolute;
     left: 0;
-    top: 1.5%;
+    top: 3%;
     z-index: 1;
 }
 .recipe-box .check-space a {
@@ -437,15 +437,14 @@ ul {
     display: block;
 }
 .recipe-box .love-check {
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 
     background-color: #f77300;
 }
 .recipe-box .cooked-check {
     background-color: var(--green);
 }
-.recipe-box .check {
-}
+
 .recipe-core {
     display: flex;
     /* gap: 0.75em; */
@@ -558,6 +557,11 @@ ul {
 
     color: var(--gray);
 }
+.recipe-core .recipe-box__body .details span{
+    color: var(--orange);
+
+    font-weight: bold;
+}
 .recipe-core .recipe-box__body .share-space {
     display: flex;
     justify-content: center;
@@ -596,6 +600,8 @@ ul {
     justify-content: space-between;
     align-items: center;
     gap: 150px; */
+    margin-top: auto;
+
     text-align: right;
 }
 .add-space .recipe__price {
@@ -899,3 +905,61 @@ ul {
 }
 
 /* End Corner Space */
+
+/* Chef Collection */
+.chef-collection {
+    display: flex;
+    justify-content: end;
+    gap: 0.25em;
+
+    margin-top: 1em;
+}
+
+.chef-collection .other-recipe {
+    /* display: inline-block; */
+
+    position: relative;
+
+    /* flex-basis: 80px; */
+    height: auto;
+    /* overflow: visible; */
+
+    /* margin-left: 0.25em; */
+}
+.chef-collection .other-recipe .show-name {
+    display: none;
+
+    width: fit-content;
+    min-width: 100px;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -110%);
+    z-index: 1;
+
+    background-color: #f77300;
+
+    text-align: center;
+}
+.chef-collection .other-recipe .show-name span{
+    padding: 0.25em;
+
+    color: white;
+
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+.chef-collection .other-recipe:hover .show-name {
+    display: block;
+}
+.chef-collection .other-recipe a{
+    display: block;
+    overflow: hidden;
+}
+.chef-collection .other-recipe a img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+/* End Chef Collection */

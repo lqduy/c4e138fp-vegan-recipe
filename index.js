@@ -3,6 +3,7 @@ import { chefsList } from './database/database-chefs.js';
 import { render1RecipeBox, renderRecipeTagsAll } from './function/render-recipebox.js';
 import { addRecipeToMyCollection, afterAddRecipe } from './function/cart-and-collection.js';
 import { loadMyCollectionFromLocalStorage } from './function/localstorage.js';
+import { renderChefCollectionInnerBox } from './reuse/script-reuse.js';
 
 const groupDishes = [
     {
@@ -126,21 +127,28 @@ function render1ChefBox(chef) {
     <div class="the-chef__wrap">
         <div class="the-chef chef-${chef.chefId}">
             <a href="#">
-                <div class="top">
-                    <div class="avatar">
-                        <img src="${chef.chefAvatar}" alt="${chef.chefName}" />
+                <div class="top-mid">
+                    <div class="top">
+                        <div class="avatar">
+                            <img src="${chef.chefAvatar}" alt="${chef.chefName}" />
+                        </div>
+                        <div class="name-and-job">
+                            <h3>${chef.chefName}</h3>
+                            <h4>${chef.job}</h4>
+                        </div>
                     </div>
-                    <div class="name-and-job">
-                        <h3>${chef.chefName}</h3>
-                        <h4>${chef.job}</h4>
+                    <div class="mid">
+                        <p>
+                            “${chef.quote}”
+                        </p>
                     </div>
                 </div>
-                <div class="bottom">
-                    <p>
-                        “${chef.quote}”
-                    </p>
+                <div class="bot">
+                    <div class="chef-collection-${chef.chefId} chef-collection">
+                        
+                    </div>
+                    <button class="see-more">Xem thêm</button>                
                 </div>
-                <button class="see-more">Xem thêm</button>
             </a>
         </div>
     </div>                        
@@ -152,6 +160,10 @@ function renderChefAll() {
     const parent = document.querySelector('.chef-space-block .chef-space__body .chef-space__core');
     const childs = chefsList.map((chef) => render1ChefBox(chef));
     parent.innerHTML = childs.reduce((string, item) => string + item, '');
+
+    chefsList.forEach((chef) => {
+        renderChefCollectionInnerBox(chef.chefId);
+    })
 }
 
 renderChefAll();

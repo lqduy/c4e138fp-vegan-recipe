@@ -5,6 +5,7 @@ import {
     loadUserLoggedFromLocalStorage
 } from '../function/localstorage.js';
 import { makeSignUpLogInBtn, makeLogOutBtn } from '../function/signup-login-logout.js';
+import { recipeCollection } from '../database/database-recipes.js';
 
 // Scroll Page
 let lastScrollPosition = 0;
@@ -60,4 +61,27 @@ export function renderUserSpace() {
         userElement.innerHTML = elements;
         makeSignUpLogInBtn();
     }
+}
+
+// Render các món ăn của đầu bếp
+export function renderChefCollectionInnerBox(chefId) {
+    const chef = recipeCollection.find((item) => item.chef.chefId === chefId);
+    const chefCollection = chef.recipes;
+
+    const parent = Array.from(document.querySelectorAll(`.chef-collection-${chefId}`));
+
+    parent.forEach((parentItem) => {
+        const elements = chefCollection.reduce(
+            (string, recipe) =>
+                string +
+                `
+                <div class="other-recipe">
+                    <a href="#"><img src="${recipe.thumbnail}" alt="${recipe.name}" /></a>
+                    <div class="show-name"><span>${recipe.name}</span></div>
+                </div>`,
+            ''
+        );
+
+        parentItem.innerHTML = elements;
+    });
 }

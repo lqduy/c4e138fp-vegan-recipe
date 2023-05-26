@@ -705,11 +705,13 @@
 
     background-color: #e5f9f5;
 }
-.chef-space__body .the-chef a{
-    display: block;
+.chef-space__body .the-chef>a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     width: 100%;
-    min-height: 450px;
+    height: 525px;
 }
 .the-chef .top {
     display: flex;
@@ -738,24 +740,57 @@
 
     font-size: 1.25em;
 }
-.the-chef .bottom {
+.the-chef .mid {
     padding-top: 2em;
 
     color: var(--gray);
 
     font-size: 1.15em;
 }
-.the-chef .bottom p {
+.the-chef .mid p {
     text-align: justify;
 }
+.the-chef .bot {
+    width: 100%;
+}
+.the-chef .bot .chef-collection{
+    justify-content: start;
+    align-items: end;
+    gap: 1%;
+
+    width: 100%;
+    /* height: 100px; */
+    overflow-wrap: hidden;
+}
+.the-chef .bot .chef-collection .other-recipe{
+    /* display: block; */
+
+    width: 19.2%;
+}
+.the-chef .bot .chef-collection img{
+    width: 100%;
+    height: auto;
+}
+
+/* .the-chef .bot .chef-collection .other-recipe a{
+    width: 19.2%;
+} */
+/* .the-chef .bot .chef-collection .other-recipe a img{
+    width: 100%;
+} */
+
+
 .the-chef .see-more {
-    position: absolute;
+    /* position: absolute;
 
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    display: block;
+
     border: none;
     background-color: transparent;
 
+    margin: 0 auto;
     margin-top: 2em;
     z-index: 11;
 
@@ -888,10 +923,20 @@
 
 /* End Feed back */
 
+/* Thẻ đánh dấu mặc định */
+.recipe-box .check-space a {
+    width: 120px;
+    padding: 0.8em;
+
+    font-size: 1.25em;
+}
 /* Change view công thức gợi ý */
+
 .suggest-dishes__body--change{
     display: flex;
 }
+
+
 .suggest-dishes__body--change .recipe-box{
     width: 24.25%;
     height: 850px;
@@ -899,6 +944,12 @@
 }
 .suggest-dishes__body--change .recipe-box:nth-child(4n){
     margin-right: 0;
+}
+.suggest-dishes__body--change .recipe-box .check-space a {
+    width: 90px;
+    padding: 0.5em;
+
+    font-size: 1em;
 }
 
 .suggest-dishes__body--change .recipe-box .recipe-core{

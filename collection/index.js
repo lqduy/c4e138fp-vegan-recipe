@@ -8,7 +8,7 @@ import {
     makeCookedBtnOnImgCore
 } from '../function/render-recipebox.js';
 import { chefsList } from '../database/database-chefs.js';
-import { recipeCollection } from '../database/database-recipes.js';
+import { renderChefCollectionInnerBox } from '../reuse/script-reuse.js';
 
 function renderMyCollection() {
     const parent = document.getElementById('collection-space');
@@ -62,7 +62,7 @@ function showChefInnerRecipeBox() {
                     <h5><a href="#">${chef.chefName}</a></h5>
                     <p>${chef.job}</p>
                 </div>
-                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="90px" height="auto" /></a>
+                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="120px" height="auto" /></a>
             `;
 
             node.innerHTML = elements;
@@ -85,6 +85,7 @@ function showChefInnerRecipeBox() {
                     </div>
                 </div>
                 <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="270px" height="auto" /></a>
+                
             `;
 
             node.innerHTML = elements;
@@ -94,20 +95,5 @@ function showChefInnerRecipeBox() {
     }
 }
 
-function renderChefCollectionInnerBox(chefId) {
-    const chef = recipeCollection.find((item) => item.chef.chefId === chefId);
-    const chefCollection = chef.recipes;
 
-    const parent = Array.from(document.querySelectorAll(`.chef-collection-${chefId}`));
 
-    parent.forEach((parentItem) => {
-        const elements = chefCollection.reduce(
-            (string, recipe) =>
-                string +
-                `<a href="#"><img src="${recipe.thumbnail}" alt="${recipe.name}" width="80px" height="auto" /></a>`,
-            ''
-        );
-
-        parentItem.innerHTML = elements;
-    });
-}

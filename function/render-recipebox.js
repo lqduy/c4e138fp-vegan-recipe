@@ -46,8 +46,8 @@ export function render1RecipeBox(recipe) {
                         </div>
                     </div>
                     <div class="details">
-                        <p>Chuẩn bị: ${recipe.preparationTime}</p>
-                        <p>Nấu: ${recipe.cookingTime}</p>
+                        <p>Chuẩn bị: <span>${recipe.preparationTime}</span></p>
+                        <p>Nấu: <span>${recipe.cookingTime}</span></p>
                     </div>
                     <div class="share-space">
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
