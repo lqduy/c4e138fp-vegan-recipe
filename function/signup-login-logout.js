@@ -226,8 +226,6 @@ export function makeLogOutBtn() {
 
         saveUsersDatabase(usersDatabase);
 
-        console.log(loadUsersDatabase());
-
         updateLoginStatus(false);
         saveUserLoggedToLocalStorage({});
         renderUserSpace();
