@@ -68,15 +68,15 @@
     display: none;
 }
 
-.setting-space{
+.setting-space {
     margin-bottom: 1.5em;
 }
-.setting-space .setting-btn{
+.setting-space .setting-btn {
     text-align: right;
 }
-.setting-btn button{
+.setting-btn button {
     cursor: pointer;
-    
+
     padding: 0.4em;
     border: none;
     border-radius: 0.25em;
@@ -88,7 +88,7 @@
     font-size: 1.25em;
     font-weight: bold;
 }
-.setting-btn button:hover{
+.setting-btn button:hover {
     background-color: #f77300;
     opacity: 1;
 }
@@ -100,16 +100,28 @@
 .site-body-change #collection-space {
     flex-direction: column;
 }
-.site-body-change #collection-space .recipe-box{
+.site-body-change #collection-space .recipe-box {
     flex-basis: 79%;
 }
 
-.site-body-change #collection-space .recipe-box:nth-child(2n){
+.site-body-change #collection-space .recipe-box:nth-child(2n) {
     margin-left: auto;
 }
-.site-body-change .recipe-box .recipe-core{
+.site-body-change .recipe-box .recipe-core {
     flex-direction: row;
 }
+.site-body-change .recipe-box .recipe-core .star {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.site-body-change .recipe-box .recipe-core .chef-space .chef-details h5 {
+    font-size: 1.25em;
+}
+.site-body-change .recipe-box .recipe-core .chef-space .chef-details p:nth-of-type(1) {
+    font-size: 1.15em;
+}
+
 /* End site-body-change */
 
 /* chef-space inner recipe-box */
@@ -124,7 +136,7 @@
     text-align: right;
     color: var(--green);
 }
-.chef-space .chef-details h5 a{
+.chef-space .chef-details h5 a {
     display: block;
     margin-bottom: 0.25em;
 
@@ -132,10 +144,10 @@
     font-size: 1.25em;
     font-weight: bold;
 }
-.chef-space .chef-details p{
+.chef-space .chef-details p {
     color: var(--green);
 }
-.chef-space .chef-details .chef-quote{
+.chef-space .chef-details .chef-quote {
     width: 90%;
     margin-left: auto;
     margin-top: 1em;
@@ -144,7 +156,7 @@
     text-align: justify;
 }
 
-.chef-space > img{
+.chef-space > a img {
     border-radius: 50%;
 }
 
@@ -152,7 +164,16 @@
     margin-top: 1em;
 }
 
-.chef-space .chef-collection a{
+.chef-space .chef-collection a {
+    display: inline-block;
+
     margin-left: 0.25em;
+
+    overflow: hidden;
 }
+.chef-space .chef-collection img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
 /* End chef-space inner recipe-box */

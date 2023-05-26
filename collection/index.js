@@ -62,7 +62,7 @@ function showChefInnerRecipeBox() {
                     <h5><a href="#">${chef.chefName}</a></h5>
                     <p>${chef.job}</p>
                 </div>
-                <img src="${chef.chefAvatar}" alt="${chef.chefName}" width="90px" height="auto" />
+                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="90px" height="auto" /></a>
             `;
 
             node.innerHTML = elements;
@@ -84,7 +84,7 @@ function showChefInnerRecipeBox() {
                     
                     </div>
                 </div>
-                <img src="${chef.chefAvatar}" alt="${chef.chefName}" width="270px" height="auto" />
+                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="270px" height="auto" /></a>
             `;
 
             node.innerHTML = elements;
