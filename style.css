@@ -509,15 +509,31 @@
 .section-header h2 span {
     color: var(--orange);
 }
-.section-header a {
+
+.section-header a, .section-header .setting-btn {
     position: absolute;
     right: 0;
     transform: translateY(-100%);
 
     font-size: 1.25em;
     font-weight: bold;
-    text-decoration: underline;
+}
+.section-header a{
     color: var(--orange);
+    text-decoration: underline;
+}
+.section-header .setting-btn button{
+    cursor: pointer;
+    
+    padding: 0.4em;
+    border: none;
+    border-radius: 0.25em;
+
+    background-color: var(--orange);
+    color: white;
+}
+.section-header .setting-btn button:hover{
+    background-color: #f77300;
 }
 
 .group-of-dishes-core .group-of-dishes__body {
@@ -869,3 +885,40 @@
 }
 
 /* End Feed back */
+
+/* Change view công thức gợi ý */
+.suggest-dishes__body--change{
+    display: flex;
+}
+.suggest-dishes__body--change .recipe-box{
+    width: 24.25%;
+    height: 850px;
+    margin-right: 1%;
+}
+.suggest-dishes__body--change .recipe-box:nth-child(4n){
+    margin-right: 0;
+}
+
+.suggest-dishes__body--change .recipe-box .recipe-core{
+    height: 100%;
+
+    flex-direction: column;
+
+}
+.suggest-dishes__body--change .recipe-box .recipe-core .recipe-box__thumbnail{
+    flex-basis: auto;
+}
+
+.suggest-dishes__body--change .recipe-box .recipe-core .recipe-box__body{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    flex-grow: 1;
+}
+.suggest-dishes__body--change .recipe-box .recipe-core .recipe-box__body .star{
+    position: static;
+
+    margin-top: 1.15em;
+
+    text-align: right;
+}

@@ -1,45 +1,46 @@
 import { recipeCollectionSpread } from './database/database-recipes.js';
 import { chefsList } from './database/database-chefs.js';
 import { render1RecipeBox, renderRecipeTagsAll } from './function/render-recipebox.js';
-import { addRecipeToMyCollection } from './function/cart-and-collection.js';
+import { addRecipeToMyCollection, afterAddRecipe } from './function/cart-and-collection.js';
+import { loadMyCollectionFromLocalStorage } from './function/localstorage.js';
 
 const groupDishes = [
     {
         name: 'Gỏi',
         note: 'Các loại rau củ tươi trộn với nước sốt',
-        image: '/assets/groups/group-of-dishes-goi.jpg',
+        image: '/assets/groups/group-of-dishes-goi.jpg'
     },
     {
         name: 'Kho',
         note: 'Nấu với nước mắm cho vị mặn mà',
-        image: '/assets/groups/group-of-dishes-kho.jpg',
+        image: '/assets/groups/group-of-dishes-kho.jpg'
     },
     {
         name: 'Cơm',
         note: 'Tạo nên từ hạt ngọc của trời',
-        image: '/assets/groups/group-of-dishes-com.jpg',
+        image: '/assets/groups/group-of-dishes-com.jpg'
     },
     {
         name: 'Súp',
         note: 'Nước trong lành ngon ngọt từ rau củ',
-        image: '/assets/groups/group-of-dishes-sup.jpg',
+        image: '/assets/groups/group-of-dishes-sup.jpg'
     },
     {
         name: 'Chiên',
         note: 'Từ dầu sôi lửa bỏng nên món ngon',
-        image: '/assets/groups/group-of-dishes-chien.jpg',
+        image: '/assets/groups/group-of-dishes-chien.jpg'
     },
     {
         name: 'Nướng',
         note: 'Điều kỳ diệu được tạo nên từ ngọn lửa',
-        image: '/assets/groups/group-of-dishes-nuong.jpg',
+        image: '/assets/groups/group-of-dishes-nuong.jpg'
     },
     {
         name: 'Lẩu',
         note: 'Hòa quyện mọi thứ trong nồi lẩu nóng',
-        image: '/assets/groups/group-of-dishes-lau.jpg',
-    },
-]
+        image: '/assets/groups/group-of-dishes-lau.jpg'
+    }
+];
 
 // Lấy số ngẫu nhiên
 function getRandomNumbers(arr, n) {
@@ -58,20 +59,36 @@ function getRandomNumbers(arr, n) {
     return randomNumbers;
 }
 
-// Lấy ngẫu nhiên 4 công thức gợi ý trong danh sách phẳng
-const getRandomRecipes = getRandomNumbers(recipeCollectionSpread(), 4).map((value) => recipeCollectionSpread()[value]);
-
 // Render list công thức gợi ý trên Trang chủ
 
 function renderSuggestRecipeAll() {
+    // Lấy ngẫu nhiên 4 công thức gợi ý trong danh sách phẳng
+    const getRandomRecipes = getRandomNumbers(recipeCollectionSpread(), 4).map(
+        (value) => recipeCollectionSpread()[value]
+    );
+
     const parent = document.getElementById('suggest-dishes__body');
     const childs = getRandomRecipes.map((item) => render1RecipeBox(item));
     parent.innerHTML = childs.reduce((content, item) => content + item, '');
+
+    renderRecipeTagsAll();
+    addRecipeToMyCollection();
+    makerenewRecipeBtn();
+
+    getRandomRecipes.forEach((recipe) => {
+        if (loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id)) {
+            afterAddRecipe(recipe);
+        }
+    });
 }
 
 renderSuggestRecipeAll();
-renderRecipeTagsAll();
-addRecipeToMyCollection();
+
+// Tạo nút renew công thức ở chỗ gợi ý
+function makerenewRecipeBtn() {
+    const renewRecipeBtn = document.getElementById('renew-recipe');
+    renewRecipeBtn.addEventListener('click', renderSuggestRecipeAll);
+}
 
 // Render 1 ô group món ăn
 function render1GroupBox(group) {
@@ -93,7 +110,7 @@ function render1GroupBox(group) {
             </div>
         </a>
     </div>
-    `
+    `;
 }
 // Render tất cả nhóm món ăn
 function renderGroupDishesAll() {
@@ -102,7 +119,6 @@ function renderGroupDishesAll() {
     parent.innerHTML = childs.reduce((string, item) => string + item, '');
 }
 renderGroupDishesAll();
-
 
 // Render 1 khung hiển thị đầu bếp
 function render1ChefBox(chef) {
@@ -131,7 +147,7 @@ function render1ChefBox(chef) {
     `;
 }
 
-// Render chef-space 
+// Render chef-space
 function renderChefAll() {
     const parent = document.querySelector('.chef-space-block .chef-space__body .chef-space__core');
     const childs = chefsList.map((chef) => render1ChefBox(chef));
@@ -139,7 +155,6 @@ function renderChefAll() {
 }
 
 renderChefAll();
-
 
 const nextChefBtn = document.getElementById('next-chef');
 const backChefBtn = document.getElementById('back-chef');
@@ -180,4 +195,16 @@ function transformChef(clickCount) {
 transformChef(0);
 makeBtnChefSlides();
 
-
+function makeChangeViewRicepeBtn() {
+    const changeViewRicepeBtn = document.getElementById('change-view-recipe');
+    changeViewRicepeBtn.addEventListener('click', () => {
+        const parent = document.getElementById('suggest-dishes__body');
+        const isChange = parent.classList.contains('suggest-dishes__body--change');
+        if (!isChange) {
+            parent.classList.add('suggest-dishes__body--change');
+        } else {
+            parent.classList.remove('suggest-dishes__body--change');
+        }
+    });
+}
+makeChangeViewRicepeBtn();
