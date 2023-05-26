@@ -554,6 +554,8 @@
     color: var(--green);
 
     font-size: 1.25em;
+
+    text-transform: uppercase;
 }
 .group-core .group-content .group__name h3 .caret {
     color: var(--orange);
@@ -700,7 +702,7 @@
     border-bottom: 1px solid var(--gray);
 }
 .the-chef .top .avatar img {
-    width: 145px;
+    width: 125px;
     height: auto;
     border-radius: 50%;
 }
