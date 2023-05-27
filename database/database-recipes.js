@@ -24,7 +24,17 @@ export const recipeCollection = [
                 preparationTime: "45'",
                 price: 40,
                 tag: ['món Việt', 'chả']
-            }
+            },
+            {
+                id: '110132-0003',
+                name: 'Khoai Tây Chiên',
+                thumbnail: '/assets/recipe-thumbnail/khoai-tay-chien.png',
+                intro: 'Dần già chiếc nồi chiên không dầu trở thành một phần trong thói quen nấu nướng thường ngày của mình. Nói vui thì lỡ mua rồi, phải dùng thường xuyên…',
+                cookingTime: "20'",
+                preparationTime: "15'",
+                price: 15,
+                tag: ['ăn vật', 'món chiên']
+            },
         ]
     },
     {
@@ -100,6 +110,16 @@ export const recipeCollection = [
                 preparationTime: "30'",
                 price: 40,
                 tag: ['món Việt', 'bánh']
+            },
+            {
+                id: '110134-0004',
+                name: 'Chè Củ Sen',
+                thumbnail: '/assets/recipe-thumbnail/che-cu-sen.png',
+                intro: 'Khi nhắc tới chè là mình lại nhớ tới bát chè đỗ đen mát lạnh mà mỗi hè tới là mẹ vẫn hay nấu cho cả nhà. Trong tâm trí…',
+                cookingTime: "30'",
+                preparationTime: "30'",
+                price: 40,
+                tag: ['chè', 'món Việt', 'món ngọt', 'ăn vặt']
             }
         ]
     },
@@ -148,6 +168,16 @@ export const recipeCollection = [
                 preparationTime: "40'",
                 price: 35,
                 tag: ['món Việt', 'món nước', 'bún']
+            },
+            {
+                id: '110135-0005',
+                name: 'Bánh Mì Bơ Lạc',
+                thumbnail: '/assets/recipe-thumbnail/banh-mi-bo-lac.png',
+                intro: 'Bữa sáng ăn gì, nhiều khi là một câu hỏi khó khăn. Vì sáng ra chúng ta bận bịu nhiều công chuyện, lo đi làm đi học không muộn, vì…',
+                cookingTime: "15'",
+                preparationTime: "30'",
+                price: 35,
+                tag: ['bánh', 'món ngọt', 'ăn vặt']
             }
         ]
     },
@@ -176,7 +206,17 @@ export const recipeCollection = [
                 preparationTime: "25'",
                 price: 45,
                 tag: ['món Việt', 'món kho']
-            }
+            },
+            {
+                id: '110136-0003',
+                name: 'Cháo Yến Mạch Đậu Tẩm Hành',
+                thumbnail: '/assets/recipe-thumbnail/chao-yen-mach-dau-tam-hanh.png',
+                intro: 'Như một thói quen thì mình vẫn trung thành ăn cháo yến mạch (cổ điển) nấu ngọt (sweet) – ăn kèm với hoa quả tươi như một bữa sáng healthy…',
+                cookingTime: "25'",
+                preparationTime: "10'",
+                price: 30,
+                tag: ['món Việt', 'cháo']
+            },
         ]
     },
     {
@@ -187,23 +227,23 @@ export const recipeCollection = [
         recipes: [
             {
                 id: '110137-0001',
-                name: 'Mứt Củ Dền',
-                thumbnail: '/assets/recipe-thumbnail/mut-cu-den.jpg',
-                intro: 'Có vô vàn cách để nhuộm màu cho mứt từ những nguyên liệu tự nhiên. Mình vẫn thích sắc hồng của mứt dừa củ dền nhất màu hồng tươi xinh cho một năm mới nhiều may mắn…',
-                cookingTime: "30'",
-                preparationTime: "60'",
+                name: 'Bắp Xào Bơ',
+                thumbnail: '/assets/recipe-thumbnail/bap-xao-bo.png',
+                intro: 'Món ăn vặt yêu thích của mình mỗi khi đông về. Hà Nội mùa này thì ăn gì cũng thấy ngon hơn một phần. Bắp xào bơ thơm nức, vừa…',
+                cookingTime: "10'",
+                preparationTime: "10'",
                 price: 25,
-                tag: ['món ngọt', 'món Việt', 'mứt', 'món Tết']
+                tag: ['ăn vặt', 'món Việt', 'món xào']
             },
             {
                 id: '110137-0002',
-                name: 'Nấm Mỡ Rim Me',
-                thumbnail: '/assets/recipe-thumbnail/nam-mo-rim-me.jpg',
-                intro: 'Những món với nấm lúc nào cũng đem lại sự ngon miệng đậm đà. Và nấm mỡ rim me là một món ăn đơn giản ngon lành cho mâm cơm gia đình…',
+                name: 'Sốt Cà Chua Rau Sống',
+                thumbnail: '/assets/recipe-thumbnail/sot-ca-chua-rau-song.png',
+                intro: 'Đây là món tủ của mình hồi bé. Ngày đó mình không ăn được nước mắm, nhiều khi ăn rau luộc, rau sống thì không biết chấm cái gì. Vì…',
                 cookingTime: "15'",
                 preparationTime: "25'",
-                price: 45,
-                tag: ['món Việt', 'món kho']
+                price: 40,
+                tag: ['món Việt', 'nước sốt']
             }
         ]
     }
