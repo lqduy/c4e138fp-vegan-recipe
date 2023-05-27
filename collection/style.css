@@ -116,9 +116,9 @@
     width: 100%;
 }
 
-.site-body-change #collection-space .recipe-box:nth-child(2n) {
+/* .site-body-change #collection-space .recipe-box:nth-child(2n) {
     margin-left: auto;
-}
+} */
 .site-body-change .recipe-box .recipe-core {
     flex-direction: row;
 }
