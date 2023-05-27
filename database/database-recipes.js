@@ -33,7 +33,7 @@ export const recipeCollection = [
                 cookingTime: "20'",
                 preparationTime: "15'",
                 price: 15,
-                tag: ['ăn vật', 'món chiên']
+                tag: ['ăn vặt', 'món chiên']
             }
         ]
     },
