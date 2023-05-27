@@ -24,7 +24,7 @@ export const chefsList = [
         chefName: 'Lý Công Thành',
         chefId: '110134',
         chefAvatar: '/assets/chefs/chef-110134.png',
-        job: 'Bếp trưởng',
+        job: 'Dược sĩ',
         quote: `Nếu bạn nhìn vào cuộc khủng hoảng khí hậu hoặc tình trạng bạo lực trong
         hệ thống thực phẩm của chúng ta và cảm thấy bất lực, hãy nghĩ rằng 'Ước
         gì mình có thể làm được điều gì đó'- bạn có thể làm được. Ngay lập tức.
