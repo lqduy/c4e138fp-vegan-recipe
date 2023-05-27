@@ -211,17 +211,7 @@ export const recipeCollection = [
             },
             {
                 id: '110135-0006',
-                name: 'Bánh Mì Bơ Lạc',
-                thumbnail: '/assets/recipe-thumbnail/banh-mi-bo-lac.png',
-                intro: 'Bữa sáng ăn gì, nhiều khi là một câu hỏi khó khăn. Vì sáng ra chúng ta bận bịu nhiều công chuyện, lo đi làm đi học không muộn, vì…',
-                cookingTime: "15'",
-                preparationTime: "30'",
-                price: 35,
-                tag: ['bánh', 'món ngọt', 'ăn vặt']
-            },
-            {
-                id: '110135-0007',
-                name: 'Bánh Mì Bơ Lạc',
+                name: 'Bánh Bao Nhân Nấm',
                 thumbnail: '/assets/recipe-thumbnail/banh-bao-nhan-nam.png',
                 intro: 'Những xửng bánh bao nóng hổi gần cổng trường, ắt hẳn là kỉ niệm tuổi thơ của nhiều người – và mình cũng là một trong số đó. Từ nhân…',
                 cookingTime: "60'",
