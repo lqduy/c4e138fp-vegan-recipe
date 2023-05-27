@@ -34,7 +34,7 @@ export const recipeCollection = [
                 preparationTime: "15'",
                 price: 15,
                 tag: ['ăn vật', 'món chiên']
-            },
+            }
         ]
     },
     {
@@ -72,6 +72,26 @@ export const recipeCollection = [
                 preparationTime: "5'",
                 price: 25,
                 tag: ['món Việt', 'ăn vặt']
+            },
+            {
+                id: '110133-0004',
+                name: 'Đậu Hũ Kho Mặn',
+                thumbnail: '/assets/recipe-thumbnail/dau-hu-kho-man.png',
+                intro: 'Hôm trước Ducan Kitchen đã cùng bạn làm một chuyến tới ẩm thực Trung Hoa với món Đậu Hũ Tứ Xuyên Chay. Hôm nay chúng ta cùng đến với đất…',
+                cookingTime: "35'",
+                preparationTime: "15'",
+                price: 40,
+                tag: ['món Việt', 'món kho']
+            },
+            {
+                id: '110133-0005',
+                name: 'Cơm Chiên Rau Củ',
+                thumbnail: '/assets/recipe-thumbnail/com-chien-rau-cu.png',
+                intro: 'Cơm chiên rau củ là một cách tuyệt vời để bạn tận dụng cơm dư thừa hay nguyên liệu còn sót lại trong tủ lạnh – một món “dọn tủ”…',
+                cookingTime: "20'",
+                preparationTime: "40'",
+                price: 45,
+                tag: ['cơm', 'món chiên']
             }
         ]
     },
@@ -120,6 +140,16 @@ export const recipeCollection = [
                 preparationTime: "30'",
                 price: 40,
                 tag: ['chè', 'món Việt', 'món ngọt', 'ăn vặt']
+            },
+            {
+                id: '110134-0005',
+                name: 'Cà Tím Kho',
+                thumbnail: '/assets/recipe-thumbnail/ca-tim-kho.png',
+                intro: 'Cà tím là một trong những nguyên liệu yêu thích của mình khi nấu món chay. Cách nấu cà tím không cần quá cầu kì để tôn lên vị ngon…',
+                cookingTime: "35'",
+                preparationTime: "20'",
+                price: 45,
+                tag: ['món kho', 'món Việt']
             }
         ]
     },
@@ -178,6 +208,26 @@ export const recipeCollection = [
                 preparationTime: "30'",
                 price: 35,
                 tag: ['bánh', 'món ngọt', 'ăn vặt']
+            },
+            {
+                id: '110135-0006',
+                name: 'Bánh Mì Bơ Lạc',
+                thumbnail: '/assets/recipe-thumbnail/banh-mi-bo-lac.png',
+                intro: 'Bữa sáng ăn gì, nhiều khi là một câu hỏi khó khăn. Vì sáng ra chúng ta bận bịu nhiều công chuyện, lo đi làm đi học không muộn, vì…',
+                cookingTime: "15'",
+                preparationTime: "30'",
+                price: 35,
+                tag: ['bánh', 'món ngọt', 'ăn vặt']
+            },
+            {
+                id: '110135-0007',
+                name: 'Bánh Mì Bơ Lạc',
+                thumbnail: '/assets/recipe-thumbnail/banh-bao-nhan-nam.jpg',
+                intro: 'Những xửng bánh bao nóng hổi gần cổng trường, ắt hẳn là kỉ niệm tuổi thơ của nhiều người – và mình cũng là một trong số đó. Từ nhân…',
+                cookingTime: "60'",
+                preparationTime: "60'",
+                price: 55,
+                tag: ['bánh', 'ăn vặt']
             }
         ]
     },
@@ -209,7 +259,7 @@ export const recipeCollection = [
             },
             {
                 id: '110136-0003',
-                name: 'Cháo Yến Mạch Đậu Tẩm Hành',
+                name: 'Cháo Yến Mạch Đậu',
                 thumbnail: '/assets/recipe-thumbnail/chao-yen-mach-dau-tam-hanh.png',
                 intro: 'Như một thói quen thì mình vẫn trung thành ăn cháo yến mạch (cổ điển) nấu ngọt (sweet) – ăn kèm với hoa quả tươi như một bữa sáng healthy…',
                 cookingTime: "25'",
@@ -217,6 +267,16 @@ export const recipeCollection = [
                 price: 30,
                 tag: ['món Việt', 'cháo']
             },
+            {
+                id: '110136-0004',
+                name: 'Canh Bí Rong Biển',
+                thumbnail: '/assets/recipe-thumbnail/canh-bi-rong-bien.png',
+                intro: 'Một bát canh nóng hổi sẽ là một phần không thể thiếu trong bữa cơm gia đình. Ngọt ngào từ bí đỏ, đậm đà từ nấm và rong biển, điểm…',
+                cookingTime: "40'",
+                preparationTime: "25'",
+                price: 45,
+                tag: ['món Việt', 'canh']
+            }
         ]
     },
     {
@@ -244,6 +304,26 @@ export const recipeCollection = [
                 preparationTime: "25'",
                 price: 40,
                 tag: ['món Việt', 'nước sốt']
+            },
+            {
+                id: '110137-0003',
+                name: 'Đậu Sốt Me',
+                thumbnail: '/assets/recipe-thumbnail/dau-sot-me.png',
+                intro: 'Me chua dần già trở thành một nguyên liệu yêu thích của mình. Vị chua dễ chịu và thơm của me rất dễ đưa vào nhiều món ăn khác nhau…',
+                cookingTime: "25'",
+                preparationTime: "10'",
+                price: 25,
+                tag: ['món Việt']
+            },
+            {
+                id: '110137-0004',
+                name: 'Đậu Hũ Tứ Xuyên',
+                thumbnail: '/assets/recipe-thumbnail/dau-hu-tu-xuyen.png',
+                intro: 'Có những món nấu rồi mình mới tự nhủ ‘à, sao nó lại đơn giản thế’. Món đậu hữ tứ xuyên là một món ăn như vậy. Món này có…',
+                cookingTime: "30'",
+                preparationTime: "20'",
+                price: 50,
+                tag: ['món kho']
             }
         ]
     }

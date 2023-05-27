@@ -721,7 +721,7 @@
     justify-content: space-between;
 
     width: 100%;
-    height: 525px;
+    height: 550px;
 }
 .the-chef .top {
     display: flex;
@@ -767,15 +767,15 @@
     justify-content: start;
     align-items: end;
     gap: 1%;
+    flex-wrap: wrap;
 
     width: 100%;
     /* height: 100px; */
     overflow-wrap: hidden;
 }
 .the-chef .bot .chef-collection .other-recipe{
-    /* display: block; */
-
     width: 19.2%;
+    margin-bottom: 3px;
 }
 .the-chef .bot .chef-collection img{
     width: 100%;
