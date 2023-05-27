@@ -25,13 +25,9 @@ renderRecipeTagsAll();
 tickRecipeAdded();
 makeLoveBtnOnImgCore();
 makeCookedBtnOnImgCore();
+showChefInnerRecipeBox();
 
-const zoomBtn = document.getElementById('change-zoom-recipe');
-zoomBtn.addEventListener('click', () => {
-    const container = document.getElementById('collection-space');
-    container.classList.toggle('container');
-    showChefInnerRecipeBox();
-});
+
 
 const changeViewRicepeBtn = document.getElementById('change-view-recipe');
 changeViewRicepeBtn.addEventListener('click', () => {
@@ -41,17 +37,10 @@ changeViewRicepeBtn.addEventListener('click', () => {
 });
 
 function showChefInnerRecipeBox() {
-    const container = document.getElementById('collection-space');
     const siteBody = document.querySelector('.main-block .site-body');
     const chefSpace = Array.from(document.querySelectorAll('.recipe-box .chef-space'));
 
     if (!siteBody.classList.contains('site-body-change')) {
-        chefSpace.forEach((node) => {
-            node.innerHTML = '';
-        });
-    }
-
-    if (container.classList.contains('container') && siteBody.classList.contains('site-body-change')) {
         chefSpace.forEach((node) => {
             const chefId = node.getAttribute('chef-id');
 
@@ -62,14 +51,12 @@ function showChefInnerRecipeBox() {
                     <h5><a href="#">${chef.chefName}</a></h5>
                     <p>${chef.job}</p>
                 </div>
-                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="120px" height="auto" /></a>
+                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="80px" height="auto" /></a>
             `;
 
             node.innerHTML = elements;
         });
-    }
-
-    if (!container.classList.contains('container') && siteBody.classList.contains('site-body-change')) {
+    } else {
         chefSpace.forEach((node) => {
             const chefId = node.getAttribute('chef-id');
 
@@ -84,7 +71,7 @@ function showChefInnerRecipeBox() {
                     
                     </div>
                 </div>
-                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="270px" height="auto" /></a>
+                <a href="#"><img src="${chef.chefAvatar}" alt="${chef.chefName}" width="200px" height="auto" /></a>
                 
             `;
 
@@ -92,8 +79,20 @@ function showChefInnerRecipeBox() {
 
             renderChefCollectionInnerBox(chef.chefId);
         });
+        show3LineQuote();
     }
 }
 
+function show3LineQuote() {
+    const quoteElements = Array.from(document.getElementsByClassName('chef-quote'));
 
-
+    quoteElements.forEach((element) => {
+        const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
+        const maxHeight = lineHeight * 4; // Số dòng hiển thị
+        if (element.clientHeight > maxHeight) {
+            while (element.clientHeight > maxHeight) {
+                element.textContent = element.textContent.replace(/\W*\s(\S)*$/, '...');
+            }
+        }
+    });
+}
