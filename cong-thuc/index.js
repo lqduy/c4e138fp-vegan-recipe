@@ -7,8 +7,18 @@ import {
     tickRecipeAdded
 } from '../function/render-recipebox.js';
 import { addRecipeToMyCollection, afterAddRecipe } from '../function/cart-and-collection.js';
-import { filterRecipeByTag } from '../function/search-filter-forCongThucPage.js';
+import { filterRecipeByTag, search } from '../function/search-filter-forCongThucPage.js';
 import { loadMyCollectionFromLocalStorage } from '../function/localstorage.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toSearch = localStorage.getItem('toSearch');
+    if (toSearch) {
+        const key = JSON.parse(toSearch);
+        console.log(key);
+        search(key);
+        localStorage.removeItem('toSearch');
+    }
+});
 
 const top5TrendingRecipesId = ['110135-0002', '110133-0003', '110133-0002', '110134-0002', '110134-0003'];
 

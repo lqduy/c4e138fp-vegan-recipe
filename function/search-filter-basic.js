@@ -12,8 +12,8 @@ export function makeSuggestKeyToSearch() {
     const suggestBox = document.getElementById('suggest-box');
     
     inputKey.addEventListener('input', (event) => {
-        const key = event.target.value.toLowerCase();
-        suggestBox.innerHTML = suggestForKey(key).reduce((string, key) => string + `<li><a>${key}</a></li>`, '');
+        const inputValue = event.target.value.toLowerCase();
+        suggestBox.innerHTML = suggestForKey(inputValue).reduce((string, key) => string + `<li><a>${key}</a></li>`, '');
         // Gán nút cho các thẻ a
         const aElements = suggestBox.querySelectorAll('a');
         aElements.forEach((aTag) => {

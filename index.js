@@ -4,6 +4,7 @@ import { render1RecipeBox, renderRecipeTagsAll } from './function/render-recipeb
 import { addRecipeToMyCollection, afterAddRecipe } from './function/cart-and-collection.js';
 import { loadMyCollectionFromLocalStorage } from './function/localstorage.js';
 import { renderChefCollectionInnerBox } from './reuse/script-reuse.js';
+import { makeSuggestKeyToSearch } from './function/search-filter-basic.js';
 
 const groupDishes = [
     {
@@ -78,11 +79,11 @@ function renderSuggestRecipeAll() {
 
     renderRecipeTagsAll();
     addRecipeToMyCollection();
-    makerenewRecipeBtn();
 
     getRandomRecipes.forEach((recipe) => {
-        if (loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id)) {
-            afterAddRecipe(recipe);
+        const recipeInCollection = loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id);
+        if (recipeInCollection) {
+            afterAddRecipe(recipeInCollection);
         }
     });
 }
@@ -94,6 +95,7 @@ function makerenewRecipeBtn() {
     const renewRecipeBtn = document.getElementById('renew-recipe');
     renewRecipeBtn.addEventListener('click', renderSuggestRecipeAll);
 }
+makerenewRecipeBtn();
 
 // Render 1 ô group món ăn
 function render1GroupBox(group) {
@@ -220,33 +222,38 @@ function makeChangeViewRicepeBtn() {
 }
 makeChangeViewRicepeBtn();
 
+// Tìm kiếm
 function makeShowAndHideSuggestBox() {
     const inputKey = document.getElementById('search-input');
     const suggestBox = document.getElementById('suggest-box');
 
     inputKey.addEventListener('focus', () => {
-        suggestBox.style.display = 'block';
+        suggestBox.classList.remove('hide');
     });
     inputKey.addEventListener('blur', () => {
-        suggestBox.style.display = 'none';
+        suggestBox.classList.add('hide');
     });
 }
 makeShowAndHideSuggestBox();
 
+makeSuggestKeyToSearch();
+
 function makeSearch() {
     const searchBtn = document.getElementById('search-button');
     const inputKey = document.getElementById('search-input');
-    const key = inputKey.value.toLowerCase();
-    const url = '/cong-thuc/index.html?key=' + encodeURIComponent(key);
-
+    
     searchBtn.addEventListener('click', () => {
-        window.location.href = url;
+        const inputValue = inputKey.value.toLowerCase();
+        localStorage.setItem('toSearch', JSON.stringify(inputValue));
+        window.location.href = '/cong-thuc/index.html';
     });
 
     inputKey.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-            window.location.href = url;
+            const inputValue = inputKey.value.toLowerCase();
+            localStorage.setItem('toSearch', JSON.stringify(inputValue));
+            window.location.href = '/cong-thuc/index.html';
         }
-    })
+    });
 }
 makeSearch();

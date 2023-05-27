@@ -987,10 +987,11 @@
 }
 
 /* Search & Suggest Box */
+.search-bar .hide{
+    display: none;
+}
 
 #suggest-box {
-    display: none;
-
     position: absolute;
     top: calc(100%);
     left: 15%;

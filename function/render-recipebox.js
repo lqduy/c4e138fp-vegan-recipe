@@ -125,7 +125,6 @@ export function makeCookedBtnOnImgCore() {
             const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
             const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
             const checkCooked = myCollection[i].isCooked;
-            console.log(recipeId, i, checkCooked, myCollection[i]);
 
             if (!checkCooked) {
                 btn.classList.add('selected');
