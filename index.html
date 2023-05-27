@@ -43,8 +43,11 @@
                             <span>MÓN CHAY</span>
                         </h1>
                         <div class="search-bar">
-                            <input type="search" placeholder="Nhập từ khóa" />
-                            <button><i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i></button>
+                            <input id="search-input" type="search" placeholder="Nhập từ khóa" name="searchInput" />
+                            <button id="search-button"><i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i></button>
+                            <ul id="suggest-box">
+                                <p>Món ăn, đầu bếp, phân loại, tất cả mọi thứ bạn cần...</p>
+                            </ul>
                         </div>
                     </div>
                     <!-- End Search -->
@@ -278,6 +281,7 @@
         <script src="/function/signup-login-logout.js" type="module"></script>
         <script src="/function/render-recipebox.js" type="module"></script>
         <script src="/function/cart-and-collection.js" type="module"></script>
-        <script src="/index.js" type="module"></script>
+        <script src="/function/search-filter-basic.js" type="module"></script>
+        <script src="index.js" type="module"></script>
     </body>
 </html>

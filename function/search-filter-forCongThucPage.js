@@ -1,4 +1,4 @@
-import { recipeCollectionSpread, getTagList, getAllKeyToSearch } from '../database/database-recipes.js';
+import { recipeCollectionSpread, getTagList } from '../database/database-recipes.js';
 import { renderRecipeAll } from '../cong-thuc/index.js';
 
 
@@ -17,7 +17,6 @@ export function filterRecipeByTag() {
     );
 }
 
-
 // Render Tag List vào khu vực Filter (phần chưa được chọn)
 function renderTagListInFilterSpace() {
     const parent = document.querySelector('#search-and-filter .filter-core .not-select-tags');
@@ -27,7 +26,6 @@ function renderTagListInFilterSpace() {
 }
 
 renderTagListInFilterSpace();
-
 
 let selectedTags = [];
 // Tạo nút cho các tag trong Filter Space
@@ -76,8 +74,8 @@ function filterRecipeByTagList() {
 }
 
 // Nhập từ khóa tìm kiếm
-function search() {
-    const key = document.getElementById('search-input').value.toLowerCase();
+export function search(key) {
+    // const key = document.getElementById('search-input').value.toLowerCase();
 
     const searchResult = recipeCollectionSpread().filter((parent) => {
         const getValueArray = Object.values(parent)
@@ -91,53 +89,50 @@ function search() {
     document.getElementById('all-list').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Gán nút
-document.getElementById('filter-button').addEventListener('click', () => {
-    filterRecipeByTagList();
-    document.getElementById('all-list').scrollIntoView({ behavior: 'smooth' });
-});
-document.getElementById('unselect-all').addEventListener('click', () => {
-    selectedTags = [];
-    renderTagListInFilterSpace();
-    let aTags = document.querySelectorAll('#search-and-filter .filter-core .select-tags a');
-    aTags.forEach((aTag) => aTag.parentNode.removeChild(aTag));
-});
 
 // Nút search
-const searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', search);
-const searchInputBar = document.getElementById('search-input');
-searchInputBar.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        search();
-    }
-});
-
-// Hàm lấy mảng các từ khóa gợi ý
-function suggestForKey(typing) {
-    return getAllKeyToSearch().filter((key) => key.includes(typing) || typing.includes(key));
+function makeSearchBtn() {
+    const searchButton = document.getElementById('search-button');
+    searchButton.addEventListener('click', () => {
+        const key = document.getElementById('search-input').value.toLowerCase();
+        search(key)
+    });
+    const searchInputBar = document.getElementById('search-input');
+    searchInputBar.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const key = document.getElementById('search-input').value.toLowerCase();
+            search(key);
+        }
+    });
 }
 
-// Gợi ý từ khóa khi nhập ô input
-const inputKey = document.getElementById('search-input');
-const suggestBox = document.getElementById('suggest-box');
+makeSearchBtn();
 
-inputKey.addEventListener('input', (event) => {
-    const key = event.target.value.toLowerCase();
-    suggestBox.innerHTML = suggestForKey(key).reduce((string, key) => string + `<li><a>${key}</a></li>`, '');
-    // Gán nút cho các thẻ a
-    const aElements = suggestBox.querySelectorAll('a');
-    aElements.forEach((aTag) => {
-        aTag.addEventListener('click', () => {
-            inputKey.value = aTag.innerText;
-        });
+// Gán nút lọc
+function makeFilterBtn() {
+    document.getElementById('filter-button').addEventListener('click', () => {
+        filterRecipeByTagList();
+        document.getElementById('all-list').scrollIntoView({ behavior: 'smooth' });
     });
-});
+    document.getElementById('unselect-all').addEventListener('click', () => {
+        selectedTags = [];
+        renderTagListInFilterSpace();
+        let aTags = document.querySelectorAll('#search-and-filter .filter-core .select-tags a');
+        aTags.forEach((aTag) => aTag.parentNode.removeChild(aTag));
+    });
+}
+makeFilterBtn();
 
 // Ẩn - hiện box gợi ý từ khóa
-inputKey.addEventListener('focus', () => {
-    suggestBox.classList.add('show');
-});
-inputKey.addEventListener('blur', () => {
-    suggestBox.classList.remove('show');
-});
+function makeShowAndHideSuggestBox() {
+    const inputKey = document.getElementById('search-input');
+    const suggestBox = document.getElementById('suggest-box');
+
+    inputKey.addEventListener('focus', () => {
+        suggestBox.classList.add('show');
+    });
+    inputKey.addEventListener('blur', () => {
+        suggestBox.classList.remove('show');
+    });
+}
+makeShowAndHideSuggestBox();

@@ -43,6 +43,10 @@ const groupDishes = [
     }
 ];
 
+// Search Bar
+// makeSuggestKeyToSearch();
+// makeShowAndHideSuggestBox();
+
 // Lấy số ngẫu nhiên
 function getRandomNumbers(arr, n) {
     const numbers = Array(arr.length)
@@ -163,7 +167,7 @@ function renderChefAll() {
 
     chefsList.forEach((chef) => {
         renderChefCollectionInnerBox(chef.chefId);
-    })
+    });
 }
 
 renderChefAll();
@@ -215,3 +219,34 @@ function makeChangeViewRicepeBtn() {
     });
 }
 makeChangeViewRicepeBtn();
+
+function makeShowAndHideSuggestBox() {
+    const inputKey = document.getElementById('search-input');
+    const suggestBox = document.getElementById('suggest-box');
+
+    inputKey.addEventListener('focus', () => {
+        suggestBox.style.display = 'block';
+    });
+    inputKey.addEventListener('blur', () => {
+        suggestBox.style.display = 'none';
+    });
+}
+makeShowAndHideSuggestBox();
+
+function makeSearch() {
+    const searchBtn = document.getElementById('search-button');
+    const inputKey = document.getElementById('search-input');
+    const key = inputKey.value.toLowerCase();
+    const url = '/cong-thuc/index.html?key=' + encodeURIComponent(key);
+
+    searchBtn.addEventListener('click', () => {
+        window.location.href = url;
+    });
+
+    inputKey.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            window.location.href = url;
+        }
+    })
+}
+makeSearch();
