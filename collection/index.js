@@ -25,16 +25,18 @@ renderRecipeTagsAll();
 tickRecipeAdded();
 makeLoveBtnOnImgCore();
 makeCookedBtnOnImgCore();
+makeChangeViewRicepeBtn();
 showChefInnerRecipeBox();
 
 
-
-const changeViewRicepeBtn = document.getElementById('change-view-recipe');
-changeViewRicepeBtn.addEventListener('click', () => {
-    const siteBody = document.querySelector('.main-block .site-body');
-    siteBody.classList.toggle('site-body-change');
-    showChefInnerRecipeBox();
-});
+function makeChangeViewRicepeBtn() {
+    const changeViewRicepeBtn = document.getElementById('change-view-recipe');
+    changeViewRicepeBtn.addEventListener('click', () => {
+        const siteBody = document.querySelector('.main-block .site-body');
+        siteBody.classList.toggle('site-body-change');
+        showChefInnerRecipeBox();
+    });   
+}
 
 function showChefInnerRecipeBox() {
     const siteBody = document.querySelector('.main-block .site-body');
