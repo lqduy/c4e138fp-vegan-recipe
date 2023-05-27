@@ -222,7 +222,7 @@ export const recipeCollection = [
             {
                 id: '110135-0007',
                 name: 'Bánh Mì Bơ Lạc',
-                thumbnail: '/assets/recipe-thumbnail/banh-bao-nhan-nam.jpg',
+                thumbnail: '/assets/recipe-thumbnail/banh-bao-nhan-nam.png',
                 intro: 'Những xửng bánh bao nóng hổi gần cổng trường, ắt hẳn là kỉ niệm tuổi thơ của nhiều người – và mình cũng là một trong số đó. Từ nhân…',
                 cookingTime: "60'",
                 preparationTime: "60'",
