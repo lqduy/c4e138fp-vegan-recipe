@@ -201,9 +201,10 @@ function logIn() {
         logInWithUser(userLogged);
         updateLoginStatus(true);
         saveUserLoggedToLocalStorage(userLogged);
-        closeForm();
-        renderUserSpace();
-        renderTheCorner();
+        // closeForm();
+        // renderUserSpace();
+        // renderTheCorner();
+        location.reload();
     } else {
         alert('Tài khoản không chính xác!');
     }
@@ -228,10 +229,11 @@ export function makeLogOutBtn() {
 
         updateLoginStatus(false);
         saveUserLoggedToLocalStorage({});
-        renderUserSpace();
+        // renderUserSpace();
 
         saveCartToLocalStorage([]);
         saveMyCollectionToLocalStorage([]);
-        renderTheCorner();
+        // renderTheCorner();
+        location.reload();
     });
 }
