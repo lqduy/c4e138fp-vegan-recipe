@@ -8,9 +8,10 @@
     height: 248px;
     width: 100%;
 
-    background-image: url(./assets/sunflower_bees_banner_0.jpg);
-    background-position: top;
+    background-image: url(/assets/img-bg-pledge-block.png);
+    background-color: var(--green);
     background-size: cover;
+    background-position: bottom;
     background-repeat: no-repeat;
 }
 .banner-title-core {
@@ -370,4 +371,3 @@
 /* End Seeding Block */
 
 /* End Site Body */
-
