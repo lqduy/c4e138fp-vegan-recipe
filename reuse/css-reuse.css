@@ -19,6 +19,7 @@ ul {
 }
 .site-container {
     width: 100%;
+    min-width: 1440px;
 }
 .container {
     width: 100%;
@@ -557,7 +558,7 @@ ul {
 
     color: var(--gray);
 }
-.recipe-core .recipe-box__body .details span{
+.recipe-core .recipe-box__body .details span {
     color: var(--orange);
 
     font-weight: bold;
@@ -942,7 +943,7 @@ ul {
 
     text-align: center;
 }
-.chef-collection .other-recipe .show-name span{
+.chef-collection .other-recipe .show-name span {
     padding: 0.25em;
 
     color: white;
@@ -954,7 +955,7 @@ ul {
 .chef-collection .other-recipe:hover .show-name {
     display: block;
 }
-.chef-collection .other-recipe a{
+.chef-collection .other-recipe a {
     display: block;
     overflow: hidden;
 }
