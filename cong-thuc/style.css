@@ -3,28 +3,6 @@
     --orange: #f8991d;
     --gray: #666;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    font-family: 'Roboto', sans-serif;
-}
-img {
-    vertical-align: middle;
-}
-ul {
-    list-style-type: none;
-}
-.site-container {
-    width: 100%;
-}
-.container {
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto;
-}
 
 .header-core .nav-space .menu .menu__item:nth-child(3) > a {
     color: var(--orange);
@@ -341,10 +319,10 @@ ul {
     opacity: 0;
     transition: opacity 2s ease;
 }
-#trending .recipe-box .check-space{
+#trending .recipe-box .check-space {
     top: 6%;
 }
-#trending .recipe-box .check-space a{
+#trending .recipe-box .check-space a {
     width: 120px;
     padding: 0.8em;
 
