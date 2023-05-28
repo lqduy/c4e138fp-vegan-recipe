@@ -1,11 +1,5 @@
 import { recipeCollectionSpread } from '../database/database-recipes.js';
-import {
-    makeCookedBtnOnImgCore,
-    makeLoveBtnOnImgCore,
-    render1RecipeBox,
-    renderRecipeTagsAll,
-    tickRecipeAdded
-} from '../function/render-recipebox.js';
+import { render1RecipeBox, renderRecipeTagsAll, tickRecipeAdded } from '../function/render-recipebox.js';
 import { addRecipeToMyCollection, afterAddRecipe } from '../function/cart-and-collection.js';
 import { filterRecipeByTag, search } from '../function/search-filter-forCongThucPage.js';
 import { loadMyCollectionFromLocalStorage } from '../function/localstorage.js';
@@ -14,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const toSearch = localStorage.getItem('toSearch');
     if (toSearch) {
         const key = JSON.parse(toSearch);
-        console.log(key);
+        const searchInput = document.getElementById('search-input');
+        searchInput.value = key;
         search(key);
         localStorage.removeItem('toSearch');
     }
