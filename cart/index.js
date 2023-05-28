@@ -1,4 +1,4 @@
-import { loadCartFromLocalStorage, saveCartToLocalStorage } from '../function/localstorage.js';
+import { loadCartFromLocalStorage, loadUserLoggedFromLocalStorage, saveCartToLocalStorage, saveUserLoggedToLocalStorage } from '../function/localstorage.js';
 import { sumMoneyOfCart, sumQuantityInCart } from '../function/cart-and-collection.js';
 import { renderTheCorner } from '../reuse/script-reuse.js';
 
@@ -194,7 +194,126 @@ window.addEventListener('load', () => {
     addEventForInput(inputQuantityElements);
 
     renderBillCart();
+
+    const shipInfo = loadUserLoggedFromLocalStorage().shipInfo;
+    if (shipInfo) {
+        renderShipInfoBox(shipInfo);
+    }
 });
 
 const deleteAllCartBtn = document.getElementById('delete-all-cart');
 deleteAllCartBtn.addEventListener('click', deleteAllCart);
+
+// Mở form thông tin nhận hàng
+
+function makeOpenFormBtn() {
+    const openFormBtn = document.getElementById('open-form-btn');
+    openFormBtn.addEventListener('click', () => {
+        const formWrap = document.querySelector('.form-to-ship__wrap');
+        formWrap.style.display = 'block';
+        formWrap.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+makeOpenFormBtn();
+
+// Gán nút hủy form
+function makeCancelFormBtn() {
+    const cancelFormBtn = document.getElementById('form-cancel-btn');
+    cancelFormBtn.addEventListener('click', () => {
+        const formWrap = document.querySelector('.form-to-ship__wrap');
+        formWrap.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+makeCancelFormBtn();
+
+function makeSubmitFormBtn() {
+    const submitFormBtn = document.getElementById('form-submit-btn');
+    submitFormBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('form__name').value;
+        const phone = document.getElementById('form__phone').value;
+        const city = document.getElementById('form__city').value;
+        const district = document.getElementById('form__district').value;
+        const ward = document.getElementById('form__ward').value;
+        const address = document.getElementById('form__address').value;
+        const addressType = () => {
+            const addressTypeInputs = Array.from(document.querySelectorAll('#form-to-ship .address-type input'));
+            const selectedInput = addressTypeInputs.find((input) => input.checked);
+            if (selectedInput) {
+                const selectedInputValue = selectedInput.getAttribute('value');
+                if (selectedInputValue === 'home') {
+                    return 'Nhà';
+                }
+                if (selectedInputValue === 'company') {    
+                    return 'Cơ quan';
+                }
+            } else {
+                return 'Địa chỉ';
+            }
+        };
+    
+        const shipInfo = {
+            name: name,
+            phone: phone,
+            city: city,
+            district: district,
+            ward: ward,
+            address: address,
+            addressType: addressType()
+        };
+        console.log(shipInfo);
+    
+        renderShipInfoBox(shipInfo);
+    
+        // Lưu vào localStorage
+        let userLogged = loadUserLoggedFromLocalStorage();
+        userLogged = { ...userLogged, shipInfo: shipInfo };
+        saveUserLoggedToLocalStorage(userLogged);
+    
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function renderShipInfoBox(shipInfo) {
+    const parent = document.querySelector('.order-space #ship .ship-body');
+    const elements = `
+        <div class="name-and-phone">
+            <p>${shipInfo.name}</p>
+            <span>|</span>
+            <p>${shipInfo.phone}</p>
+        </div>
+        <div class="address">
+            <p>
+                <span>${shipInfo.addressType}</span>
+                ${shipInfo.address},
+            </p>
+            <p>${shipInfo.ward}, ${shipInfo.district}, ${shipInfo.city}</p>
+        </div>                
+    `;
+    parent.innerHTML = elements;
+}
+
+makeSubmitFormBtn();
+
+function makeOrderBtn() {
+    const orderBtn = document.getElementById('order-btn');
+    orderBtn.addEventListener('click', () => {
+        const card = loadCartFromLocalStorage();
+        const shipInfo = loadUserLoggedFromLocalStorage().shipInfo;
+    
+        if (card && shipInfo) {
+            const parent = document.querySelector('.site-body .cart-space');
+            const elements = `
+            <div id="order-success">
+                <i class="fa-solid fa-circle-check fa-2xl"></i>
+                <h2>Cảm ơn bạn! </br>
+                Đặt hàng thành công
+                </h2>
+            </div>
+            `;
+            parent.innerHTML = elements;
+        }
+    })
+}
+makeOrderBtn();

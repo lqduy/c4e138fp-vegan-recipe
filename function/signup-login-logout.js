@@ -201,7 +201,7 @@ function logIn() {
         logInWithUser(userLogged);
         updateLoginStatus(true);
         saveUserLoggedToLocalStorage(userLogged);
-        // closeForm();
+        closeForm();
         // renderUserSpace();
         // renderTheCorner();
         location.reload();
