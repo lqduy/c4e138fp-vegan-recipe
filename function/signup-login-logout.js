@@ -174,24 +174,32 @@ function whenSubmitSignUp() {
 
 export function makeSubmitSignUpLogInBtn() {
     const submitSignUpBtn = document.getElementById('submit-signup');
-    submitSignUpBtn.addEventListener('click', () => whenSubmitSignUp());
+    submitSignUpBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        whenSubmitSignUp();
+    });
 
     const submitSignUpInputBar = document.querySelectorAll('#form-signup .form-body .left input');
     submitSignUpInputBar.forEach((input) =>
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
+                event.preventDefault();
                 whenSubmitSignUp();
             }
         })
     );
 
     const submitLogIn = document.getElementById('submit-login');
-    submitLogIn.addEventListener('click', () => logIn());
+    submitLogIn.addEventListener('click', (event) => {
+        event.preventDefault();
+        logIn();
+    });
 
     const submitLogInInputBar = document.querySelectorAll('#form-login .form-body .left input');
     submitLogInInputBar.forEach((input) =>
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
+                event.preventDefault();
                 logIn();
             }
         })
