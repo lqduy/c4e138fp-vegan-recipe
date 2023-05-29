@@ -58,13 +58,28 @@ function closeForm() {
 
 export function makeSignUpLogInBtn() {
     const signUpBtn = Array.from(document.getElementsByClassName('form-signup'));
-    signUpBtn.forEach((btn) => btn.addEventListener('click', showSignUpForm));
+    signUpBtn.forEach((btn) =>
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            showSignUpForm();
+        })
+    );
 
     const logInBtn = Array.from(document.getElementsByClassName('form-login'));
-    logInBtn.forEach((btn) => btn.addEventListener('click', showLogInForm));
+    logInBtn.forEach((btn) =>
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            showLogInForm();
+        })
+    );
 
     const closeFormBtn = Array.from(document.getElementsByClassName('close-form'));
-    closeFormBtn.forEach((closeBtn) => closeBtn.addEventListener('click', closeForm));
+    closeFormBtn.forEach((closeBtn) =>
+        closeBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeForm();
+        })
+    );
 }
 
 // Đăng ký tài khoản
