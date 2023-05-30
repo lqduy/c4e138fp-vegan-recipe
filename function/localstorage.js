@@ -28,7 +28,7 @@ export function loadCartFromLocalStorage() {
     }
 }
 
-// Lưu trạng thái đăng nhập vào localStorage 
+// Lưu trạng thái đăng nhập vào localStorage
 export function updateLoginStatus(trueOrFalse) {
     localStorage.setItem('isLogged', JSON.stringify(trueOrFalse));
 }
