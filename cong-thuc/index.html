@@ -17,113 +17,110 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <link rel="stylesheet" href="/reuse/css-reuse.css">
+        <link rel="stylesheet" href="/reuse/css-reuse.css" />
         <link rel="stylesheet" href="./style.css" />
         <link rel="stylesheet" href="/reuse/normalize.css" />
-        <link rel="icon" type="image/png" href="/assets/icon-TheVeganRecipe.png">
+        <link rel="icon" type="image/png" href="/assets/icon-TheVeganRecipe.png" />
         <title>The Vegan Recipe | Công thức</title>
     </head>
     <body>
-        <div class="site-container">
-            <!-- Header -->
-            <header class="header-block">
-                
-            </header>
-            <!-- End Header -->
-            <div class="main-block">
-                <section class="banner-title-block">
-                    <div class="banner-title-core container">
-                        <h1>CÔNG THỨC</h1>
-                    </div>
-                </section>
-                <div class="site-core container">
-                    <div class="top-section">
-                        <section class="recipe-list">
-                            <!-- <div class="section-header">
+        <div>
+            <div class="site-container">
+                <!-- Header -->
+                <header class="header-block"></header>
+                <!-- End Header -->
+                <div class="main-block">
+                    <section class="banner-title-block">
+                        <div class="banner-title-core container">
+                            <h1>CÔNG THỨC</h1>
+                        </div>
+                    </section>
+                    <div class="site-core container">
+                        <div class="top-section">
+                            <section class="recipe-list">
+                                <!-- <div class="section-header">
                                 <h2>Công thức <span>mới</span></h2>
                             </div> -->
-                            <div id="search-and-filter">
-                                <div class="search-core">
-                                    <!-- <h2>Tìm kiếm mọi điều về ăn chay</h2> -->
-                                    <div class="search-bar">
-                                        <input id="search-input" type="search" placeholder="Tìm theo từ khóa" name="searchInput"/>
-                                        <button id="search-button"><i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i></button>
-                                        <ul id="suggest-box">
-                                            <p>Món ăn, đầu bếp, phân loại, tất cả mọi thứ bạn cần...</p>
+                                <div id="search-and-filter">
+                                    <div class="search-core">
+                                        <!-- <h2>Tìm kiếm mọi điều về ăn chay</h2> -->
+                                        <div class="search-bar">
+                                            <input
+                                                id="search-input"
+                                                type="search"
+                                                placeholder="Tìm theo từ khóa"
+                                                name="searchInput"
+                                            />
+                                            <button id="search-button">
+                                                <i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i>
+                                            </button>
+                                            <ul id="suggest-box">
+                                                <p>Món ăn, đầu bếp, phân loại, tất cả mọi thứ bạn cần...</p>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="filter-core">
+                                        <div class="filter-core-box">
+                                            <div class="select-tags">
+                                                <i class="hashtag-icon fa-regular fa-hashtag"></i>
+                                                <button id="unselect-all">
+                                                    <i class="fa-solid fa-xmark fa-xl"></i>
+                                                </button>
+                                            </div>
+                                            <div class="not-select-tags"></div>
+                                        </div>
+                                        <button id="filter-button">
+                                            <i class="fa-sharp fa-solid fa-filter fa-2xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="trending" class="section-body"></div>
+                            </section>
+                            <div class="menu-column">
+                                <h2>Công thức</h2>
+                                <ul class="menu">
+                                    <li id="mon-viet">
+                                        <div>
+                                            <a id="selection" href="#">Món Việt</a>
+                                        </div>
+                                        <ul class="menu__child">
+                                            <li><a href="#">Món canh</a></li>
+                                            <li><a href="#">Món kho</a></li>
+                                            <li><a href="#">Món chiên</a></li>
+                                            <li><a href="#">Món xào</a></li>
+                                            <li><a href="#">Món hấp</a></li>
+                                            <li><a href="#">Món nướng</a></li>
+                                            <li><a href="#">Món cháo</a></li>
+                                            <li><a href="#">Nước chấm</a></li>
+                                            <li><a href="#">Món vùng miền</a></li>
+                                            <li><a href="#">Món lẩu</a></li>
+                                            <li><a href="#">Món bánh</a></li>
                                         </ul>
-                                    </div>
-                                </div>
-                                <div class="filter-core">
-                                    <div class="filter-core-box">
-                                        <div class="select-tags">
-                                            <i class="hashtag-icon fa-regular fa-hashtag"></i>
-                                            <button id="unselect-all"><i class="fa-solid fa-xmark fa-xl"></i></button>
-                                        </div>
-                                        <div class="not-select-tags">
-
-                                        </div>
-                                    </div>
-                                    <button id="filter-button"><i class="fa-sharp fa-solid fa-filter fa-2xl"></i></button>
-                                </div>
+                                    </li>
+                                    <li><a href="#">Món Á</a></li>
+                                    <li><a href="#">Món Âu</a></li>
+                                    <li><a href="#">Món theo chủ đề</a></li>
+                                    <li><a href="#">Chay truyền thống</a></li>
+                                    <li><a href="#">Thuần chay hiện đại</a></li>
+                                </ul>
                             </div>
-                            <div id="trending" class="section-body">
-                                
-                            </div>
-                        </section>
-                        <div class="menu-column">
-                            <h2>Công thức</h2>
-                            <ul class="menu">
-                                <li id="mon-viet">
-                                    <div>
-                                        <a id="selection" href="#">Món Việt</a>
-                                    </div>
-                                    <ul class="menu__child">
-                                        <li><a href="#">Món canh</a></li>
-                                        <li><a href="#">Món kho</a></li>
-                                        <li><a href="#">Món chiên</a></li>
-                                        <li><a href="#">Món xào</a></li>
-                                        <li><a href="#">Món hấp</a></li>
-                                        <li><a href="#">Món nướng</a></li>
-                                        <li><a href="#">Món cháo</a></li>
-                                        <li><a href="#">Nước chấm</a></li>
-                                        <li><a href="#">Món vùng miền</a></li>
-                                        <li><a href="#">Món lẩu</a></li>
-                                        <li><a href="#">Món bánh</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Món Á</a></li>
-                                <li><a href="#">Món Âu</a></li>
-                                <li><a href="#">Món theo chủ đề</a></li>
-                                <li><a href="#">Chay truyền thống</a></li>
-                                <li><a href="#">Thuần chay hiện đại</a></li>
-                            </ul>
                         </div>
-                    </div>
-                    <section class="recipe-list">
+                        <section class="recipe-list">
                             <div class="section-header">
                                 <h2><span>Bộ sưu tập</span> công thức</h2>
                                 <a id="see-all-list">Xem tất cả</a>
                             </div>
-                            <div id="all-list" class="section-body">
-                                
-                            </div>
+                            <div id="all-list" class="section-body"></div>
                         </section>
                     </div>
-                    
                 </div>
                 <!-- Footer  -->
-                <footer class="footer-block">
-                   
-                </footer>
+                <footer class="footer-block"></footer>
             </div>
             <!-- End Footer  -->
-            <div class="corner-space hide-corner-space">
-
-            </div>
+            <div class="corner-space hide-corner-space"></div>
         </div>
-        <div class="form-signup-login">
-            
-        </div> 
+        <div class="form-signup-login"></div>
         <script src="/function/localstorage.js" type="module"></script>
         <script src="/reuse/html-reuse.js" type="module"></script>
         <script src="/reuse/script-reuse.js" type="module"></script>

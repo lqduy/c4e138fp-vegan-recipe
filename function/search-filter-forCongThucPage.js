@@ -1,7 +1,6 @@
 import { recipeCollectionSpread, getTagList } from '../database/database-recipes.js';
 import { renderRecipeAll } from '../cong-thuc/index.js';
 
-
 // Lọc sản phẩm theo tag
 export function filterRecipeByTag() {
     const allTags = document.querySelectorAll('.recipe-tags a');
@@ -89,13 +88,12 @@ export function search(key) {
     document.getElementById('all-list').scrollIntoView({ behavior: 'smooth' });
 }
 
-
 // Nút search
 function makeSearchBtn() {
     const searchButton = document.getElementById('search-button');
     searchButton.addEventListener('click', () => {
         const key = document.getElementById('search-input').value.toLowerCase();
-        search(key)
+        search(key);
     });
     const searchInputBar = document.getElementById('search-input');
     searchInputBar.addEventListener('keydown', (event) => {

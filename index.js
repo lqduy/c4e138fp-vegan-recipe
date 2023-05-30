@@ -241,7 +241,7 @@ makeSuggestKeyToSearch();
 function makeSearch() {
     const searchBtn = document.getElementById('search-button');
     const inputKey = document.getElementById('search-input');
-    
+
     searchBtn.addEventListener('click', () => {
         const inputValue = inputKey.value.toLowerCase();
         localStorage.setItem('toSearch', JSON.stringify(inputValue));
