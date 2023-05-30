@@ -1,290 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap"
-            rel="stylesheet"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@100;500&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link rel="stylesheet" href="./reuse/normalize.css" />
-        <link rel="stylesheet" href="./reuse/css-reuse.css" />
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="icon" type="image/png" href="/assets/icon-TheVeganRecipe.png" />
-        <title>The Vegan Recipe | Trang chủ</title>
-    </head>
-    <body>
-        <div class="site-container">
-            <!-- Header -->
-            <header class="header-block"></header>
-            <!-- End Header -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@100;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./reuse/normalize.css" />
+    <link rel="stylesheet" href="./reuse/css-reuse.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/png" href="/assets/icon-TheVeganRecipe.png" />
+    <title>The Vegan Recipe | Trang chủ</title>
+  </head>
+  <body>
+    <div class="site-container">
+      <!-- Header -->
+      <header class="header-block"></header>
+      <!-- End Header -->
 
-            <div class="main-block">
-                <!-- Hero -->
-                <section class="hero-block">
-                    <!-- Search  -->
-                    <div class="search-core container">
-                        <h1>
-                            TÌM CÔNG THỨC <br />
-                            <span>MÓN CHAY</span>
-                        </h1>
-                        <div class="search-bar">
-                            <input id="search-input" type="search" placeholder="Nhập từ khóa" name="searchInput" />
-                            <button id="search-button">
-                                <i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i>
-                            </button>
-                            <ul id="suggest-box" class="hide">
-                                <p>Món ăn, đầu bếp, phân loại, tất cả mọi thứ bạn cần...</p>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Search -->
-                    <!-- Category  -->
-                    <div class="category container">
-                        <div class="category__item">
-                            <a href="cong-thuc/index.html">
-                                <div id="thu-vien-mon-chay" class="category-content">
-                                    <h2>Thư viện<br />món chay</h2>
-                                    <p>100.000+ công thức món chay</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="category__item">
-                            <a href="#">
-                                <div id="bat-dau-an-chay" class="category-content">
-                                    <h2>Khởi đầu<br />ăn chay</h2>
-                                    <p>Giúp bạn chuyển sang ăn chay dễ dàng</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="category__item">
-                            <a href="#">
-                                <div id="kien-thuc-suc-khoe" class="category-content">
-                                    <h2>Kiến thức<br />sức khỏe</h2>
-                                    <p>Ăn chay đúng cách để khỏe mạnh</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Category  -->
-                </section>
-                <!-- End Hero -->
-
-                <!-- News  -->
-                <section class="news-block">
-                    <div class="news-core container">
-                        <div class="news__header section-header">
-                            <h2><span>Khám phá</span> tiêu điểm tuần</h2>
-                            <p>Công thức và Bài viết được quan tâm nhất</p>
-                            <a href="#">Xem tất cả</a>
-                        </div>
-                        <div class="news__date"></div>
-                        <div class="news__body">
-                            <div id="news-dish">
-                                <div class="slideshow-container"></div>
-                                <div class="wrap__move-button">
-                                    <div class="move-button">
-                                        <button id="back-slide"><i class="fa-sharp fa-solid fa-angle-left"></i></button>
-                                        <button id="next-slide">
-                                            <i class="fa-sharp fa-solid fa-angle-left fa-rotate-180"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="index-dot">
-                                    <i class="fa-solid fa-circle"></i>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <i class="fa-solid fa-circle"></i>
-                                </div>
-                            </div>
-                            <div id="news-blog">
-                                <div class="blog news__item">
-                                    <a href="#">
-                                        <div class="blog-thumbnail">
-                                            <img src="./assets/news-blog-01.jpg" alt="" />
-                                        </div>
-                                        <div class="content">
-                                            <h3 class="title">
-                                                Nữ Startup 9X Indonesia chia sẻ bí quyết kinh doanh chuỗi nhà hàng chay
-                                            </h3>
-                                            <p class="description">
-                                                Cô gái sinh năm 1992 là chủ chuỗi nhà hàng chay nổi tiếng ở 4 quốc gia
-                                                Đông Nam Á. Theo cô, bí quyết thành công là hạnh phúc với điều mình làm…
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a class="news-tag type-tag" href="#">Blog</a>
-                                </div>
-                                <div class="blog news__item">
-                                    <a href="#">
-                                        <div class="blog-thumbnail">
-                                            <img src="./assets/news-blog-02.jpg" alt="" />
-                                        </div>
-                                        <div class="content">
-                                            <h3 class="title">
-                                                Lời khuyên từ chuyên gia: Giá trị dinh dưỡng trong các loại rau, củ, quả
-                                            </h3>
-                                            <p class="description">
-                                                Mỗi loại rau, củ, quả đều có giá trị dinh dưỡng riêng, phối hợp đúng
-                                                cách sẽ giúp người ăn chay luôn khỏe mạnh về cả thể chất lẫn tinh thần…
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a class="news-tag type-tag" href="#">Blog</a>
-                                </div>
-                                <div class="blog news__item">
-                                    <a href="#">
-                                        <div class="blog-thumbnail">
-                                            <img src="./assets/news-blog-03.webp" alt="" />
-                                        </div>
-                                        <div class="content">
-                                            <h3 class="title">
-                                                Ngày Trái Đất 2023: Mối liên hệ giữa Ăn chay và Tính bền vững
-                                            </h3>
-                                            <p class="description">
-                                                Thành viên Hiệp hội Thuần chay, Annie Button, thảo luận về mối liên hệ
-                                                giữa ăn chay và tính bền vững cho Ngày Trái Đất năm nay…
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a class="news-tag type-tag" href="#">Blog</a>
-                                </div>
-                                <div class="blog news__item">
-                                    <a href="#">
-                                        <div class="blog-thumbnail">
-                                            <img src="./assets/news-blog-04.jpg" alt="" />
-                                        </div>
-                                        <div class="content">
-                                            <h3 class="title">
-                                                6 mẹo chuẩn bị bữa ăn thân thiện với ngân sách cho người mới bắt đầu
-                                            </h3>
-                                            <p class="description">
-                                                Nếu bạn quan tâm đến việc chuẩn bị bữa ăn nhưng không chắc bắt đầu từ
-                                                đâu, thì chúng tôi đã tổng hợp một số mẹo hữu ích để giúp bạn bắt đầu…
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a class="news-tag type-tag" href="#">Blog</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news-footer">
-                            <div class="news-footer-core">
-                                <h2>Cùng cộng đồng <span>1.000.000+</span> thành viên</h2>
-                                <p>
-                                    Chia sẻ món ăn của bạn. Nhận tư vấn từ chuyên gia dinh dưỡng <br />
-                                    và quyền lợi đặc biệt dành cho thành viên.
-                                </p>
-                                <button><a href="#">Tham gia</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End News -->
-                <!-- Group Of Dishes -->
-                <section class="group-of-dishes-block">
-                    <div class="group-of-dishes-core container">
-                        <div class="group-of-dishes__header section-header">
-                            <h2><span>Danh mục</span> công thức món chay</h2>
-                            <a href="#">Xem tất cả</a>
-                        </div>
-                        <div class="group-of-dishes__body"></div>
-                    </div>
-                </section>
-                <!-- End Group Of Dishes -->
-                <!-- Suggest Dishes -->
-                <section class="suggest-dishes-block">
-                    <div class="suggest-dishes-core container">
-                        <div class="suggest-dishes__header section-header">
-                            <h2><span>Gợi ý</span> công thức chay cho bạn</h2>
-                            <div class="setting-btn">
-                                <button id="change-view-recipe"><i class="fa-solid fa-list"></i></button>
-                                <button id="renew-recipe"><i class="fa-solid fa-arrows-rotate"></i></button>
-                            </div>
-                        </div>
-                        <div id="suggest-dishes__body"></div>
-                    </div>
-                </section>
-                <!-- End Suggest Dishes -->
-                <!-- Intro -->
-                <section class="intro-block">
-                    <div class="intro-core container">
-                        <div class="intro__image">
-                            <img src="./assets/chef-intro.png" alt="chef-intro" />
-                        </div>
-                        <div class="intro__content">
-                            <h2>
-                                <span>500.000+</span> công thức món chay <br />
-                                từ <span>5.000+</span> nhà chia sẻ
-                            </h2>
-                            <button><a href="#">Chia sẻ công thức của bạn </a></button>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Intro -->
-                <!-- Chef Space  -->
-                <section class="chef-space-block">
-                    <div class="chef-space-core container">
-                        <div class="section-header">
-                            <h2><span>Nhà chia sẻ</span> tiêu biểu</h2>
-                            <a href="#">Xem tất cả</a>
-                        </div>
-                    </div>
-                    <div class="chef-space__body">
-                        <div class="control-space">
-                            <a id="back-chef"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-xl"></i></a>
-                            <a id="next-chef"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-                        </div>
-                        <div class="chef-space__core"></div>
-                    </div>
-                </section>
-                <!-- End Chef Space -->
-                <!-- Feedback  -->
-                <section class="feed-back-space container">
-                    <div class="feed-back__title">
-                        <h3>Góp ý cho chúng tôi</h3>
-                        <p>Chúng tôi chân thành ghi nhận ý kiến của bạn. Ý kiến của bạn sẽ giúp chúng ta tốt hơn.</p>
-                    </div>
-                    <form class="feed-back__form">
-                        <input type="email" placeholder="Email của bạn" />
-                        <textarea id="feed-back-form" type="text" placeholder="Góp ý của bạn"></textarea>
-                        <button><a href="#">Gửi</a></button>
-                    </form>
-                </section>
-                <!-- End Feedback -->
-                <!-- Footer  -->
-                <footer class="footer-block"></footer>
-                <!-- End Footer  -->
-                <div class="corner-space hide-corner-space"></div>
+      <div class="main-block">
+        <!-- Hero -->
+        <section class="hero-block">
+          <!-- Search  -->
+          <div class="search-core container">
+            <h1>
+              TÌM CÔNG THỨC <br />
+              <span>MÓN CHAY</span>
+            </h1>
+            <div class="search-bar">
+              <input id="search-input" type="search" placeholder="Nhập từ khóa" name="searchInput" />
+              <button id="search-button">
+                <i class="fa-sharp fa-solid fa-magnifying-glass fa-2xl"></i>
+              </button>
+              <ul id="suggest-box" class="hide">
+                <p>Món ăn, đầu bếp, phân loại, tất cả mọi thứ bạn cần...</p>
+              </ul>
             </div>
-        </div>
-        <div class="form-signup-login"></div>
+          </div>
+          <!-- End Search -->
+          <!-- Category  -->
+          <div class="category container">
+            <div class="category__item">
+              <a href="cong-thuc/index.html">
+                <div id="thu-vien-mon-chay" class="category-content">
+                  <h2>Thư viện<br />món chay</h2>
+                  <p>100.000+ công thức món chay</p>
+                </div>
+              </a>
+            </div>
+            <div class="category__item">
+              <a href="#">
+                <div id="bat-dau-an-chay" class="category-content">
+                  <h2>Khởi đầu<br />ăn chay</h2>
+                  <p>Giúp bạn chuyển sang ăn chay dễ dàng</p>
+                </div>
+              </a>
+            </div>
+            <div class="category__item">
+              <a href="#">
+                <div id="kien-thuc-suc-khoe" class="category-content">
+                  <h2>Kiến thức<br />sức khỏe</h2>
+                  <p>Ăn chay đúng cách để khỏe mạnh</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- End Category  -->
+        </section>
+        <!-- End Hero -->
 
-        <script src="/database/database-recipes.js" type="module"></script>
-        <script src="/database/database-chefs.js" type="module"></script>
-        <script src="/reuse/html-reuse.js" type="module"></script>
-        <script src="/reuse/script-reuse.js" type="module"></script>
-        <script src="/function/slideshow-news.js" type="module"></script>
-        <script src="/function/signup-login-logout.js" type="module"></script>
-        <script src="/function/render-recipebox.js" type="module"></script>
-        <script src="/function/cart-and-collection.js" type="module"></script>
-        <script src="/function/search-filter-basic.js" type="module"></script>
-        <script src="index.js" type="module"></script>
-    </body>
+        <!-- News  -->
+        <section class="news-block">
+          <div class="news-core container">
+            <div class="news__header section-header">
+              <h2><span>Khám phá</span> tiêu điểm tuần</h2>
+              <p>Công thức và Bài viết được quan tâm nhất</p>
+              <a href="#">Xem tất cả</a>
+            </div>
+            <div class="news__date"></div>
+            <div class="news__body">
+              <div id="news-dish">
+                <div class="slideshow-container"></div>
+                <div class="wrap__move-button">
+                  <div class="move-button">
+                    <button id="back-slide">
+                      <i class="fa-sharp fa-solid fa-angle-left"></i>
+                    </button>
+                    <button id="next-slide">
+                      <i class="fa-sharp fa-solid fa-angle-left fa-rotate-180"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="index-dot">
+                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle"></i>
+                </div>
+              </div>
+              <div id="news-blog">
+                <div class="blog news__item">
+                  <a href="#">
+                    <div class="blog-thumbnail">
+                      <img src="./assets/news-blog-01.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3 class="title">Nữ Startup 9X Indonesia chia sẻ bí quyết kinh doanh chuỗi nhà hàng chay</h3>
+                      <p class="description">
+                        Cô gái sinh năm 1992 là chủ chuỗi nhà hàng chay nổi tiếng ở 4 quốc gia Đông Nam Á. Theo cô, bí
+                        quyết thành công là hạnh phúc với điều mình làm…
+                      </p>
+                    </div>
+                  </a>
+                  <a class="news-tag type-tag" href="#">Blog</a>
+                </div>
+                <div class="blog news__item">
+                  <a href="#">
+                    <div class="blog-thumbnail">
+                      <img src="./assets/news-blog-02.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3 class="title">Lời khuyên từ chuyên gia: Giá trị dinh dưỡng trong các loại rau, củ, quả</h3>
+                      <p class="description">
+                        Mỗi loại rau, củ, quả đều có giá trị dinh dưỡng riêng, phối hợp đúng cách sẽ giúp người ăn chay
+                        luôn khỏe mạnh về cả thể chất lẫn tinh thần…
+                      </p>
+                    </div>
+                  </a>
+                  <a class="news-tag type-tag" href="#">Blog</a>
+                </div>
+                <div class="blog news__item">
+                  <a href="#">
+                    <div class="blog-thumbnail">
+                      <img src="./assets/news-blog-03.webp" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3 class="title">Ngày Trái Đất 2023: Mối liên hệ giữa Ăn chay và Tính bền vững</h3>
+                      <p class="description">
+                        Thành viên Hiệp hội Thuần chay, Annie Button, thảo luận về mối liên hệ giữa ăn chay và tính bền
+                        vững cho Ngày Trái Đất năm nay…
+                      </p>
+                    </div>
+                  </a>
+                  <a class="news-tag type-tag" href="#">Blog</a>
+                </div>
+                <div class="blog news__item">
+                  <a href="#">
+                    <div class="blog-thumbnail">
+                      <img src="./assets/news-blog-04.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3 class="title">6 mẹo chuẩn bị bữa ăn thân thiện với ngân sách cho người mới bắt đầu</h3>
+                      <p class="description">
+                        Nếu bạn quan tâm đến việc chuẩn bị bữa ăn nhưng không chắc bắt đầu từ đâu, thì chúng tôi đã tổng
+                        hợp một số mẹo hữu ích để giúp bạn bắt đầu…
+                      </p>
+                    </div>
+                  </a>
+                  <a class="news-tag type-tag" href="#">Blog</a>
+                </div>
+              </div>
+            </div>
+            <div class="news-footer">
+              <div class="news-footer-core">
+                <h2>Cùng cộng đồng <span>1.000.000+</span> thành viên</h2>
+                <p>
+                  Chia sẻ món ăn của bạn. Nhận tư vấn từ chuyên gia dinh dưỡng
+                  <br />
+                  và quyền lợi đặc biệt dành cho thành viên.
+                </p>
+                <button><a href="#">Tham gia</a></button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End News -->
+        <!-- Group Of Dishes -->
+        <section class="group-of-dishes-block">
+          <div class="group-of-dishes-core container">
+            <div class="group-of-dishes__header section-header">
+              <h2><span>Danh mục</span> công thức món chay</h2>
+              <a href="#">Xem tất cả</a>
+            </div>
+            <div class="group-of-dishes__body"></div>
+          </div>
+        </section>
+        <!-- End Group Of Dishes -->
+        <!-- Suggest Dishes -->
+        <section class="suggest-dishes-block">
+          <div class="suggest-dishes-core container">
+            <div class="suggest-dishes__header section-header">
+              <h2><span>Gợi ý</span> công thức chay cho bạn</h2>
+              <div class="setting-btn">
+                <button id="change-view-recipe">
+                  <i class="fa-solid fa-list"></i>
+                </button>
+                <button id="renew-recipe">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+            </div>
+            <div id="suggest-dishes__body"></div>
+          </div>
+        </section>
+        <!-- End Suggest Dishes -->
+        <!-- Intro -->
+        <section class="intro-block">
+          <div class="intro-core container">
+            <div class="intro__image">
+              <img src="./assets/chef-intro.png" alt="chef-intro" />
+            </div>
+            <div class="intro__content">
+              <h2>
+                <span>500.000+</span> công thức món chay <br />
+                từ <span>5.000+</span> nhà chia sẻ
+              </h2>
+              <button><a href="#">Chia sẻ công thức của bạn </a></button>
+            </div>
+          </div>
+        </section>
+        <!-- End Intro -->
+        <!-- Chef Space  -->
+        <section class="chef-space-block">
+          <div class="chef-space-core container">
+            <div class="section-header">
+              <h2><span>Nhà chia sẻ</span> tiêu biểu</h2>
+              <a href="#">Xem tất cả</a>
+            </div>
+          </div>
+          <div class="chef-space__body">
+            <div class="control-space">
+              <a id="back-chef"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-xl"></i></a>
+              <a id="next-chef"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
+            </div>
+            <div class="chef-space__core"></div>
+          </div>
+        </section>
+        <!-- End Chef Space -->
+        <!-- Feedback  -->
+        <section class="feed-back-space container">
+          <div class="feed-back__title">
+            <h3>Góp ý cho chúng tôi</h3>
+            <p>Chúng tôi chân thành ghi nhận ý kiến của bạn. Ý kiến của bạn sẽ giúp chúng ta tốt hơn.</p>
+          </div>
+          <form class="feed-back__form">
+            <input type="email" placeholder="Email của bạn" />
+            <textarea id="feed-back-form" type="text" placeholder="Góp ý của bạn"></textarea>
+            <button><a href="#">Gửi</a></button>
+          </form>
+        </section>
+        <!-- End Feedback -->
+        <!-- Footer  -->
+        <footer class="footer-block"></footer>
+        <!-- End Footer  -->
+        <div class="corner-space hide-corner-space"></div>
+      </div>
+    </div>
+    <div class="form-signup-login"></div>
+
+    <script src="/database/database-recipes.js" type="module"></script>
+    <script src="/database/database-chefs.js" type="module"></script>
+    <script src="/reuse/html-reuse.js" type="module"></script>
+    <script src="/reuse/script-reuse.js" type="module"></script>
+    <script src="/function/slideshow-news.js" type="module"></script>
+    <script src="/function/signup-login-logout.js" type="module"></script>
+    <script src="/function/render-recipebox.js" type="module"></script>
+    <script src="/function/cart-and-collection.js" type="module"></script>
+    <script src="/function/search-filter-basic.js" type="module"></script>
+    <script src="index.js" type="module"></script>
+  </body>
 </html>
