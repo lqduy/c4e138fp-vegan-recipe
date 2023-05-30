@@ -59,7 +59,7 @@ setInterval(() => {
 
 showSlides(0);
 
-// // Nút slideShow
+// Nút slideShow
 
 const backBtn = document.getElementById('back-slide');
 backBtn.addEventListener('click', () => {
