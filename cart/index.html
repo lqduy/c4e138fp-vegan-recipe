@@ -1,167 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@100;500&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link rel="stylesheet" href="../reuse/css-reuse.css" />
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="stylesheet" href="../reuse/normalize.css" />
-        <title>The Vegan Recipe | Giỏ hàng</title>
-    </head>
-    <body>
-        <div class="site-container">
-            <!-- Header -->
-            <header class="header-block"></header>
-            <!-- End Header -->
-            <div class="main-block">
-                <section class="banner-title-block">
-                    <div class="banner-title-core container">
-                        <p>GIỎ HÀNG</p>
-                    </div>
-                </section>
-                <div class="site-body container">
-                    <div class="cart-space">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sản phẩm</th>
-                                    <th>Đơn giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                    <th>
-                                        <button id="delete-all-cart">
-                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                        </button>
-                                    </th>
-                                    <!-- <th><i class="fa-solid fa-trash-can fa-xl"></i></th> -->
-                                </tr>
-                            </thead>
-                            <tbody id="product-in-the-cart"></tbody>
-                        </table>
-                        <div class="form-to-ship__wrap">
-                            <form id="form-to-ship">
-                                <h2>THÔNG TIN NHẬN HÀNG</h2>
-                                <div class="form__row">
-                                    <label for="form__name">Họ tên</label>
-                                    <input id="form__name" type="text" required />
-                                </div>
-                                <div class="form__row">
-                                    <label for="form__phone">Điện thoại</label>
-                                    <input id="form__phone" type="text" required />
-                                </div>
-                                <div class="form__row">
-                                    <label for="form__city">Tỉnh/Thành phố</label>
-                                    <input id="form__city" type="text" required />
-                                </div>
-                                <div class="form__row">
-                                    <label for="form__district">Huyện/Quận</label>
-                                    <input id="form__district" type="text" required />
-                                </div>
-                                <div class="form__row">
-                                    <label for="form__ward">Xã/Phường</label>
-                                    <input id="form__ward" type="text" required />
-                                </div>
-                                <div class="form__row">
-                                    <label for="form__address">Địa chỉ</label>
-                                    <input
-                                        id="form__address"
-                                        type="text"
-                                        placeholder="Ví dụ: 654 Lạc Long Quân"
-                                        required
-                                    />
-                                </div>
-                                <div class="address-type">
-                                    <div>
-                                        <input id="address-type-home" type="radio" value="home" name="address-type" />
-                                        <label for="address-type-home">Nhà riêng/Chung cư</label>
-                                    </div>
-                                    <div>
-                                        <input
-                                            id="address-type-company"
-                                            type="radio"
-                                            value="company"
-                                            name="address-type"
-                                        />
-                                        <label for="address-type-company">Cơ quan/Công ty</label>
-                                    </div>
-                                </div>
-                                <div class="form-btn">
-                                    <button id="form-cancel-btn">Hủy</button>
-                                    <button id="form-submit-btn" type="submit">Xác nhận</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="order-space">
-                        <div id="ship" class="box">
-                            <div class="ship-header">
-                                <p>Giao tới</p>
-                                <button id="open-form-btn" class="ship__btn">Cập nhật</button>
-                            </div>
-                            <div class="ship-body"></div>
-                        </div>
-                        <div id="bill" class="box">
-                            <div class="bill-top">
-                                <div class="bill__row">
-                                    <p>Số sản phẩm:</p>
-                                    <span id="sumTypeInCart"></span>
-                                </div>
-                                <div class="bill__row">
-                                    <p>Số đơn vị:</p>
-                                    <span id="sumQuantityInCart"></span>
-                                </div>
-                            </div>
-                            <div class="bill-mid">
-                                <div class="bill__row">
-                                    <p>Tạm tính:</p>
-                                    <span id="sumMoneyOfCart"></span>
-                                </div>
-                                <div class="bill__row">
-                                    <p>Giảm giá:</p>
-                                    <span id="saleOff"></span>
-                                </div>
-                            </div>
-                            <div class="bill-bot">
-                                <div class="bill__row">
-                                    <p>Tổng tiền:</p>
-                                    <span id="totalPayment"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="order-btn" class="box">ĐẶT HÀNG</button>
-                    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@100;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../reuse/css-reuse.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../reuse/normalize.css" />
+    <title>The Vegan Recipe | Giỏ hàng</title>
+  </head>
+  <body>
+    <div class="site-container">
+      <!-- Header -->
+      <header class="header-block"></header>
+      <!-- End Header -->
+      <div class="main-block">
+        <section class="banner-title-block">
+          <div class="banner-title-core container">
+            <p>GIỎ HÀNG</p>
+          </div>
+        </section>
+        <div class="site-body container">
+          <div class="cart-space">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sản phẩm</th>
+                  <th>Đơn giá</th>
+                  <th>Số lượng</th>
+                  <th>Thành tiền</th>
+                  <th>
+                    <button id="delete-all-cart">
+                      <i class="fa-solid fa-trash-can fa-lg"></i>
+                    </button>
+                  </th>
+                  <!-- <th><i class="fa-solid fa-trash-can fa-xl"></i></th> -->
+                </tr>
+              </thead>
+              <tbody id="product-in-the-cart"></tbody>
+            </table>
+            <div class="form-to-ship__wrap">
+              <form id="form-to-ship">
+                <h2>THÔNG TIN NHẬN HÀNG</h2>
+                <div class="form__row">
+                  <label for="form__name">Họ tên</label>
+                  <input id="form__name" type="text" required />
                 </div>
+                <div class="form__row">
+                  <label for="form__phone">Điện thoại</label>
+                  <input id="form__phone" type="text" required />
+                </div>
+                <div class="form__row">
+                  <label for="form__city">Tỉnh/Thành phố</label>
+                  <input id="form__city" type="text" required />
+                </div>
+                <div class="form__row">
+                  <label for="form__district">Huyện/Quận</label>
+                  <input id="form__district" type="text" required />
+                </div>
+                <div class="form__row">
+                  <label for="form__ward">Xã/Phường</label>
+                  <input id="form__ward" type="text" required />
+                </div>
+                <div class="form__row">
+                  <label for="form__address">Địa chỉ</label>
+                  <input id="form__address" type="text" placeholder="Ví dụ: 654 Lạc Long Quân" required />
+                </div>
+                <div class="address-type">
+                  <div>
+                    <input id="address-type-home" type="radio" value="home" name="address-type" />
+                    <label for="address-type-home">Nhà riêng/Chung cư</label>
+                  </div>
+                  <div>
+                    <input id="address-type-company" type="radio" value="company" name="address-type" />
+                    <label for="address-type-company">Cơ quan/Công ty</label>
+                  </div>
+                </div>
+                <div class="form-btn">
+                  <button id="form-cancel-btn">Hủy</button>
+                  <button id="form-submit-btn" type="submit">Xác nhận</button>
+                </div>
+              </form>
             </div>
-            <!-- Footer  -->
-            <footer class="footer-block"></footer>
-            <!-- End Footer  -->
-            <div class="corner-space hide-corner-space"></div>
+          </div>
+          <div class="order-space">
+            <div id="ship" class="box">
+              <div class="ship-header">
+                <p>Giao tới</p>
+                <button id="open-form-btn" class="ship__btn">Cập nhật</button>
+              </div>
+              <div class="ship-body"></div>
+            </div>
+            <div id="bill" class="box">
+              <div class="bill-top">
+                <div class="bill__row">
+                  <p>Số sản phẩm:</p>
+                  <span id="sumTypeInCart"></span>
+                </div>
+                <div class="bill__row">
+                  <p>Số đơn vị:</p>
+                  <span id="sumQuantityInCart"></span>
+                </div>
+              </div>
+              <div class="bill-mid">
+                <div class="bill__row">
+                  <p>Tạm tính:</p>
+                  <span id="sumMoneyOfCart"></span>
+                </div>
+                <div class="bill__row">
+                  <p>Giảm giá:</p>
+                  <span id="saleOff"></span>
+                </div>
+              </div>
+              <div class="bill-bot">
+                <div class="bill__row">
+                  <p>Tổng tiền:</p>
+                  <span id="totalPayment"></span>
+                </div>
+              </div>
+            </div>
+            <button id="order-btn" class="box">ĐẶT HÀNG</button>
+          </div>
         </div>
-        <div class="form-signup-login"></div>
-        <script src="../database/database-products.js" type="module"></script>
-        <script src="../function/localstorage.js" type="module"></script>
-        <script src="../reuse/html-reuse.js" type="module"></script>
-        <script src="../reuse/script-reuse.js" type="module"></script>
-        <script src="../function/signup-login-logout.js" type="module"></script>
-        <script src="../function/cart-and-collection.js" type="module"></script>
-        <script src="./index.js" type="module"></script>
-    </body>
+      </div>
+      <!-- Footer  -->
+      <footer class="footer-block"></footer>
+      <!-- End Footer  -->
+      <div class="corner-space hide-corner-space"></div>
+    </div>
+    <div class="form-signup-login"></div>
+    <script src="../database/database-products.js" type="module"></script>
+    <script src="../function/localstorage.js" type="module"></script>
+    <script src="../reuse/html-reuse.js" type="module"></script>
+    <script src="../reuse/script-reuse.js" type="module"></script>
+    <script src="../function/signup-login-logout.js" type="module"></script>
+    <script src="../function/cart-and-collection.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>

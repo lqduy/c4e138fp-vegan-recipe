@@ -1,372 +1,372 @@
 :root {
-    --green: #008e84;
-    --orange: #f8991d;
-    --gray: #666;
+  --green: #008e84;
+  --orange: #f8991d;
+  --gray: #666;
 }
 /* Banner & Title */
 .banner-title-block {
-    height: 248px;
-    width: 100%;
+  height: 248px;
+  width: 100%;
 
-    background-image: url(/assets/img-bg-pledge-block.png);
-    background-color: var(--green);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+  background-image: url(/assets/img-bg-pledge-block.png);
+  background-color: var(--green);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 .banner-title-core {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    height: 100%;
+  height: 100%;
 
-    color: white;
+  color: white;
 
-    font-size: 5em;
-    font-weight: bold;
-    text-shadow: #000000 0px 2px 40px;
+  font-size: 5em;
+  font-weight: bold;
+  text-shadow: #000000 0px 2px 40px;
 }
 
 /* End Title */
 /* Site Body */
 .site-body {
-    display: flex;
+  display: flex;
 
-    margin: 3em auto;
+  margin: 3em auto;
 }
 .site-body .site-core {
-    flex-basis: 75%;
+  flex-basis: 75%;
 }
 /* Introduce */
 .introduce {
-    text-align: center;
+  text-align: center;
 }
 .introduce .name {
-    color: var(--orange);
+  color: var(--orange);
 
-    font-size: 3em;
-    font-weight: bold;
+  font-size: 3em;
+  font-weight: bold;
 }
 .introduce .chef-and-date p {
-    display: inline-block;
+  display: inline-block;
 
-    padding: 0 1em;
-    margin: 0.75em 0;
+  padding: 0 1em;
+  margin: 0.75em 0;
 
-    color: var(--gray);
+  color: var(--gray);
 
-    font-size: 1.15em;
+  font-size: 1.15em;
 }
 .introduce .chef-and-date p:first-child {
-    border-right: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
 }
 .introduce .chef-and-date p a {
-    color: var(--green);
-    font-weight: bold;
+  color: var(--green);
+  font-weight: bold;
 }
 
 .introduce .link-to-recipe {
-    display: block;
+  display: block;
 
-    width: fit-content;
-    margin: 0 auto;
-    padding: 0.6em 1em;
-    border-radius: 3em;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.6em 1em;
+  border-radius: 3em;
 
-    color: white;
-    background-color: var(--orange);
+  color: white;
+  background-color: var(--orange);
 }
 
 .introduce .avatar-img img {
-    width: 100%;
-    height: auto;
-    margin: 0.75em auto;
+  width: 100%;
+  height: auto;
+  margin: 0.75em auto;
 }
 .introduce .options {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .introduce .options .share {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 .options .share a {
-    display: block;
+  display: block;
 
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 
-    color: white;
+  color: white;
 }
 .options .share .intruction {
-    position: relative;
+  position: relative;
 
-    height: 50px;
-    padding: 0 1em;
-    margin-right: 1em;
+  height: 50px;
+  padding: 0 1em;
+  margin-right: 1em;
 
-    color: white;
-    background-color: var(--green);
+  color: white;
+  background-color: var(--green);
 
-    line-height: 50px;
-    font-weight: bold;
+  line-height: 50px;
+  font-weight: bold;
 }
 .options .share .intruction::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 15px solid var(--green);
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid var(--green);
 
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .options .share a:nth-of-type(1) {
-    background-color: #0d47a1;
+  background-color: #0d47a1;
 }
 .options .share a:nth-of-type(2) {
-    background-color: #40c4ff;
+  background-color: #40c4ff;
 }
 .options .share a:nth-of-type(3) {
-    background-color: #bd081c;
+  background-color: #bd081c;
 }
 .options .share a:nth-of-type(4) {
-    background-color: #0084ff;
+  background-color: #0084ff;
 }
 .options .share a i {
-    line-height: 50px;
+  line-height: 50px;
 }
 .options .like {
-    height: 50px;
-    padding: 0 2em;
-    border-radius: 3em;
+  height: 50px;
+  padding: 0 2em;
+  border-radius: 3em;
 
-    border: none;
+  border: none;
 
-    background-color: var(--orange);
-    color: white;
+  background-color: var(--orange);
+  color: white;
 
-    font-weight: bold;
+  font-weight: bold;
 }
 .options .like:hover {
-    background-color: #f77300;
-    cursor: pointer;
+  background-color: #f77300;
+  cursor: pointer;
 }
 
 .introduce .paragraph p {
-    margin: 1.75em 0;
-    text-align: justify;
-    font-size: 1.25em;
+  margin: 1.75em 0;
+  text-align: justify;
+  font-size: 1.25em;
 }
 .introduce .paragraph img {
-    width: 100%;
+  width: 100%;
 }
 /* End Introduce */
 
 /* Recipe Board */
 #recipe-board {
-    padding: 0.5em;
-    padding-top: 1.5em;
-    margin-top: 2.15em;
+  padding: 0.5em;
+  padding-top: 1.5em;
+  margin-top: 2.15em;
 
-    background-color: var(--green);
+  background-color: var(--green);
 }
 #recipe-board .board-header {
-    padding-bottom: 1.5em;
+  padding-bottom: 1.5em;
 
-    color: white;
+  color: white;
 
-    text-align: center;
+  text-align: center;
 }
 
 .board-header .board-info .board-info__top {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
 
-    line-height: 2;
+  line-height: 2;
 }
 #recipe-board .board-body {
-    padding: 1em;
+  padding: 1em;
 
-    background-color: white;
-    color: var(--gray);
+  background-color: white;
+  color: var(--gray);
 
-    line-height: 2;
-    font-size: 1.15em;
-    text-align: justify;
+  line-height: 2;
+  font-size: 1.15em;
+  text-align: justify;
 }
 #recipe-board .board-body h3 {
-    padding: 0 1em;
-    color: var(--green);
+  padding: 0 1em;
+  color: var(--green);
 }
 
 #recipe-board .board-body .ingredients {
-    border-bottom: 1px solid var(--gray);
-    padding-bottom: 1.15em;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 1.15em;
 }
 
 #recipe-board .board-body .ingredients table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .ingredients table th:not(:nth-child(1)) {
-    width: 15%;
+  width: 15%;
 }
 .ingredients table th:not(:nth-child(1)),
 .ingredients table td:not(:nth-child(1)) {
-    text-align: right;
+  text-align: right;
 }
 /* .ingredients table tbody tr:nth-child(2n+1){
     background-color: #e5f9f5;
 }  */
 .ingredients table th,
 .ingredients table td {
-    padding: 0.25em 1em;
+  padding: 0.25em 1em;
 }
 .ingredients table tbody tr .buy-space {
-    position: relative;
+  position: relative;
 }
 
 .ingredients table tbody tr:hover {
-    background-color: #e5f9f5;
+  background-color: #e5f9f5;
 }
 .ingredients table tbody button {
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    border-radius: 0.25em;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25em;
 
-    background-color: var(--orange);
-    color: white;
+  background-color: var(--orange);
+  color: white;
 }
 .ingredients table tbody button:hover {
-    background-color: #f77300;
+  background-color: #f77300;
 }
 .ingredients table tbody .buy-space:hover .seeding-block {
-    display: block;
+  display: block;
 }
 #recipe-board .board-body .step-by-step {
-    margin-top: 1.15em;
+  margin-top: 1.15em;
 }
 #recipe-board .board-body .step-by-step ul {
-    list-style-type: circle;
+  list-style-type: circle;
 
-    padding: 0 1em;
+  padding: 0 1em;
 }
 #recipe-board .board-body .step-by-step ul li:first-child {
-    margin-top: 0.75em;
+  margin-top: 0.75em;
 
-    list-style-type: none;
+  list-style-type: none;
 
-    font-weight: bold;
-    font-size: 1.15em;
+  font-weight: bold;
+  font-size: 1.15em;
 }
 
 /* End Recipe Board */
 
 /* Seeding Block */
 .seeding-block {
-    display: none;
+  display: none;
 
-    position: absolute;
-    right: 2.5em;
-    z-index: 10;
+  position: absolute;
+  right: 2.5em;
+  z-index: 10;
 
-    padding: 1em;
+  padding: 1em;
 
-    box-shadow: 0px 0px 10px 0.1px gray;
-    background-color: #e5f9f5;
+  box-shadow: 0px 0px 10px 0.1px gray;
+  background-color: #e5f9f5;
 }
 
 .seeding-core {
-    display: flex;
-    gap: 3%;
+  display: flex;
+  gap: 3%;
 
-    width: 800px;
+  width: 800px;
 }
 .the-box {
-    flex-basis: 33.33%;
+  flex-basis: 33.33%;
 
-    position: relative;
+  position: relative;
 
-    box-shadow: 0px 0px 10px 0.1px gray;
-    padding: 0.15em;
+  box-shadow: 0px 0px 10px 0.1px gray;
+  padding: 0.15em;
 
-    background-color: white;
+  background-color: white;
 }
 .the-box .box-thumbnail {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 .the-box .box-thumbnail img {
-    width: 100%;
+  width: 100%;
 }
 .the-box .box-thumbnail img:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .the-box .box-body .details {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 .details .product-name {
-    color: var(--green);
+  color: var(--green);
 
-    font-size: 1.25em;
-    text-align: left;
+  font-size: 1.25em;
+  text-align: left;
 }
 .details .product-price {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    gap: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 5px;
 
-    line-height: 1;
+  line-height: 1;
 }
 .product-price p:first-child {
-    font-size: 1.25em;
-    font-weight: bold;
+  font-size: 1.25em;
+  font-weight: bold;
 }
 .product-price p:last-child {
-    transform: translateY(-3px);
-    font-size: 0.8em;
+  transform: translateY(-3px);
+  font-size: 0.8em;
 }
 .the-box .add-cart {
-    width: 100%;
-    /* padding: 1em 0; */
-    border-radius: 3em;
-    border: none;
-    cursor: pointer;
+  width: 100%;
+  /* padding: 1em 0; */
+  border-radius: 3em;
+  border: none;
+  cursor: pointer;
 
-    background-color: var(--orange);
-    color: white;
-    font-weight: bold;
+  background-color: var(--orange);
+  color: white;
+  font-weight: bold;
 }
 .the-box .add-cart:hover {
-    background-color: #f77300;
+  background-color: #f77300;
 }
 .the-box .box-tag {
-    position: absolute;
-    right: -1.5%;
-    top: 2.5%;
+  position: absolute;
+  right: -1.5%;
+  top: 2.5%;
 
-    width: 75%;
-    padding: 0.25em;
-    border-radius: 3em 0 0 3em;
+  width: 75%;
+  padding: 0.25em;
+  border-radius: 3em 0 0 3em;
 
-    background-color: var(--green);
-    color: white;
+  background-color: var(--green);
+  color: white;
 
-    text-align: center;
-    font-size: 0.8em;
+  text-align: center;
+  font-size: 0.8em;
 }
 /* End Seeding Block */
 
