@@ -92,7 +92,7 @@ function renderBillCart() {
 // Nút tăng giảm số lượng sản phẩm trong giỏ hàng
 function changeQuantityByButton(productId, n) {
   const cart = loadCartFromLocalStorage();
-  const i = cart.findIndex((item) => item.id === productId);
+  const i = cart.findIndex(item => item.id === productId);
 
   if (!(cart[i].quantity === 1 && n === -1)) {
     cart[i].quantity += n;
@@ -112,12 +112,12 @@ function changeQuantityByButton(productId, n) {
 
 // Ô nhập số lượng
 function addEventForInput(inputQuantityElements) {
-  inputQuantityElements.forEach((inputElement) => {
-    inputElement.addEventListener('input', (event) => {
+  inputQuantityElements.forEach(inputElement => {
+    inputElement.addEventListener('input', event => {
       if (typeof parseInt(inputElement.value) === 'number' && inputElement.value > 0) {
         const cart = loadCartFromLocalStorage();
         const productId = event.target.id;
-        const i = cart.findIndex((product) => `quantity-input-${product.id}` === productId);
+        const i = cart.findIndex(product => `quantity-input-${product.id}` === productId);
         cart[i].quantity = parseInt(inputElement.value);
 
         const moneyPerRowElement = document.querySelector(`#${cart[i].id} td:nth-child(4)`);
@@ -135,7 +135,7 @@ function addEventForInput(inputQuantityElements) {
 // Nút xóa sản phẩm khỏi giỏ hàng
 function deleteProduct(productId) {
   const cart = loadCartFromLocalStorage();
-  const i = cart.findIndex((item) => item.id === productId);
+  const i = cart.findIndex(item => item.id === productId);
 
   cart.splice(i, 1);
 
@@ -168,7 +168,7 @@ function deleteAllCart() {
 // Gán nút cộng, trừ, xóa
 function makeBtns() {
   const minusBtns = Array.from(document.getElementsByClassName('minus'));
-  minusBtns.forEach((btn) => {
+  minusBtns.forEach(btn => {
     const productId = btn.parentNode.parentNode.parentNode.id;
     btn.addEventListener('click', () => {
       changeQuantityByButton(productId, -1);
@@ -176,7 +176,7 @@ function makeBtns() {
   });
 
   const plusBtns = Array.from(document.getElementsByClassName('plus'));
-  plusBtns.forEach((btn) => {
+  plusBtns.forEach(btn => {
     const productId = btn.parentNode.parentNode.parentNode.id;
     btn.addEventListener('click', () => {
       changeQuantityByButton(productId, 1);
@@ -184,7 +184,7 @@ function makeBtns() {
   });
 
   const deleteBtns = Array.from(document.querySelectorAll('.delete-btn button'));
-  deleteBtns.forEach((btn) => {
+  deleteBtns.forEach(btn => {
     const productId = btn.parentNode.parentNode.id;
     btn.addEventListener('click', () => {
       deleteProduct(productId);
@@ -234,7 +234,7 @@ makeCancelFormBtn();
 
 function makeSubmitFormBtn() {
   const submitFormBtn = document.getElementById('form-submit-btn');
-  submitFormBtn.addEventListener('click', (event) => {
+  submitFormBtn.addEventListener('click', event => {
     event.preventDefault();
     const name = document.getElementById('form__name').value;
     const phone = document.getElementById('form__phone').value;
@@ -244,7 +244,7 @@ function makeSubmitFormBtn() {
     const address = document.getElementById('form__address').value;
     const addressType = () => {
       const addressTypeInputs = Array.from(document.querySelectorAll('#form-to-ship .address-type input'));
-      const selectedInput = addressTypeInputs.find((input) => input.checked);
+      const selectedInput = addressTypeInputs.find(input => input.checked);
       if (selectedInput) {
         const selectedInputValue = selectedInput.getAttribute('value');
         if (selectedInputValue === 'home') {
@@ -267,8 +267,6 @@ function makeSubmitFormBtn() {
       address: address,
       addressType: addressType()
     };
-    console.log(shipInfo);
-
     renderShipInfoBox(shipInfo);
 
     // Lưu vào localStorage

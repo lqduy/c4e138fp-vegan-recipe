@@ -5,10 +5,10 @@ import { renderTheCorner } from '../reuse/script-reuse.js';
 
 // Render 1 Box Công thức
 export function render1RecipeBox(recipe) {
-    return `
+  return `
     <div class="recipe-box recipe-${recipe.id}" recipe-id="${recipe.id}">
         <div class="out-of-love">
-        
+
         </div>
         <div class="check-space">
             <a class="love-check">Đã thích</a>
@@ -32,7 +32,7 @@ export function render1RecipeBox(recipe) {
                         <a href="/bun-oc-chay/index.html"><h3 class="name">${recipe.name}</h3></a>
                         <h4 class="chef"><a href="#">${recipe.chefName}</a></h4>
                         <div class="recipe-tags">
-                        
+
                         </div>
                         <p class="meta">
                             ${recipe.intro}
@@ -69,74 +69,74 @@ export function render1RecipeBox(recipe) {
 
 // Render 1 tag để hiển thị
 function renderRecipeTags(recipe) {
-    return recipe.tag.reduce((string, item) => string + `<a>#${item}</a>`, '');
+  return recipe.tag.reduce((string, item) => string + `<a>#${item}</a>`, '');
 }
 
 // Render tất cả tag ở mỗi công thức
 export function renderRecipeTagsAll() {
-    recipeCollectionSpread().forEach((recipe) => {
-        const parents = document.querySelectorAll(`.recipe-${recipe.id} .recipe-tags`);
-        parents.forEach((parent) => (parent.innerHTML = renderRecipeTags(recipe)));
-    });
+  recipeCollectionSpread().forEach(recipe => {
+    const parents = document.querySelectorAll(`.recipe-${recipe.id} .recipe-tags`);
+    parents.forEach(parent => (parent.innerHTML = renderRecipeTags(recipe)));
+  });
 }
 // Nếu công thức nào đã thêm Yêu thích thì đánh dấu
 export function tickRecipeAdded() {
-    recipeCollectionSpread().forEach((recipe) => {
-        if (loadMyCollectionFromLocalStorage().find((item) => item.id === recipe.id)) {
-            afterAddRecipe(recipe);
-        }
-    });
+  recipeCollectionSpread().forEach(recipe => {
+    if (loadMyCollectionFromLocalStorage().find(item => item.id === recipe.id)) {
+      afterAddRecipe(recipe);
+    }
+  });
 }
 
 export function makeLoveBtnOnImgCore() {
-    const loveBtns = Array.from(document.getElementsByClassName('love-btn'));
-    loveBtns.forEach((btn) =>
-        btn.addEventListener('click', () => {
-            const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
-            const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
-            const checkLove = btn.classList.contains('selected');
-            if (checkLove) {
-                btn.classList.remove('selected');
-                loveCheckNode.classList.remove('checked');
-                const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
+  const loveBtns = Array.from(document.getElementsByClassName('love-btn'));
+  loveBtns.forEach(btn =>
+    btn.addEventListener('click', () => {
+      const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+      const loveCheckNode = recipeBoxParentNode.querySelector('.love-check');
+      const checkLove = btn.classList.contains('selected');
+      if (checkLove) {
+        btn.classList.remove('selected');
+        loveCheckNode.classList.remove('checked');
+        const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
 
-                let myCollection = loadMyCollectionFromLocalStorage();
-                const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
-                myCollection.splice(i, 1);
-                saveMyCollectionToLocalStorage(myCollection);
+        let myCollection = loadMyCollectionFromLocalStorage();
+        const i = myCollection.findIndex(recipe => recipe.id === recipeId);
+        myCollection.splice(i, 1);
+        saveMyCollectionToLocalStorage(myCollection);
 
-                renderTheCorner();
+        renderTheCorner();
 
-                const outOfLoveNode = recipeBoxParentNode.querySelector('.out-of-love');
-                outOfLoveNode.style.display = 'block';
-            }
-        })
-    );
+        const outOfLoveNode = recipeBoxParentNode.querySelector('.out-of-love');
+        outOfLoveNode.style.display = 'block';
+      }
+    })
+  );
 }
 
 export function makeCookedBtnOnImgCore() {
-    const cookedBtns = Array.from(document.getElementsByClassName('cooked-btn'));
-    cookedBtns.forEach((btn) =>
-        btn.addEventListener('click', () => {
-            const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
-            const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
+  const cookedBtns = Array.from(document.getElementsByClassName('cooked-btn'));
+  cookedBtns.forEach(btn =>
+    btn.addEventListener('click', () => {
+      const recipeBoxParentNode = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+      const cookedCheckNode = recipeBoxParentNode.querySelector('.cooked-check');
 
-            let myCollection = loadMyCollectionFromLocalStorage();
-            const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
-            const i = myCollection.findIndex((recipe) => recipe.id === recipeId);
-            const checkCooked = myCollection[i].isCooked;
+      let myCollection = loadMyCollectionFromLocalStorage();
+      const recipeId = recipeBoxParentNode.getAttribute('recipe-id');
+      const i = myCollection.findIndex(recipe => recipe.id === recipeId);
+      const checkCooked = myCollection[i].isCooked;
 
-            if (!checkCooked) {
-                btn.classList.add('selected');
-                cookedCheckNode.classList.add('checked');
-                myCollection[i].isCooked = true;
-                saveMyCollectionToLocalStorage(myCollection);
-            } else {
-                btn.classList.remove('selected');
-                cookedCheckNode.classList.remove('checked');
-                myCollection[i].isCooked = false;
-                saveMyCollectionToLocalStorage(myCollection);
-            }
-        })
-    );
+      if (!checkCooked) {
+        btn.classList.add('selected');
+        cookedCheckNode.classList.add('checked');
+        myCollection[i].isCooked = true;
+        saveMyCollectionToLocalStorage(myCollection);
+      } else {
+        btn.classList.remove('selected');
+        cookedCheckNode.classList.remove('checked');
+        myCollection[i].isCooked = false;
+        saveMyCollectionToLocalStorage(myCollection);
+      }
+    })
+  );
 }
