@@ -223,7 +223,7 @@ function logIn() {
     updateLoginStatus(true);
     saveUserLoggedToLocalStorage(userLogged);
     closeForm();
-    
+
     location.reload();
   } else {
     alert('Tài khoản không chính xác!');
