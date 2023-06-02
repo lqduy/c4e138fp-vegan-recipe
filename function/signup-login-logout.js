@@ -47,7 +47,7 @@ function closeForm() {
 
   signUpForm.classList.remove('show-form');
 
-  formParent.querySelectorAll('input').forEach((inputElement) => (inputElement.value = ''));
+  formParent.querySelectorAll('input').forEach(inputElement => (inputElement.value = ''));
 
   const signSuccessMess = document.querySelector('#form-signup .form-body .left .signup-success');
   signSuccessMess.classList.remove('show-signup-success');
@@ -57,24 +57,24 @@ function closeForm() {
 
 export function makeSignUpLogInBtn() {
   const signUpBtn = Array.from(document.getElementsByClassName('form-signup'));
-  signUpBtn.forEach((btn) =>
-    btn.addEventListener('click', (event) => {
+  signUpBtn.forEach(btn =>
+    btn.addEventListener('click', event => {
       event.preventDefault();
       showSignUpForm();
     })
   );
 
   const logInBtn = Array.from(document.getElementsByClassName('form-login'));
-  logInBtn.forEach((btn) =>
-    btn.addEventListener('click', (event) => {
+  logInBtn.forEach(btn =>
+    btn.addEventListener('click', event => {
       event.preventDefault();
       showLogInForm();
     })
   );
 
   const closeFormBtn = Array.from(document.getElementsByClassName('close-form'));
-  closeFormBtn.forEach((closeBtn) =>
-    closeBtn.addEventListener('click', (event) => {
+  closeFormBtn.forEach(closeBtn =>
+    closeBtn.addEventListener('click', event => {
       event.preventDefault();
       closeForm();
     })
@@ -84,7 +84,7 @@ export function makeSignUpLogInBtn() {
 // Đăng ký tài khoản
 // Tạo tài khoản mới và thêm vào localStorage
 function containsSpecialCharacter(str) {
-  var regex = /[!@#$%^&*(),.?":{}|<>]/;
+  let regex = /[!@#$%^&*(),.?":{}|<>]/;
   return regex.test(str);
 }
 
@@ -108,7 +108,7 @@ function checkAccountInput(id, pw, pw2) {
   if (!isNaN(Number(id[0]))) {
     errorMessage += 'Tên đăng nhập không được bắt đầu bằng số\n';
   }
-  const findInDatabase = loadUsersDatabase().find((user) => user.id === id);
+  const findInDatabase = loadUsersDatabase().find(user => user.id === id);
   if (findInDatabase) {
     errorMessage += 'Tên đăng nhập đã tồn tại!\n';
   }
@@ -173,14 +173,14 @@ function whenSubmitSignUp() {
 
 export function makeSubmitSignUpLogInBtn() {
   const submitSignUpBtn = document.getElementById('submit-signup');
-  submitSignUpBtn.addEventListener('click', (event) => {
+  submitSignUpBtn.addEventListener('click', event => {
     event.preventDefault();
     whenSubmitSignUp();
   });
 
   const submitSignUpInputBar = document.querySelectorAll('#form-signup .form-body .left input');
-  submitSignUpInputBar.forEach((input) =>
-    input.addEventListener('keydown', (event) => {
+  submitSignUpInputBar.forEach(input =>
+    input.addEventListener('keydown', event => {
       if (event.key === 'Enter') {
         event.preventDefault();
         whenSubmitSignUp();
@@ -189,14 +189,14 @@ export function makeSubmitSignUpLogInBtn() {
   );
 
   const submitLogIn = document.getElementById('submit-login');
-  submitLogIn.addEventListener('click', (event) => {
+  submitLogIn.addEventListener('click', event => {
     event.preventDefault();
     logIn();
   });
 
   const submitLogInInputBar = document.querySelectorAll('#form-login .form-body .left input');
-  submitLogInInputBar.forEach((input) =>
-    input.addEventListener('keydown', (event) => {
+  submitLogInInputBar.forEach(input =>
+    input.addEventListener('keydown', event => {
       if (event.key === 'Enter') {
         event.preventDefault();
         logIn();
@@ -212,20 +212,18 @@ function logInWithUser(userLogged) {
   saveCartToLocalStorage(cart);
   let collection = userLogged.collection;
   saveMyCollectionToLocalStorage(collection);
-  // renderUserSpace(userLogged);
 }
 
 function logIn() {
   const id = document.getElementById('login-id').value;
   const password = document.getElementById('login-password').value;
-  let userLogged = loadUsersDatabase().find((user) => user.id === id && user.password === password);
+  let userLogged = loadUsersDatabase().find(user => user.id === id && user.password === password);
   if (userLogged) {
     logInWithUser(userLogged);
     updateLoginStatus(true);
     saveUserLoggedToLocalStorage(userLogged);
     closeForm();
-    // renderUserSpace();
-    // renderTheCorner();
+    
     location.reload();
   } else {
     alert('Tài khoản không chính xác!');
@@ -244,7 +242,7 @@ export function makeLogOutBtn() {
     };
 
     const usersDatabase = loadUsersDatabase();
-    const i = usersDatabase.findIndex((user) => user.id === updateUserLogged.id);
+    const i = usersDatabase.findIndex(user => user.id === updateUserLogged.id);
     usersDatabase.splice(i, 1, updateUserLogged);
 
     saveUsersDatabase(usersDatabase);
