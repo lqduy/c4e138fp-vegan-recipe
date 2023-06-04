@@ -4,6 +4,7 @@ export function saveMyCollectionToLocalStorage(object) {
 }
 
 // Tải Bộ sưu tập từ localStorage
+
 export function loadMyCollectionFromLocalStorage() {
   const myCollectionString = localStorage.getItem('myCollection');
   if (myCollectionString) {
