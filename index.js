@@ -44,10 +44,6 @@ const groupDishes = [
   }
 ];
 
-// Search Bar
-// makeSuggestKeyToSearch();
-// makeShowAndHideSuggestBox();
-
 // Lấy số ngẫu nhiên
 function getRandomNumbers(arr, n) {
   const numbers = Array(arr.length)

@@ -249,11 +249,10 @@ export function makeLogOutBtn() {
 
     updateLoginStatus(false);
     saveUserLoggedToLocalStorage({});
-    // renderUserSpace();
 
     saveCartToLocalStorage([]);
     saveMyCollectionToLocalStorage([]);
-    // renderTheCorner();
+
     location.reload();
   });
 }

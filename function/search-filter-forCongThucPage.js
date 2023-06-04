@@ -55,7 +55,7 @@ function renderSelectedTags() {
     const contentOfRemovedTag = newTag.innerText;
 
     const i = selectedTags.findIndex(tag => `${tag}` === contentOfRemovedTag);
-    selectedTags.splice(i, 1); //Xóa tag trong biển mảng
+    selectedTags.splice(i, 1); //Xóa tag trong biến mảng
 
     const tags = document.querySelectorAll('#search-and-filter .filter-core .not-select-tags a');
     const unSelectNode = Array.from(tags).find(tag => tag.innerText === `#${contentOfRemovedTag}`);
@@ -74,8 +74,6 @@ function filterRecipeByTagList() {
 
 // Nhập từ khóa tìm kiếm
 export function search(key) {
-  // const key = document.getElementById('search-input').value.toLowerCase();
-
   const searchResult = recipeCollectionSpread().filter(parent => {
     const getValueArray = Object.values(parent)
       .flat()

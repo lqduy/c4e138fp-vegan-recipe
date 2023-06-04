@@ -362,8 +362,8 @@ export function recipeCollectionSpread() {
 // Tạo mảng chứa tất cả tag
 export function getTagList() {
   let tagList = [];
-  recipeCollectionSpread().forEach((recipe) => {
-    const tagNotYet = recipe.tag.filter((tag) => !tagList.find((tagInTagList) => tagInTagList === tag));
+  recipeCollectionSpread().forEach(recipe => {
+    const tagNotYet = recipe.tag.filter(tag => !tagList.find(tagInTagList => tagInTagList === tag));
     tagList = [...tagList, ...tagNotYet];
   });
   return tagList.sort((a, b) => a.localeCompare(b));
@@ -371,13 +371,13 @@ export function getTagList() {
 
 // Lấy tất cả từ khóa để tìm kiếm
 export function getAllKeyToSearch() {
-  let newObject = recipeCollectionSpread().map((parent) => {
+  let newObject = recipeCollectionSpread().map(parent => {
     const { name, chefName, tag } = parent;
     return (parent = [name, chefName, tag]);
   });
   newObject = newObject
     .flat(2)
     .filter((value, index, self) => self.indexOf(value) === index)
-    .map((key) => key.toLowerCase());
+    .map(key => key.toLowerCase());
   return newObject.sort((a, b) => a.localeCompare(b));
 }
