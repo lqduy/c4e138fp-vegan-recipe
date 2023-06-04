@@ -157,18 +157,10 @@ function saveUsersDatabase(object) {
 // Truy xuất tài khoản từ localStorage
 function loadUsersDatabase() {
   const usersDatabaseString = localStorage.getItem('usersDatabase');
-  if (usersDatabaseString) {
-    return JSON.parse(usersDatabaseString);
-  } else {
-    return [];
-  }
+  return usersDatabaseString ? JSON.parse(usersDatabaseString) : [];
 }
 function whenSubmitSignUp() {
-  if (!checkFullInput('form-signup')) {
-    alert('Vui lòng nhập đầy đủ thông tin!');
-  } else {
-    createAccount();
-  }
+  !checkFullInput('form-signup') ? alert('Vui lòng nhập đầy đủ thông tin!') : createAccount();
 }
 
 export function makeSubmitSignUpLogInBtn() {
